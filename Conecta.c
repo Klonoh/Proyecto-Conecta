@@ -38,6 +38,7 @@ int main(){
 
     char opcion; 
     char opcion_inicial;
+    int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
     do{
         mostrarMenuInicial();
         printf("Ingrese su opción: ");
@@ -78,10 +79,11 @@ int main(){
         case '6':
             break;
         case '7':
+            sesion_iniciada = 0; // Marcar que la sesión no está iniciada
             break;
         }
         presioneTeclaParaContinuar();
 
-  } while (opcion != '8');
+  } while (opcion != '8' && opcion != '7' && !sesion_iniciada);
   return 0;
 }
