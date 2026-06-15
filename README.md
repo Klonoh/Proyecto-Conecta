@@ -1,1 +1,1 @@
-# Proyecto-Conecta
+# Conecta
