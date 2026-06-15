@@ -34,24 +34,6 @@ void mostrarMenuPrincipal(){
   puts("8) Salir");
 }
 
-void mostrarMenuPrincipal(){
-  limpiarPantalla();
-  puts("========================================");
-  puts("     Conecta");
-  puts("========================================");
-
-  puts("1) Cargar películas");
-  puts("2) Buscar por id");
-  puts("3) Buscar por director");
-  puts("4) Buscar por género");
-  puts("5) Buscar por década");
-  puts("6) Buscar por rango de calificaciones");
-  puts("7) Buscar por década y género");
-  puts("8) Gestionar watchlist");
-  puts("9) Salir");
-}
-
-
 int main(){
 
     char opcion; 
