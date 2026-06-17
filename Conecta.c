@@ -13,7 +13,7 @@
 
 typedef struct Usuario {
     char user[16];
-    char pass[16];
+    char pass[21];
     List *publicaciones; 
     List *seguidores;
     List *seguidos;
