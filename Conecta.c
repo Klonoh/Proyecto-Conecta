@@ -17,6 +17,7 @@ void mostrarMenuInicial(){
   puts("2) Registrar Usuario");
   puts("3) Salir");
 }
+
 void mostrarMenuPrincipal(){
   limpiarPantalla();
   puts("========================================");
@@ -35,6 +36,7 @@ void mostrarMenuPrincipal(){
 
 int main(){
 
+    char n;
     char opcion; 
     char opcion_inicial;
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
