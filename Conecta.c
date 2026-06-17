@@ -8,6 +8,15 @@
 # include "TDAs/queue.h"
 # include "TDAs/extra.h"
 
+typedef struct Usuario {
+    char user[16];
+    char pass[16];
+    List *publicaciones; 
+    List *seguidores;
+    List *seguidos;
+    Queue* notificaciones;
+} Usuario;
+
 void mostrarMenuInicial(){
   limpiarPantalla();
   puts("========================================");
