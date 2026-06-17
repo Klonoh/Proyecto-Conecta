@@ -37,7 +37,6 @@ void mostrarMenuPrincipal(){
 
 int main(){
 
-    char n;
     char opcion; 
     char opcion_inicial;
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
