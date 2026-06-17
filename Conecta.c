@@ -2,11 +2,36 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <string.h>
+# include <stdbool.h>
+# include <ctype.h>
+# include <time.h>
 # include "TDAs/graph.h"
 # include "TDAs/list.h"
 # include "TDAs/map.h"
 # include "TDAs/queue.h"
 # include "TDAs/extra.h"
+
+bool registrarUsuario(Map *usuarios) {
+    limpiarPantalla();
+    puts("========================================");
+    puts("     Registrar Usuario");
+    puts("========================================");
+    char username[16];
+    char password[21];
+    printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
+    scanf("%s", username);
+    for (int i = 0; username[i] != '\0'; i++) {
+        username[i] = tolower(username[i]);
+    }
+    printf("Ingrese una contraseña: (máximo 20 caracteres) ");
+    scanf("%s", password);
+    if (map_search(usuarios, username) != NULL) {
+        printf("El nombre de usuario ya existe. Intente con otro.\n");
+        return 0;
+    }
+    
+    return 1;
+}
 
 void mostrarMenuInicial(){
   limpiarPantalla();
