@@ -11,6 +11,15 @@
 # include "TDAs/queue.h"
 # include "TDAs/extra.h"
 
+typedef struct Usuario {
+    char user[16];
+    char pass[16];
+    List *publicaciones; 
+    List *seguidores;
+    List *seguidos;
+    Queue* notificaciones;
+} Usuario;
+
 bool registrarUsuario(Map *usuarios) {
     limpiarPantalla();
     puts("========================================");
@@ -32,6 +41,7 @@ bool registrarUsuario(Map *usuarios) {
     
     return 1;
 }
+
 
 void mostrarMenuInicial(){
   limpiarPantalla();
