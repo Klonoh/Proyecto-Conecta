@@ -2,6 +2,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <string.h>
+# include "TDAs/graph.h"
 # include "TDAs/list.h"
 # include "TDAs/map.h"
 # include "TDAs/queue.h"
