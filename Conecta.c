@@ -20,6 +20,8 @@ typedef struct Usuario {
     Queue* notificaciones;
 } Usuario;
 
+
+
 bool registrarUsuario(Map *usuarios) {
     limpiarPantalla();
     puts("========================================");
@@ -38,8 +40,37 @@ bool registrarUsuario(Map *usuarios) {
         printf("El nombre de usuario ya existe. Intente con otro.\n");
         return 0;
     }
+
+    inicializarUsuario(usuarios, username, password);
+    printf("Usuario registrado exitosamente.\n");
     
     return 1;
+}
+
+void inicializarUsuario(Map *usuarios, char *username, char *password) {
+    Usuario *nuevo_usuario = (Usuario *)malloc(sizeof(Usuario));
+    strcpy(nuevo_usuario->user, username);
+    strcpy(nuevo_usuario->pass, password);
+    nuevo_usuario->publicaciones = list_create();
+    nuevo_usuario->seguidores = list_create();
+    nuevo_usuario->seguidos = list_create();
+    nuevo_usuario->notificaciones = queue_create();
+    map_insert(usuarios, username, nuevo_usuario);
+}
+
+void leerArchivo(Map *usuarios, FILE *archivo) {
+
+
+}
+
+void Salir(Map *usuarios, FILE *archivo) {
+    Usuario *aux = map_first(usuarios);
+
+    while(aux != NULL) {
+        fprintf(archivo, "%s %s\n", aux->user, aux->pass);
+        aux = map_next(usuarios);
+    }
+    
 }
 
 
@@ -72,7 +103,7 @@ void mostrarMenuPrincipal(){
 
 int main(){
 
-    
+    FILE *archivo_usuarios = fopen("Usuarios.txt", "r");
 
     char opcion; 
     char opcion_inicial;
