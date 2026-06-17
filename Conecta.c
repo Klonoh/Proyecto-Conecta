@@ -8,6 +8,14 @@
 # include "TDAs/queue.h"
 # include "TDAs/extra.h"
 
+void crearUsuario(char *username, char *password, Map* usuarios){
+    if(searchMap(usuarios, username) != NULL){
+        printf("El usuario ya existe.\n");
+        return;
+    }
+    
+}
+
 void mostrarMenuInicial(){
   limpiarPantalla();
   puts("========================================");

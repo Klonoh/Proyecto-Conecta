@@ -102,10 +102,4 @@ void presioneTeclaParaContinuar() {
   getchar(); // Espera a que el usuario presione una tecla
 }
 
-void crearUsuario(char *username, char *password, Map* usuarios){
-    if(searchMap(usuarios, username) != NULL){
-        printf("El usuario ya existe.\n");
-        return;
-    }
-    
-}
+
