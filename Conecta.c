@@ -20,7 +20,15 @@ typedef struct Usuario {
     Queue* notificaciones;
 } Usuario;
 
+typedef struct Publicacion {
+    char contenido[141];
+    char autor[16];
+    time_t timestamp;
+} Publicacion;
 
+int is_equal_str(void *key1, void *key2){
+  return strcmp((char *)key1, (char *)key2) == 0;
+}
 
 bool registrarUsuario(Map *usuarios) {
     limpiarPantalla();
@@ -59,18 +67,138 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
 }
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
-
-
+    char line[200];
+    while (fgets(line, sizeof(line), archivo) && line[0] != '\0') {
+        char username[16], password[21];
+        sscanf(line, "%s %s", username, password);
+        inicializarUsuario(usuarios, username, password);
+        while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+            if (line[0] == 'P') {
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    char autor[16], contenido[141];
+                    time_t timestamp;
+                    sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
+                    Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
+                    strcpy(nueva_publicacion->autor, autor);
+                    strcpy(nueva_publicacion->contenido, contenido);
+                    nueva_publicacion->timestamp = timestamp;
+                    list_pushBack(((Usuario *)map_search(usuarios, username))->publicaciones, nueva_publicacion);
+                }
+            } 
+            else if (line[0] == 'T') {
+                char seguido[16];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%s", seguido);
+                }
+            }
+            else if (line[0] == 'S') {
+                char seguidor[16];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%s", seguidor);
+                }
+            }
+            else if (line[0] == 'N') {
+                char notificacion[200];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%[^\n]", notificacion);
+                    queue_insert(((Usuario *)map_search(usuarios, username))->notificaciones, strdup(notificacion));
+                }
+            
+            }
+            
+        }
+    }
+    rewind(archivo);
+    while(fgets(line, sizeof(line), archivo) && line[0] != '\0') {
+        char username[16], password[21];
+        sscanf(line, "%s %s", username, password);
+        while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+            if (line[0] == 'P') {
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    char autor[16], contenido[141];
+                    time_t timestamp;
+                    sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
+                }
+            }
+            else if (line[0] == 'T') {
+                char seguido[16];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%s", seguido);
+                    Usuario *usuario_seguido = (Usuario *)map_search(usuarios, seguido);
+                    if (usuario_seguido != NULL) {
+                        list_pushBack(((Usuario *)map_search(usuarios, username))->seguidos, usuario_seguido);
+                        list_pushBack(usuario_seguido->seguidores, (Usuario *)map_search(usuarios, username));
+                    }
+                }
+            }
+            else if (line[0] == 'S') {
+                char seguidor[16];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%s", seguidor);
+                    Usuario *usuario_seguidor = (Usuario *)map_search(usuarios, seguidor);
+                    if (usuario_seguidor != NULL) {
+                        list_pushBack(((Usuario *)map_search(usuarios, username))->seguidores, usuario_seguidor);
+                        list_pushBack(usuario_seguidor->seguidos, (Usuario *)map_search(usuarios, username));
+                    }
+                }
+            }
+            else if (line[0] == 'N') {
+                char notificacion[200];
+                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
+                    sscanf(line, "%[^\n]", notificacion);
+                }
+            }
+        }
+    }    
 }
 
-void Salir(Map *usuarios, FILE *archivo) {
+void salir(Map *usuarios, FILE *archivo) {
     Usuario *aux = map_first(usuarios);
 
     while(aux != NULL) {
-        fprintf(archivo, "%s %s\n", aux->user, aux->pass);
+        fprintf(archivo, "%s %s ", aux->user, aux->pass);
+        if (list_first(aux->publicaciones) != NULL) {
+            fprintf(archivo, "Publicaciones\n[");
+        }
+        Publicacion *aux_pub = list_first(aux->publicaciones);
+        while(aux_pub != NULL) {
+            char time = ctime(&aux_pub->timestamp);
+            fprintf(archivo, "%s %s %s\n, ", aux_pub->autor, time, aux_pub->contenido);
+            aux_pub = list_next(aux->publicaciones);
+        }
+        fprintf(archivo, "] \n");
+        if (list_first(aux->seguidos) != NULL) {
+            fprintf(archivo, "Tus Seguidos\n[");
+        }
+        Usuario *aux_seguidos = list_first(aux->seguidos);
+        while(aux_seguidos != NULL) {
+            fprintf(archivo, "%s \n", aux_seguidos->user);
+            aux_seguidos = list_next(aux->seguidos);
+        }
+        fprintf(archivo, "] \n");
+        if (list_first(aux->seguidores) != NULL) {
+            fprintf(archivo, "Seguidores\n[");
+        }
+        Usuario *aux_seguidores = list_first(aux->seguidores);
+        while(aux_seguidores != NULL) {
+            fprintf(archivo, "%s \n", aux_seguidores->user);
+            aux_seguidores = list_next(aux->seguidores);
+        }
+        fprintf(archivo, "] \n");
+        if (list_first(aux->notificaciones) != NULL) {
+            fprintf(archivo, "Notificaciones\n[");
+        }
+        char *aux_notificaciones = queue_front(aux->notificaciones);
+        while(aux_notificaciones != NULL) {
+            fprintf(archivo, "%s \n", aux_notificaciones);
+            aux_notificaciones = queue_next(aux->notificaciones);
+        }
+        fprintf(archivo, "]");
+        fprintf(archivo, "\n");
         aux = map_next(usuarios);
     }
-    
+    fclose(archivo);
+    exit(0);
 }
 
 
@@ -105,6 +233,8 @@ int main(){
 
     FILE *archivo_usuarios = fopen("Usuarios.txt", "r");
 
+    Map *usuarios = map_create(is_equal_str);
+    
     char opcion; 
     char opcion_inicial;
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
@@ -117,6 +247,7 @@ int main(){
         case '1':
         break;
         case '2':
+        registrarUsuario(usuarios);
         break;
         case '3':
         printf("Saliendo...\n");
