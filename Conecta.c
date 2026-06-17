@@ -5,7 +5,6 @@
 # include "TDAs/list.h"
 # include "TDAs/map.h"
 # include "TDAs/queue.h"
-# include "TDAs/stack.h"
 # include "TDAs/extra.h"
 
 void mostrarMenuInicial(){

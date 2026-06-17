@@ -18,6 +18,4 @@ void limpiarPantalla();
 
 void presioneTeclaParaContinuar();
 
-void generate_maze(int maze[N][N], int difficulty);
-
 #endif
