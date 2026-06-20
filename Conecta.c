@@ -33,6 +33,7 @@ void leerArchivo(Map *usuarios, FILE *archivo);
 void salir(Map *usuarios, FILE *archivo);
 void mostrarMenuInicial(void);
 void mostrarMenuPrincipal(void);
+void cerrarSesion(Usuario **usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -253,6 +254,10 @@ void salir(Map *usuarios, FILE *archivo) {
     exit(0);
 }
 
+void cerrarSesion(Usuario **usuario_actual) {
+    *usuario_actual = NULL;
+    printf("Sesión cerrada exitosamente.\n");
+}
 
 void mostrarMenuInicial(){
   limpiarPantalla();
@@ -281,6 +286,31 @@ void mostrarMenuPrincipal(){
   puts("8) Salir");
 }
 
+void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
+    char opcion_inicial;
+    do{
+        mostrarMenuInicial();
+        printf("Ingrese su opción: ");
+        scanf(" %c", &opcion_inicial);
+    
+        switch (opcion_inicial) {
+        case '1':
+            *sesion_iniciada = iniciarSesion(usuarios, usuario_actual);
+            break;
+        case '2':
+            *sesion_iniciada = registrarUsuario(usuarios, usuario_actual);
+            break;
+        case '3':
+            salir(usuarios, archivo_usuarios);
+            break;
+        default:
+            printf("Opción inválida.\n");
+            break;
+        }
+        presioneTeclaParaContinuar();
+    } while (opcion_inicial != '3' && !(*sesion_iniciada));
+}
+
 int main(){
 
     FILE *archivo_usuarios = fopen("Usuarios.txt", "r+");
@@ -294,33 +324,10 @@ int main(){
 
     
     char opcion; 
-    char opcion_inicial;
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
     Usuario *usuario_actual = NULL; // Puntero para almacenar el usuario que ha iniciado sesión
-    do{
-        mostrarMenuInicial();
-        printf("Ingrese su opción: ");
-        scanf(" %c", &opcion_inicial);
-    
-        switch (opcion_inicial) {
-        case '1':
-        sesion_iniciada = iniciarSesion(usuarios, &usuario_actual);
-        break;
-        case '2':
-        sesion_iniciada = registrarUsuario(usuarios, &usuario_actual);
-        break;
-        case '3':
-        fclose(archivo_usuarios);
-        archivo_usuarios = fopen("Usuarios.txt", "w");
-        salir(usuarios, archivo_usuarios);
-        break;
-        default:
-        printf("Opción inválida.\n");
-        break;
-        }
-        presioneTeclaParaContinuar();
-    } while (opcion_inicial != '3' && !sesion_iniciada);
 
+    menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios);
 
     do {
         mostrarMenuPrincipal();
@@ -342,11 +349,13 @@ int main(){
             break;
         case '7':
             sesion_iniciada = 0; // Marcar que la sesión no está iniciada
+            cerrarSesion(&usuario_actual); // Cerrar sesión
+            menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios); // Volver al menú inicial
             break;
         }
         presioneTeclaParaContinuar();
 
-  } while (opcion != '8' && opcion != '7' && sesion_iniciada);
+  } while (opcion != '8' && sesion_iniciada);
 
   fclose(archivo_usuarios);
   archivo_usuarios = fopen("Usuarios.txt", "w");
