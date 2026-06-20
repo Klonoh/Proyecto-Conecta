@@ -4,7 +4,7 @@
 
 typedef List Queue;
 
-Queue *queue_create(Queue *queue) { return list_create(); }
+Queue *queue_create() { return list_create(); }
 
 void queue_insert(Queue *queue, void *data) { list_pushBack(queue, data); }
 
