@@ -40,6 +40,7 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario);
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir);
 void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir);
 void verNotificaciones(Usuario *usuario_actual);
+void publicarMensaje(Usuario *usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -232,6 +233,35 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
     }
 }
 
+void publicarMensaje(Usuario *usuario_actual) {
+    limpiarPantalla();
+    puts("=======================================");
+    puts("           Publicar Mensaje");
+    puts("=======================================");
+    char contenido[141];
+    printf("Ingrese el contenido de su mensaje (máximo 140 caracteres): ");
+    getchar(); // Limpiar el buffer de entrada
+    fgets(contenido, sizeof(contenido), stdin);
+    contenido[strcspn(contenido, "\n")] = '\0'; // Eliminar el salto de línea al final
+
+    Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
+    strcpy(nueva_publicacion->contenido, contenido);
+    strcpy(nueva_publicacion->autor, usuario_actual->user);
+    nueva_publicacion->timestamp = time(NULL);
+
+    list_pushBack(usuario_actual->publicaciones, nueva_publicacion);
+
+    // Notificar a los seguidores
+    List *seguidores = usuario_actual->seguidores;
+    Usuario *seguidor = list_first(seguidores);
+    while (seguidor != NULL) {
+        char notificacion[200];
+        snprintf(notificacion, sizeof(notificacion), "El usuario %s ha publicado un nuevo mensaje.", usuario_actual->user);
+        queue_insert(seguidor->notificaciones, strdup(notificacion));
+        seguidor = list_next(seguidores);
+    }
+}
+
 void buscarUsuario(Map *usuarios, Usuario *usuario_actual) {
     limpiarPantalla();
     puts("=======================================");
@@ -356,6 +386,11 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario) {
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
+        return;
+    }
+
+    if (strcmp(usuario_actual->user, usuario_a_seguir->user) == 0) {
+        printf("No puedes seguirte a ti mismo.\n");
         return;
     }
     List *seguidos = usuario_actual->seguidos;
@@ -573,6 +608,7 @@ int main(){
             case '1':
                 break;
             case '2':
+                publicarMensaje(usuario_actual);
                 break;
             case '3':
                 buscarUsuario(usuarios, usuario_actual);
