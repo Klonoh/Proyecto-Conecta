@@ -212,8 +212,7 @@ void salir(Map *usuarios, FILE *archivo) {
         fprintf(archivo, "PUBLICACIONES %d\n", list_size(aux->publicaciones)); //publicaciones
         Publicacion *aux_pub = list_first(aux->publicaciones);  
         while(aux_pub != NULL) {
-            char *time = ctime(&aux_pub->timestamp);
-            fprintf(archivo, "%s %s %s\n", aux_pub->autor, time, aux_pub->contenido); //autor + fecha + contenido
+            fprintf(archivo, "%s %ld %s\n", aux_pub->autor, (long)aux_pub->timestamp, aux_pub->contenido); //autor + fecha + contenido
             aux_pub = list_next(aux->publicaciones);
         }
 
@@ -237,7 +236,7 @@ void salir(Map *usuarios, FILE *archivo) {
             fprintf(archivo, "%s\n", aux_notificaciones);
             aux_notificaciones = queue_next(aux->notificaciones);
         }
-        fprintf(archivo, "FIN\n");
+        fprintf(archivo, "FIN\n\n");
         pair = map_next(usuarios);
     }
     fclose(archivo);
