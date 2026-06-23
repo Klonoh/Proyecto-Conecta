@@ -106,94 +106,113 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
     char line[200];
-    while (fgets(line, sizeof(line), archivo) && line[0] != '\0') {
+
+    //primera pasada:
+    //se crean los usuarios y se agregan sus publicaciones y notificaciones
+    while (fgets(line, sizeof(line), archivo)) {
         char username[16], password[21];
         sscanf(line, "USUARIO %s %s", username, password);
+    
         inicializarUsuario(usuarios, username, password);
-        while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-            if (line[0] == 'P') {
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    char autor[16], contenido[141];
-                    time_t timestamp;
-                    sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
-                    Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
-                    strcpy(nueva_publicacion->autor, autor);
-                    strcpy(nueva_publicacion->contenido, contenido);
-                    nueva_publicacion->timestamp = timestamp;
-                    MapPair *pair = map_search(usuarios, username);
-                    if (pair != NULL) {
-                        Usuario *usuario = pair->value;
-                        list_pushBack(usuario->publicaciones, nueva_publicacion);
-                    }   
-                }
-            } 
-            else if (line[0] == 'T') {
-                char seguido[16];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%s", seguido);
-                }
-            }
-            else if (line[0] == 'S') {
-                char seguidor[16];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%s", seguidor);
-                }
-            }
-            else if (line[0] == 'N') {
-                char notificacion[200];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%[^\n]", notificacion);
-                    MapPair *pair = map_search(usuarios, username);
-                    if (pair != NULL) {
-                        Usuario *usuario = pair->value;
-                        queue_insert(usuario->notificaciones, strdup(notificacion));
-                    }
-                }
-            
-            }
-            
+        MapPair *pair = map_search(usuarios, username);
+        Usuario *usuario = pair->value;
+
+        fgets(line, sizeof(line), archivo); //leer la línea de publicaciones
+        int n;
+        sscanf(line, "PUBLICACIONES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo);
+            char autor[16], contenido[141];
+            time_t timestamp;
+            sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
+
+            Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
+            strcpy(nueva_publicacion->autor, autor);
+            strcpy(nueva_publicacion->contenido, contenido);
+            nueva_publicacion->timestamp = timestamp;
+            list_pushBack(usuario->publicaciones, nueva_publicacion);
         }
+
+        fgets(line, sizeof(line), archivo); //leer la línea de seguidos
+        sscanf(line, "SEGUIDOS %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo); //se saltan los seguidos
+        }
+        
+        fgets(line, sizeof(line), archivo); //leer la línea de seguidores
+        sscanf(line, "SEGUIDORES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo); //se saltan los seguidores
+        }
+
+        fgets(line, sizeof(line), archivo); //leer la línea de notificaciones
+        sscanf(line, "NOTIFICACIONES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo);
+            queue_insert(usuario->notificaciones, strdup(line)); //se ingresan notificaciones
+        }    
+
+        fgets(line, sizeof(line), archivo); //leer la línea de fin
     }
+
+
+    //segunda pasada: como los usuarios ya están creados, se agregan los seguidos y seguidores
     rewind(archivo);
-    while(fgets(line, sizeof(line), archivo) && line[0] != '\0') {
+    while(fgets(line, sizeof(line), archivo)) {
         char username[16], password[21];
-        sscanf(line, "%s %s", username, password);
-        while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-            if (line[0] == 'P') {
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    char autor[16], contenido[141];
-                    time_t timestamp;
-                    sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
-                }
-            }
-            else if (line[0] == 'T') {
-                char seguido[16];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%s", seguido);
-                    MapPair *pair_seguido = map_search(usuarios, seguido);
-                    if (pair_seguido != NULL) {
-                        Usuario *usuario_seguido = pair_seguido->value;
-                        MapPair *pair_usuario = map_search(usuarios, username);
-                        Usuario *usuario = pair_usuario->value;
-                        list_pushBack(usuario->seguidos, pair_seguido->value);
-                        list_pushBack(usuario_seguido->seguidores, usuario);
-                    }
-                }
-            }
-            else if (line[0] == 'S') {
-                char seguidor[16];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%s", seguidor);
-                    }
-                }
-            
-            else if (line[0] == 'N') {
-                char notificacion[200];
-                while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
-                    sscanf(line, "%[^\n]", notificacion);
-                }
+        sscanf(line, "USUARIO %s %s", username, password);
+
+        MapPair *pair_usuario = map_search(usuarios, username);
+        Usuario *usuario = pair_usuario->value;
+
+        fgets(line, sizeof(line), archivo); //leer la línea de publicaciones
+        int n;
+        sscanf(line, "PUBLICACIONES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo); //se saltan las publicaciones
+        }
+        
+        fgets(line, sizeof(line), archivo); //leer la línea de seguidos
+        sscanf(line, "SEGUIDOS %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo);
+            char seguido[16];
+            sscanf(line, "%s", seguido);
+            MapPair *pair_seguido = map_search(usuarios, seguido);
+            if (pair_seguido != NULL) {
+                Usuario *usuario_seguido = pair_seguido->value;
+                list_pushBack(usuario->seguidos, usuario_seguido);
             }
         }
+        
+        fgets(line, sizeof(line), archivo); //leer la línea de seguidores
+        sscanf(line, "SEGUIDORES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo);
+            char seguidor[16];
+            sscanf(line, "%s", seguidor);
+            MapPair *pair_seguidor = map_search(usuarios, seguidor);
+            if (pair_seguidor != NULL) {
+                Usuario *usuario_seguidor = pair_seguidor->value;
+                list_pushBack(usuario->seguidores, usuario_seguidor);
+            }
+        }
+
+        fgets(line, sizeof(line), archivo); //leer la línea de notificaciones
+        sscanf(line, "NOTIFICACIONES %d", &n);
+
+        for (int i = 0; i < n; i++) {
+            fgets(line, sizeof(line), archivo); //se saltan las notificaciones
+        }
+
+        fgets(line, sizeof(line), archivo); //leer la línea de fin
     }
 }
    
