@@ -103,6 +103,10 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
     nuevo_usuario->seguidos = list_create();
     nuevo_usuario->notificaciones = queue_create();
     map_insert(usuarios, strdup(username), nuevo_usuario);
+    //IMPORTANTE: se puso strdup para que se haga una copia del username, ya que la variable username es local a la funcion registrarUsuario,
+    //por lo q al finalizarse esta funcion, username dejaba de existir y el puntero del mapa quedaba apuntando a una direccion de 
+    //memoria inválida. este era el bug principal que no dejaba iniciar sesion.
+
     printf("DEBUG: insertado '%s' en el mapa\n", username);
 }
 
@@ -236,6 +240,10 @@ void salir(Map *usuarios, FILE *archivo) {
         fprintf(archivo, "USUARIO %s %s\n", aux->user, aux->pass); //imprimir user y pass
 
         //formato de salida general: "nombre + cantidad", luego en cada siguiente linea se imprime el contenido de cada elemento
+        //ej: PUBLICACIONES 2
+        // publicacion1
+        // publicacion2
+        // y asi sucesivamente para seguidos, seguidores y notificaciones
 
         fprintf(archivo, "PUBLICACIONES %d\n", list_size(aux->publicaciones)); //publicaciones
         Publicacion *aux_pub = list_first(aux->publicaciones);  
