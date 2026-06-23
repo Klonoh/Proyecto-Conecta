@@ -589,6 +589,7 @@ void editarPerfil(Usuario *usuario_actual, Map *usuarios) {
         // Implementar eliminación de cuenta
     }
 }
+
 void salir(Map *usuarios, FILE *archivo) {
     fclose(archivo);
     archivo = fopen("Usuarios.txt", "w");
