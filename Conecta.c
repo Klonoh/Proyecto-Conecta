@@ -36,11 +36,13 @@ void mostrarMenuPrincipal(Usuario *usuario_actual);
 void cerrarSesion(Usuario **usuario_actual);
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios);
 void buscarUsuario(Map *usuarios, Usuario *usuario_actual);
-void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario);
+void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios);
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir);
 void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir);
 void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
+void verListaUsuarios( Usuario *usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios);
+void editarPerfil(Usuario *usuario_actual, Map *usuarios);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -303,7 +305,7 @@ void buscarUsuario(Map *usuarios, Usuario *usuario_actual) {
 
                 if (strstr(usuario->user, username) != NULL) {
                     if (contador == opcion) {
-                        MostrarPerfil(usuario_actual, usuario);
+                        MostrarPerfil(usuario_actual, usuario, usuarios);
                         break;
                     }
                     contador++;
@@ -323,7 +325,7 @@ void buscarUsuario(Map *usuarios, Usuario *usuario_actual) {
     }
 }
 
-void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario) {
+void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
     limpiarPantalla();
     puts("=======================================");
     printf("               %s\n", usuario->user);
@@ -378,9 +380,43 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario) {
             return; // Volver al menú principal
         } else {
             printf("Opción inválida.\n");
-            MostrarPerfil(usuario_actual, usuario); // Volver a mostrar el perfil
+            MostrarPerfil(usuario_actual, usuario, usuarios); // Volver a mostrar el perfil
         }
     } 
+    else if (usuario_actual != NULL && strcmp(usuario_actual->user, usuario->user) == 0) {
+        Publicacion *pub = list_first(usuario->publicaciones);
+        while (pub != NULL) {
+            printf("\n%s: \n\n%s\n\n %ld\n\n", pub->autor, pub->contenido, pub->timestamp);
+            pub = list_next(usuario->publicaciones);
+        }
+        puts("=======================================");
+
+
+        int opcion;
+        printf("\n1) Ver seguidores\n");
+        printf("\n2) Ver seguidos\n");
+        printf("\n3) Editar perfil\n");
+        printf("\n4) Volver al menú principal\n");
+        printf("\nIngrese su opción: ");
+        scanf("%d", &opcion);
+
+        if (opcion == 1) {
+            verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios);
+        } else if (opcion == 2) {
+            verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios);
+        } else if (opcion == 3) {
+            editarPerfil(usuario_actual, usuarios);
+        } else if (opcion == 4) {
+            return; // Volver al menú principal
+        } else {
+            printf("Opción inválida.\n");
+            MostrarPerfil(usuario_actual, usuario, usuarios); // Volver a mostrar el perfil
+        }
+
+    } 
+    else {
+        printf("Error: Usuario no válido.\n");
+    }
 }
    
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
@@ -464,6 +500,95 @@ void verNotificaciones(Usuario *usuario_actual) {
     queue_clean(notificaciones); // Limpiar las notificaciones después de mostrarlas
 }
 
+void verListaUsuarios( Usuario *usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios) {
+    if (usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    limpiarPantalla();
+    puts("=======================================");
+    printf("              %s\n", titulo);
+    puts("=======================================");
+    Usuario *usuario = list_first(lista);
+
+    if (usuario == NULL) {
+        printf("%s\n", mensaje_vacio);
+        return;
+    }
+
+    int contador = 0;
+    while (usuario != NULL) {
+        contador++;
+        printf("%2d) %s\n", contador, usuario->user);
+        usuario = list_next(lista);
+    }
+    puts("=======================================");
+
+    printf("\nIngrese el número del usuario que desea ver (0 para volver al menú principal): ");
+    int opcion;
+    scanf("%d", &opcion);
+    while(opcion < 0 || opcion > contador) {
+        printf("Opción inválida.\n");
+        printf("Ingrese nuevamente: ");
+        scanf("%d", &opcion);
+    }
+    if (opcion == 0) {
+        return; // Cancelar y volver al menú principal
+    }
+    usuario = list_first(lista);
+    int contador_usuario = 1;
+    while (usuario != NULL) {
+        if (contador_usuario == opcion) {
+            MostrarPerfil(usuario_actual, usuario, usuarios);
+            return;
+        }
+        usuario = list_next(lista);
+        contador_usuario++;
+    }
+}
+
+void editarPerfil(Usuario *usuario_actual, Map *usuarios) {
+    if (usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    limpiarPantalla();
+    puts("=======================================");
+    puts("           Editar Perfil");
+    puts("=======================================");
+    puts("1) Cambiar nombre de usuario");
+    puts("2) Cambiar contraseña");
+    puts("3) Eliminar cuenta");
+    puts("4) Volver al menú principal");
+
+    int opcion;
+    printf("\nIngrese su opción: ");
+    scanf("%d", &opcion);
+    while(opcion < 1 || opcion > 4) {
+        printf("Opción inválida.\n");
+        printf("Ingrese nuevamente: ");
+        scanf("%d", &opcion);
+    }
+    if(opcion == 1) {
+        char nuevo_username[16];
+        printf("Ingrese el nuevo nombre de usuario: ");
+        scanf("%15s", nuevo_username);
+        for (int i = 0; nuevo_username[i] != '\0'; i++) {
+            nuevo_username[i] = tolower(nuevo_username[i]);
+        }
+        if (map_search(usuarios, nuevo_username) != NULL) {
+            printf("El nombre de usuario ya existe. Intente con otro.\n");
+            editarPerfil(usuario_actual, usuarios);
+            return;
+        }
+    }
+    else if(opcion == 2) {
+        // Implementar cambio de contraseña
+    }
+    else if(opcion == 3) {
+        // Implementar eliminación de cuenta
+    }
+}
 void salir(Map *usuarios, FILE *archivo) {
     fclose(archivo);
     archivo = fopen("Usuarios.txt", "w");
@@ -617,6 +742,7 @@ int main(){
                 verNotificaciones(usuario_actual);
                 break;
             case '5':
+                MostrarPerfil(usuario_actual, usuario_actual, usuarios);
                 break;
             case '6':
                 break;
