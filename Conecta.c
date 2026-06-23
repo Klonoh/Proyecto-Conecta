@@ -32,7 +32,7 @@ void inicializarUsuario(Map *usuarios, char *username, char *password);
 void leerArchivo(Map *usuarios, FILE *archivo);
 void salir(Map *usuarios, FILE *archivo);
 void mostrarMenuInicial(void);
-void mostrarMenuPrincipal(void);
+void mostrarMenuPrincipal(Usuario *usuario_actual);
 void cerrarSesion(Usuario **usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
@@ -53,11 +53,7 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     }
     printf("Ingrese su contraseña: ");
     scanf("%s", password);
-    printf("DEBUG: buscando '%s'\n", username);
-    fflush(stdout);
     MapPair *pair = map_search(usuarios, username);
-    printf("DEBUG: pair = %p\n", (void*)pair);
-    fflush(stdout);
     if (pair == NULL) {
         printf("El nombre de usuario no existe. Intente nuevamente.\n");
         return 0;
@@ -68,14 +64,15 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
         return 0;
     }
     *usuario_actual = usuario;
+    puts("Sesión iniciada exitosamente.");
     return 1;
 }
 
 bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     limpiarPantalla();
-    puts("========================================");
-    puts("     Registrar Usuario");
-    puts("========================================");
+    puts("=======================================");
+    puts("           Registrar Usuario");
+    puts("=======================================");
     char username[16];
     char password[21];
     printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
@@ -114,8 +111,9 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
 
     //primera pasada:
     //se crean los usuarios y se agregan sus publicaciones y notificaciones
+    printf("DEBUG: leyendo archivo de usuarios\n");
     while (fgets(line, sizeof(line), archivo)) {
-        printf("DEBUG LOOP: line = [%s]\n", line); 
+        printf("DEBUG: linea = %s\n", line); 
         char username[16], password[21];
         int leidos = sscanf(line, "USUARIO %s %s", username, password);
         if (leidos != 2) continue; // línea vacía o basura, saltarla
@@ -280,21 +278,22 @@ void cerrarSesion(Usuario **usuario_actual) {
 
 void mostrarMenuInicial(){
   limpiarPantalla();
-  puts("========================================");
-  puts("     Conecta");
-  puts("========================================");
+  puts("=======================================");
+  puts("                Conecta");
+  puts("=======================================");
 
   puts("1) Iniciar Sesión");
   puts("2) Registrar Usuario");
   puts("3) Salir");
 }
 
-void mostrarMenuPrincipal(){
+void mostrarMenuPrincipal(Usuario *usuario_actual){
   limpiarPantalla();
-  puts("========================================");
-  puts("     Conecta");
-  puts("========================================");
+  puts("=======================================");
+  puts("                Conecta");
+  puts("=======================================");
 
+  printf("Bienvenido, %s\n", usuario_actual->user);
   puts("1) Ver feed");
   puts("2) Publicar mensaje");
   puts("3) Buscar usuario");
@@ -308,7 +307,6 @@ void mostrarMenuPrincipal(){
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
     char opcion_inicial = '\0'; //se inicializa para evitar q contenga valores basura
     do{
-        printf("DEBUG: entrando al do-while de menuInicial, opcion_inicial=%d\n", opcion_inicial);
         mostrarMenuInicial();
         printf("Ingrese su opción: ");
         scanf(" %c", &opcion_inicial);
@@ -316,7 +314,6 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
         switch (opcion_inicial) {
         case '1':
             *sesion_iniciada = iniciarSesion(usuarios, usuario_actual);
-            printf("DEBUG: sesion_iniciada = %d\n", *sesion_iniciada);
             break;
         case '2':
             *sesion_iniciada = registrarUsuario(usuarios, usuario_actual);
@@ -329,8 +326,6 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
             break;
         }
         presioneTeclaParaContinuar();
-        printf("DEBUG: se va a evaluar while de menuInicial, sesion_iniciada=%d, opcion=%c\n", *sesion_iniciada, opcion_inicial);
-        fflush(stdout);
     } while (opcion_inicial != '3' && !(*sesion_iniciada));
 }
 
@@ -350,37 +345,48 @@ int main(){
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
     Usuario *usuario_actual = NULL; // Puntero para almacenar el usuario que ha iniciado sesión
 
-    menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios);
+    int enEjecucion = 1; // Variable para controlar el bucle principal
 
-    do {
-        mostrarMenuPrincipal();
-        printf("Ingrese su opción: ");
-        scanf(" %c", &opcion);
-        
-        printf("DEBUG MENU PRINCIPAL: opcion leida = '%c' (codigo %d)\n", opcion, opcion);
-        switch (opcion) {
-        case '1':
-            break;
-        case '2':
-            break;
-        case '3':
-            break;
-        case '4':
-            break;
-        case '5':
-            break;
-        case '6':
-            break;
-        case '7':
-            sesion_iniciada = 0; // Marcar que la sesión no está iniciada
-            cerrarSesion(&usuario_actual); // Cerrar sesión
-            menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios); // Volver al menú inicial
-            break;
+    while (enEjecucion) {
+        menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios);
+
+        if (!sesion_iniciada) {
+            enEjecucion = 0; //si el usuario escoge opcion 3 (salir) en el menu inicial, se sale del programa
+            continue; 
         }
-        presioneTeclaParaContinuar();
 
-  } while (opcion != '8' && sesion_iniciada);
+        do {
+            mostrarMenuPrincipal(usuario_actual);
+            printf("Ingrese su opción: ");
+            scanf(" %c", &opcion);
+            
+            
+            switch (opcion) {
+            case '1':
+                break;
+            case '2':
+                break;
+            case '3':
+                break;
+            case '4':
+                break;
+            case '5':
+                break;
+            case '6':
+                break;
+            case '7':
+                sesion_iniciada = 0; // Marcar que la sesión no está iniciada
+                cerrarSesion(&usuario_actual); // Cerrar sesión
+                break;
+            case '8':
+                enEjecucion = 0; // Marcar que se desea salir del programa
+                break;
+            }
+            presioneTeclaParaContinuar();
 
-  salir(usuarios, archivo_usuarios);
-  return 0;
+        } while (opcion != '8' && sesion_iniciada);
+
+    }
+    salir(usuarios, archivo_usuarios);
+    return 0;
 }

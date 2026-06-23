@@ -100,6 +100,7 @@ void presioneTeclaParaContinuar() {
     puts("Presione una tecla para continuar...");
     int c;
     while ((c = getchar()) != '\n' && c != EOF); // limpia buffer completo
+    getchar(); // espera a que el usuario presione una tecla
 }
 
 
