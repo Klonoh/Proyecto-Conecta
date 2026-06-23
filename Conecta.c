@@ -47,12 +47,12 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     char username[16];
     char password[21];
     printf("Ingrese su nombre de usuario: ");
-    scanf("%s", username);
+    scanf("%15s", username);
     for (int i = 0; username[i] != '\0'; i++) {
         username[i] = tolower(username[i]);
     }
     printf("Ingrese su contraseña: ");
-    scanf("%s", password);
+    scanf("%20s", password);
     MapPair *pair = map_search(usuarios, username);
     if (pair == NULL) {
         printf("El nombre de usuario no existe. Intente nuevamente.\n");
@@ -76,12 +76,12 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     char username[16];
     char password[21];
     printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
-    scanf("%s", username);
+    scanf("%15s", username);
     for (int i = 0; username[i] != '\0'; i++) {
         username[i] = tolower(username[i]);
     }
     printf("Ingrese una contraseña: (máximo 20 caracteres) ");
-    scanf("%s", password);
+    scanf("%20s", password);
     if (map_search(usuarios, username) != NULL) {
         printf("El nombre de usuario ya existe. Intente con otro.\n");
         return 0;
@@ -226,7 +226,56 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
     }
 }
    
+void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
+    if (usuario_actual == NULL || usuario_a_seguir == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    List *seguidos = usuario_actual->seguidos;
+    Usuario *temp = list_first(seguidos);
+    while (temp != NULL) {
+        if (strcmp(temp->user, usuario_a_seguir->user) == 0) {
+            printf("Ya sigues a %s.\n", usuario_a_seguir->user);
+            return;
+        }
+        temp = list_next(seguidos);
+    }
+    list_pushBack(usuario_actual->seguidos, usuario_a_seguir);
+    list_pushBack(usuario_a_seguir->seguidores, usuario_actual);
+    char notificacion[100];
+    snprintf(notificacion, sizeof(notificacion), "El usuario %s ha comenzado a seguirte.", usuario_actual->user);
+    queue_insert(usuario_a_seguir->notificaciones, strdup(notificacion));
+    printf("Ahora sigues a %s.\n", usuario_a_seguir->user);
+}
 
+void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir) {
+    if (usuario_actual == NULL || usuario_a_dejar_de_seguir == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    List *seguidos = usuario_actual->seguidos;
+    Usuario *temp = list_first(seguidos);
+    while (temp != NULL) {
+        if (strcmp(temp->user, usuario_a_dejar_de_seguir->user) == 0) {
+            list_popCurrent(seguidos);
+            break;
+        }
+        temp = list_next(seguidos);
+    }
+
+
+    List *seguidores = usuario_a_dejar_de_seguir->seguidores;
+    Usuario *aux = list_first(seguidores);
+    while (aux != NULL) {
+        if (strcmp(aux->user, usuario_a_dejar_de_seguir->user) == 0) {
+            list_popCurrent(seguidores);
+            break;
+        }
+        aux = list_next(seguidores);
+    }
+
+    printf("Has dejado de seguir a %s.\n", usuario_a_dejar_de_seguir->user);
+}
 
 void salir(Map *usuarios, FILE *archivo) {
     fclose(archivo);
