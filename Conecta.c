@@ -53,7 +53,11 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     }
     printf("Ingrese su contraseña: ");
     scanf("%s", password);
+    printf("DEBUG: buscando '%s'\n", username);
+    fflush(stdout);
     MapPair *pair = map_search(usuarios, username);
+    printf("DEBUG: pair = %p\n", (void*)pair);
+    fflush(stdout);
     if (pair == NULL) {
         printf("El nombre de usuario no existe. Intente nuevamente.\n");
         return 0;
@@ -101,7 +105,8 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
     nuevo_usuario->seguidores = list_create();
     nuevo_usuario->seguidos = list_create();
     nuevo_usuario->notificaciones = queue_create();
-    map_insert(usuarios, username, nuevo_usuario);
+    map_insert(usuarios, strdup(username), nuevo_usuario);
+    printf("DEBUG: insertado '%s' en el mapa\n", username);
 }
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
@@ -110,8 +115,10 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
     //primera pasada:
     //se crean los usuarios y se agregan sus publicaciones y notificaciones
     while (fgets(line, sizeof(line), archivo)) {
+        printf("DEBUG LOOP: line = [%s]\n", line); 
         char username[16], password[21];
-        sscanf(line, "USUARIO %s %s", username, password);
+        int leidos = sscanf(line, "USUARIO %s %s", username, password);
+        if (leidos != 2) continue; // línea vacía o basura, saltarla
     
         inicializarUsuario(usuarios, username, password);
         MapPair *pair = map_search(usuarios, username);
@@ -164,7 +171,8 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
     rewind(archivo);
     while(fgets(line, sizeof(line), archivo)) {
         char username[16], password[21];
-        sscanf(line, "USUARIO %s %s", username, password);
+        int leidos = sscanf(line, "USUARIO %s %s", username, password);
+        if (leidos != 2) continue; // línea vacía o basura, saltarla
 
         MapPair *pair_usuario = map_search(usuarios, username);
         Usuario *usuario = pair_usuario->value;
@@ -219,6 +227,9 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
 
 
 void salir(Map *usuarios, FILE *archivo) {
+    fclose(archivo);
+    archivo = fopen("Usuarios.txt", "w");
+
     MapPair *pair = map_first(usuarios);
 
 
@@ -255,7 +266,7 @@ void salir(Map *usuarios, FILE *archivo) {
             fprintf(archivo, "%s\n", aux_notificaciones);
             aux_notificaciones = queue_next(aux->notificaciones);
         }
-        fprintf(archivo, "FIN\n\n");
+        fprintf(archivo, "FIN\n");
         pair = map_next(usuarios);
     }
     fclose(archivo);
@@ -297,6 +308,7 @@ void mostrarMenuPrincipal(){
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
     char opcion_inicial;
     do{
+        printf("DEBUG: entrando al do-while de menuInicial, opcion_inicial=%d\n", opcion_inicial);
         mostrarMenuInicial();
         printf("Ingrese su opción: ");
         scanf(" %c", &opcion_inicial);
@@ -304,6 +316,7 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
         switch (opcion_inicial) {
         case '1':
             *sesion_iniciada = iniciarSesion(usuarios, usuario_actual);
+            printf("DEBUG: sesion_iniciada = %d\n", *sesion_iniciada);
             break;
         case '2':
             *sesion_iniciada = registrarUsuario(usuarios, usuario_actual);
@@ -316,6 +329,8 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
             break;
         }
         presioneTeclaParaContinuar();
+        printf("DEBUG: se va a evaluar while de menuInicial, sesion_iniciada=%d, opcion=%c\n", *sesion_iniciada, opcion_inicial);
+        fflush(stdout);
     } while (opcion_inicial != '3' && !(*sesion_iniciada));
 }
 
@@ -365,8 +380,6 @@ int main(){
 
   } while (opcion != '8' && sesion_iniciada);
 
-  fclose(archivo_usuarios);
-  archivo_usuarios = fopen("Usuarios.txt", "w");
   salir(usuarios, archivo_usuarios);
   return 0;
 }
