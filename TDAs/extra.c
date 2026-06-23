@@ -97,10 +97,9 @@ List *split_string(const char *str, const char *delim) {
 void limpiarPantalla() { system("clear"); }
 
 void presioneTeclaParaContinuar() {
-  puts("Presione una tecla para continuar...");
-  int c;
-  while ((c = getchar()) != '\n' && c != EOF); // limpia cualquier basura pendiente
-  getchar(); // espera la tecla real del usuario
+    puts("Presione una tecla para continuar...");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // limpia buffer completo
 }
 
 

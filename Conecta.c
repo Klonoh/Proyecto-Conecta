@@ -306,7 +306,7 @@ void mostrarMenuPrincipal(){
 }
 
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
-    char opcion_inicial;
+    char opcion_inicial = '\0'; //se inicializa para evitar q contenga valores basura
     do{
         printf("DEBUG: entrando al do-while de menuInicial, opcion_inicial=%d\n", opcion_inicial);
         mostrarMenuInicial();
@@ -346,7 +346,7 @@ int main(){
     }
 
     
-    char opcion; 
+    char opcion = '\0'; //se inicializa para evitar q contenga valores basura
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
     Usuario *usuario_actual = NULL; // Puntero para almacenar el usuario que ha iniciado sesión
 
@@ -356,7 +356,8 @@ int main(){
         mostrarMenuPrincipal();
         printf("Ingrese su opción: ");
         scanf(" %c", &opcion);
-
+        
+        printf("DEBUG MENU PRINCIPAL: opcion leida = '%c' (codigo %d)\n", opcion, opcion);
         switch (opcion) {
         case '1':
             break;
