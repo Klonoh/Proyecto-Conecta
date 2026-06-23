@@ -360,7 +360,6 @@ int main(){
             printf("Ingrese su opción: ");
             scanf(" %c", &opcion);
             
-            
             switch (opcion) {
             case '1':
                 break;
