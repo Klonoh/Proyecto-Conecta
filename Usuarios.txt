@@ -1,8 +1,10 @@
 USUARIO test 1234
 PUBLICACIONES 0
 SEGUIDOS 0
-SEGUIDORES 0
-NOTIFICACIONES 0
+SEGUIDORES 1
+joaquin
+NOTIFICACIONES 1
+El usuario joaquin ha comenzado a seguirte.
 FIN
 USUARIO prueba2 123
 PUBLICACIONES 0
@@ -13,6 +15,20 @@ FIN
 USUARIO seba 123
 PUBLICACIONES 0
 SEGUIDOS 0
-SEGUIDORES 0
-NOTIFICACIONES 0
+SEGUIDORES 1
+joaquin
+NOTIFICACIONES 1
+El usuario joaquin ha comenzado a seguirte.
+
+FIN
+USUARIO joaquin 123456
+PUBLICACIONES 0
+SEGUIDOS 2
+seba
+test
+SEGUIDORES 1
+test
+NOTIFICACIONES 1
+El usuario test ha comenzado a seguirte.
+
 FIN

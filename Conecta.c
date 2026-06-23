@@ -34,6 +34,12 @@ void salir(Map *usuarios, FILE *archivo);
 void mostrarMenuInicial(void);
 void mostrarMenuPrincipal(Usuario *usuario_actual);
 void cerrarSesion(Usuario **usuario_actual);
+void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios);
+void buscarUsuario(Map *usuarios, Usuario *usuario_actual);
+void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario);
+void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir);
+void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir);
+void verNotificaciones(Usuario *usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -42,7 +48,7 @@ int is_equal_str(void *key1, void *key2){
 bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     limpiarPantalla();
     puts("========================================");
-    puts("     Iniciar Sesión");
+    puts("           Iniciar Sesión");
     puts("========================================");
     char username[16];
     char password[21];
@@ -225,6 +231,127 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
         fgets(line, sizeof(line), archivo); //leer la línea de fin
     }
 }
+
+void buscarUsuario(Map *usuarios, Usuario *usuario_actual) {
+    limpiarPantalla();
+    puts("=======================================");
+    puts("           Buscar Usuario");
+    puts("=======================================");
+    char username[16];
+    printf("Ingrese el nombre de usuario a buscar: ");
+    scanf("%15s", username);
+    for (int i = 0; username[i] != '\0'; i++) {
+        username[i] = tolower(username[i]);
+    }
+    MapPair *pair = map_first(usuarios);
+    int coincidencias = 0;
+
+    puts("\nResultados de la búsqueda:");
+
+    while (pair != NULL) {
+        Usuario *usuario = pair->value;
+
+        if (strstr(usuario->user, username) != NULL) {
+            coincidencias++;
+            printf("%d) %s\n", coincidencias, usuario->user);
+        }
+
+        pair = map_next(usuarios);
+    }
+
+    if (coincidencias > 0) {
+        int opcion;
+        printf("\nIngrese el número del perfil que desea ver (0 para cancelar): ");
+        scanf("%d", &opcion);
+
+        if (opcion > 0 && opcion <= coincidencias) {
+            pair = map_first(usuarios);
+            int contador = 1;
+
+            while (pair != NULL) {
+                Usuario *usuario = pair->value;
+
+                if (strstr(usuario->user, username) != NULL) {
+                    if (contador == opcion) {
+                        MostrarPerfil(usuario_actual, usuario);
+                        break;
+                    }
+                    contador++;
+                }
+
+                pair = map_next(usuarios);
+            }
+        } else if (opcion == 0) {
+            printf("Operación cancelada.\n");
+        } else {
+            printf("Opción inválida.\n");
+        }
+    } 
+    else if (coincidencias == 0) {
+        printf("No se encontraron usuarios que coincidan con la búsqueda.\n");
+        return;
+    }
+}
+
+void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario) {
+    limpiarPantalla();
+    puts("=======================================");
+    printf("               %s\n", usuario->user);
+    puts("=======================================");
+    printf("Publicaciones: %d | Seguidores: %d | Seguidos: %d", list_size(usuario->publicaciones), list_size(usuario->seguidores), list_size(usuario->seguidos));
+    puts("\n=======================================");
+    if (usuario_actual != NULL && strcmp(usuario_actual->user, usuario->user) != 0) {
+        List *seguidos = usuario_actual->seguidos;
+        Usuario *temp = list_first(seguidos);
+        bool ya_sigue = false;
+
+        while (temp != NULL) {
+            if (strcmp(temp->user, usuario->user) == 0) {
+                ya_sigue = true;
+                break;
+            }
+            temp = list_next(seguidos);
+        }
+
+        if (ya_sigue == true) {
+            printf("\nSiguiendo\n");
+        } else {
+            printf("\nNo le sigues\n");
+        }
+        puts("=======================================");
+        
+        Publicacion *pub = list_first(usuario->publicaciones);
+        while (pub != NULL) {
+            printf("\n%s: \n\n%s\n\n %ld\n\n", pub->autor, pub->contenido, pub->timestamp);
+            pub = list_next(usuario->publicaciones);
+        }
+
+        puts("=======================================");
+
+        if (ya_sigue == true) {
+            printf("\n1) Dejar de seguir\n");
+        } else {
+            printf("\n1) Seguir\n");
+        }
+        printf("2) Volver al menú principal\n");
+        int opcion;
+        printf("\nIngrese su opción: ");
+        scanf("%d", &opcion);
+
+        if (opcion == 1) {
+            if (ya_sigue == true) {
+                dejarDeSeguirUsuario(usuario_actual, usuario);
+            } else if (ya_sigue == false) {
+                seguirUsuario(usuario_actual, usuario);
+            }
+        } else if (opcion == 2) {
+            return; // Volver al menú principal
+        } else {
+            printf("Opción inválida.\n");
+            MostrarPerfil(usuario_actual, usuario); // Volver a mostrar el perfil
+        }
+    } 
+}
    
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
@@ -267,7 +394,7 @@ void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_s
     List *seguidores = usuario_a_dejar_de_seguir->seguidores;
     Usuario *aux = list_first(seguidores);
     while (aux != NULL) {
-        if (strcmp(aux->user, usuario_a_dejar_de_seguir->user) == 0) {
+        if (strcmp(aux->user, usuario_actual->user) == 0) {
             list_popCurrent(seguidores);
             break;
         }
@@ -275,6 +402,31 @@ void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_s
     }
 
     printf("Has dejado de seguir a %s.\n", usuario_a_dejar_de_seguir->user);
+}
+
+void verNotificaciones(Usuario *usuario_actual) {
+    if (usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    limpiarPantalla();
+    puts("=======================================");
+    puts("           Notificaciones");
+    puts("=======================================");
+    Queue *notificaciones = usuario_actual->notificaciones;
+    char *notificacion = queue_front(notificaciones);
+
+    if (notificacion == NULL) {
+        printf("No tienes notificaciones pendientes.\n");
+        return;
+    }
+
+    while (notificacion != NULL) {
+        printf("• %s\n", notificacion);
+        notificacion = queue_next(notificaciones);
+    }
+
+    queue_clean(notificaciones); // Limpiar las notificaciones después de mostrarlas
 }
 
 void salir(Map *usuarios, FILE *archivo) {
@@ -423,8 +575,10 @@ int main(){
             case '2':
                 break;
             case '3':
+                buscarUsuario(usuarios, usuario_actual);
                 break;
             case '4':
+                verNotificaciones(usuario_actual);
                 break;
             case '5':
                 break;
