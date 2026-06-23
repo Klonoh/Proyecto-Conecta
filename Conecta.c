@@ -108,7 +108,7 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
     char line[200];
     while (fgets(line, sizeof(line), archivo) && line[0] != '\0') {
         char username[16], password[21];
-        sscanf(line, "%s %s", username, password);
+        sscanf(line, "USUARIO %s %s", username, password);
         inicializarUsuario(usuarios, username, password);
         while (fgets(line, sizeof(line), archivo) && line[0] != ']') {
             if (line[0] == 'P') {
@@ -205,49 +205,39 @@ void salir(Map *usuarios, FILE *archivo) {
 
     while(pair != NULL) {
         Usuario *aux = pair->value;
-        fprintf(archivo, "%s %s ", aux->user, aux->pass);
-        if (list_first(aux->publicaciones) != NULL) {
-            fprintf(archivo, "Publicaciones\n");
-        }
-        fprintf(archivo, "[");
-        Publicacion *aux_pub = list_first(aux->publicaciones);
+        fprintf(archivo, "USUARIO %s %s\n", aux->user, aux->pass); //imprimir user y pass
+
+        //formato de salida general: "nombre + cantidad", luego en cada siguiente linea se imprime el contenido de cada elemento
+
+        fprintf(archivo, "PUBLICACIONES %d\n", list_size(aux->publicaciones)); //publicaciones
+        Publicacion *aux_pub = list_first(aux->publicaciones);  
         while(aux_pub != NULL) {
             char *time = ctime(&aux_pub->timestamp);
-            fprintf(archivo, "%s %s %s\n, ", aux_pub->autor, time, aux_pub->contenido);
+            fprintf(archivo, "%s %s %s\n", aux_pub->autor, time, aux_pub->contenido); //autor + fecha + contenido
             aux_pub = list_next(aux->publicaciones);
         }
-        fprintf(archivo, "]\n");
-        if (list_first(aux->seguidos) != NULL) {
-            fprintf(archivo, "Tus Seguidos\n");
-        }
-        fprintf(archivo, "[");
+
+        fprintf(archivo, "SEGUIDOS %d\n", list_size(aux->seguidos)); 
         Usuario *aux_seguidos = list_first(aux->seguidos);
         while(aux_seguidos != NULL) {
-            fprintf(archivo, "%s \n", aux_seguidos->user);
+            fprintf(archivo, "%s\n", aux_seguidos->user);
             aux_seguidos = list_next(aux->seguidos);
         }
-        fprintf(archivo, "]\n");
-        if (list_first(aux->seguidores) != NULL) {
-            fprintf(archivo, "Seguidores\n");
-        }
-        fprintf(archivo, "[");
+
+        fprintf(archivo, "SEGUIDORES %d\n", list_size(aux->seguidores)); 
         Usuario *aux_seguidores = list_first(aux->seguidores);
         while(aux_seguidores != NULL) {
-            fprintf(archivo, "%s \n", aux_seguidores->user);
+            fprintf(archivo, "%s\n", aux_seguidores->user);
             aux_seguidores = list_next(aux->seguidores);
         }
-        fprintf(archivo, "]\n");
-        if (queue_front(aux->notificaciones) != NULL) {
-            fprintf(archivo, "Notificaciones\n");
-        }
-        fprintf(archivo, "[");
+
+        fprintf(archivo, "NOTIFICACIONES %d\n", queue_size(aux->notificaciones)); 
         char *aux_notificaciones = queue_front(aux->notificaciones);
         while(aux_notificaciones != NULL) {
-            fprintf(archivo, "%s \n", aux_notificaciones);
+            fprintf(archivo, "%s\n", aux_notificaciones);
             aux_notificaciones = queue_next(aux->notificaciones);
         }
-        fprintf(archivo, "]");
-        fprintf(archivo, "\n");
+        fprintf(archivo, "FIN\n");
         pair = map_next(usuarios);
     }
     fclose(archivo);
