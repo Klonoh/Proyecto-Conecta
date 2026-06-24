@@ -5,6 +5,7 @@ SEGUIDORES 1
 joaquin
 NOTIFICACIONES 1
 El usuario joaquin ha comenzado a seguirte.
+
 FIN
 USUARIO prueba2 123
 PUBLICACIONES 0
@@ -31,6 +32,9 @@ test
 seba
 NOTIFICACIONES 3
 El usuario test ha comenzado a seguirte.
+
+
+
 El usuario seba ha comenzado a seguirte.
-El usuario seba ha publicado un nuevo mensaje.
+
 FIN

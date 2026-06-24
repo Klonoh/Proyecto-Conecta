@@ -1,15 +1,18 @@
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <string.h>
-# include <stdbool.h>
-# include <ctype.h>
-# include <time.h>
-# include "TDAs/graph.h"
-# include "TDAs/list.h"
-# include "TDAs/map.h"
-# include "TDAs/queue.h"
-# include "TDAs/extra.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <string.h>
+#include <stdbool.h>
+#include <ctype.h>
+#include <time.h>
+#ifdef _WIN32 //si se está compilando en Windows, se incluye la libreria windows.h
+    #include <windows.h>
+#endif
+#include "TDAs/graph.h"
+#include "TDAs/list.h"
+#include "TDAs/map.h"
+#include "TDAs/queue.h"
+#include "TDAs/extra.h"
 
 typedef struct Usuario {
     char user[16];
@@ -390,7 +393,7 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
         while (pub != NULL) {
             char fecha[20];
             formatearFecha(pub->timestamp, fecha, sizeof(fecha));
-            printf("\n%s: \n\n%s\n\n %s\n\n", pub->autor, pub->contenido, fecha);
+            printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
             pub = list_next(usuario->publicaciones);
         }
         puts("=======================================");
@@ -704,6 +707,9 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
 }
 
 int main(){
+    #ifdef _WIN32 //si es windows, se establece la codificación de salida a UTF-8 para que se muestren correctamente los caracteres especiales
+        SetConsoleOutputCP(CP_UTF8); 
+    #endif
 
     FILE *archivo_usuarios = fopen("Usuarios.txt", "r+");
 
