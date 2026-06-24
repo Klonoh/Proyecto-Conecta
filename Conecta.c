@@ -147,7 +147,7 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
             char autor[16], contenido[141];
             time_t timestamp;
             sscanf(line, "%s %ld %[^\n]", autor, &timestamp, contenido);
-
+            
             Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
             strcpy(nueva_publicacion->autor, autor);
             strcpy(nueva_publicacion->contenido, contenido);
@@ -174,6 +174,7 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
 
         for (int i = 0; i < n; i++) {
             fgets(line, sizeof(line), archivo);
+            line[strcspn(line, "\n")] = '\0'; // quitar el salto de línea del final
             queue_insert(usuario->notificaciones, strdup(line)); //se ingresan notificaciones
         }    
 

@@ -1,21 +1,6 @@
-USUARIO test 1234
-PUBLICACIONES 0
-SEGUIDOS 0
-SEGUIDORES 1
-joaquin
-NOTIFICACIONES 1
-El usuario joaquin ha comenzado a seguirte.
-
-FIN
-USUARIO prueba2 123
-PUBLICACIONES 0
-SEGUIDOS 0
-SEGUIDORES 0
-NOTIFICACIONES 0
-FIN
 USUARIO seba 123
 PUBLICACIONES 1
-seba 1782262400 hola
+seba 1782268687 hola
 SEGUIDOS 1
 joaquin
 SEGUIDORES 1
@@ -27,14 +12,17 @@ PUBLICACIONES 0
 SEGUIDOS 2
 seba
 test
-SEGUIDORES 2
-test
+SEGUIDORES 1
 seba
-NOTIFICACIONES 3
-El usuario test ha comenzado a seguirte.
-
-
-
+NOTIFICACIONES 2
 El usuario seba ha comenzado a seguirte.
-
+El usuario seba ha publicado un nuevo mensaje.
+FIN
+USUARIO test 123
+PUBLICACIONES 0
+SEGUIDOS 0
+SEGUIDORES 1
+joaquin
+NOTIFICACIONES 1
+El usuario joaquin ha comenzado a seguirte.
 FIN
