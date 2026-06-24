@@ -354,7 +354,9 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
         
         Publicacion *pub = list_first(usuario->publicaciones);
         while (pub != NULL) {
-            printf("\n%s: \n\n%s\n\n %ld\n\n", pub->autor, pub->contenido, pub->timestamp);
+            char fecha[20];
+            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+            printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
             pub = list_next(usuario->publicaciones);
         }
 
@@ -386,7 +388,9 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
     else if (usuario_actual != NULL && strcmp(usuario_actual->user, usuario->user) == 0) {
         Publicacion *pub = list_first(usuario->publicaciones);
         while (pub != NULL) {
-            printf("\n%s: \n\n%s\n\n %ld\n\n", pub->autor, pub->contenido, pub->timestamp);
+            char fecha[20];
+            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+            printf("\n%s: \n\n%s\n\n %s\n\n", pub->autor, pub->contenido, fecha);
             pub = list_next(usuario->publicaciones);
         }
         puts("=======================================");
