@@ -46,6 +46,7 @@ void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
 void verListaUsuarios( Usuario *usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios);
 void editarPerfil(Usuario *usuario_actual, Map *usuarios);
+//void verFeed(Usuario *usuario_actual, Map *usuarios);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -119,7 +120,7 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
     //por lo q al finalizarse esta funcion, username dejaba de existir y el puntero del mapa quedaba apuntando a una direccion de 
     //memoria inválida. este era el bug principal que no dejaba iniciar sesion.
 
-    printf("DEBUG: insertado '%s' en el mapa\n", username);
+    //printf("DEBUG: insertado '%s' en el mapa\n", username);
 }
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
@@ -655,31 +656,32 @@ void cerrarSesion(Usuario **usuario_actual) {
 }
 
 void mostrarMenuInicial(){
-  limpiarPantalla();
-  puts("=======================================");
-  puts("                Conecta");
-  puts("=======================================");
+    limpiarPantalla();
+    puts("=======================================");
+    puts("                Conecta");
+    puts("=======================================");
 
-  puts("1) Iniciar Sesión");
-  puts("2) Registrar Usuario");
-  puts("3) Salir");
+    puts("1) Iniciar Sesión");
+    puts("2) Registrar Usuario");
+    puts("3) Salir");
 }
 
 void mostrarMenuPrincipal(Usuario *usuario_actual){
-  limpiarPantalla();
-  puts("=======================================");
-  puts("                Conecta");
-  puts("=======================================");
+  
+    limpiarPantalla();
+    puts("=======================================");
+    puts("                Conecta");
+    puts("=======================================");
 
-  printf("Bienvenido, %s\n", usuario_actual->user);
-  puts("1) Ver feed");
-  puts("2) Publicar mensaje");
-  puts("3) Buscar usuario");
-  puts("4) Ver notificaciones");
-  puts("5) Ver mi perfil");
-  puts("6) Sugerencias para ti");
-  puts("7) Cerrar sesión");
-  puts("8) Salir");
+    printf("Bienvenido, %s\n", usuario_actual->user);
+    puts("1) Ver feed");
+    puts("2) Publicar mensaje");
+    puts("3) Buscar usuario");
+    puts("4) Ver notificaciones");
+    puts("5) Ver mi perfil");
+    puts("6) Sugerencias para ti");
+    puts("7) Cerrar sesión");
+    puts("8) Salir");
 }
 
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {

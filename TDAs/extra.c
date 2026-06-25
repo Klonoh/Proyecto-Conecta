@@ -1,7 +1,13 @@
 #include "extra.h"
 #include <time.h>
 // Función para limpiar la pantalla
-void limpiarPantalla() { system("clear"); }
+void limpiarPantalla() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
 
 void presioneTeclaParaContinuar() {
     puts("Presione una tecla para continuar...");
