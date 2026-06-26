@@ -42,20 +42,21 @@ void salir(Map *usuarios, FILE *archivo);
 void mostrarMenuInicial(void);
 void mostrarMenuPrincipal(Usuario *usuario_actual);
 void cerrarSesion(Usuario **usuario_actual);
-void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios);
-void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada);
-void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada);
-void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir);
-void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir);
+void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios, Graph *grafo);
+void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph *grafo);
+void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph *grafo);
+void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir, Graph *grafo);
+void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir, Graph *grafo);
 void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
-void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada);
-void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada);
+void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph *grafo);
+void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph *grafo);
 void verFeed(Usuario *usuario_actual);
-void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada);
-Sugerencia *buscarSugerencia(List *sugerencias, Usuario *usuario);
-bool usuarioYaSeguido(Usuario *usuario_actual, Usuario *posible);
+void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, int *sesion_iniciada);
+Sugerencia *buscarSugerencia(List *sugerencias, const char *username);
+bool yaSigue(Usuario *usuario_actual, const char *username);
 int ordenarSugerencias(const void *a, const void *b);
+void construirGrafoDesdeUsuarios(Map *usuarios, Graph *grafo);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -282,7 +283,7 @@ void publicarMensaje(Usuario *usuario_actual) {
     }
 }
 
-void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada) {
+void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph *grafo) {
     while (1) {
         limpiarPantalla();
         puts("=======================================");
@@ -328,7 +329,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
 
                     if (strstr(usuario->user, username) != NULL) {
                         if (contador == opcion) {
-                            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada);
+                            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo);
                             break;
                         }
                         contador++;
@@ -352,7 +353,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
     }
 }
 
-void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada) {
+void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
     limpiarPantalla();
     puts("=======================================");
     printf("               %s\n", usuario->user);
@@ -403,10 +404,10 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
 
         if (opcion == 1) {
             if (ya_sigue == true) {
-                dejarDeSeguirUsuario(*usuario_actual, usuario);
+                dejarDeSeguirUsuario(*usuario_actual, usuario, grafo);
                 presioneTeclaParaContinuar();
             } else if (ya_sigue == false) {
-                seguirUsuario(*usuario_actual, usuario);
+                seguirUsuario(*usuario_actual, usuario, grafo);
                 presioneTeclaParaContinuar();
             }
         } else if (opcion == 2) {
@@ -414,7 +415,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         } else {
             printf("Opción inválida.\n");
             presioneTeclaParaContinuar();
-            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada); // Volver a mostrar el perfil
+            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
         }
     } 
     else if (*usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
@@ -439,13 +440,13 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
 
         switch (opcion) {
             case 1:
-                verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada);
+                verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada, grafo);
                 break;
             case 2:
-                verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada);
+                verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada, grafo);
                 break;
             case 3:
-                editarPerfil(usuario_actual, usuarios, sesion_iniciada);
+                editarPerfil(usuario_actual, usuarios, sesion_iniciada, grafo);
                 break;
             case 4:
                 return; // Volver
@@ -453,7 +454,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
                 printf("Opción inválida. Volviendo al menu principal...\n");
                 int c;
                 while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
-                //MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada); // Volver a mostrar el perfil
+                //MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
                 return;
         }
 
@@ -525,7 +526,7 @@ void verFeed(Usuario* usuario_actual) {
 
 }   
 
-void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
+void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir, Graph *grafo) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -549,10 +550,11 @@ void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     char notificacion[100];
     snprintf(notificacion, sizeof(notificacion), "El usuario %s ha comenzado a seguirte.", usuario_actual->user);
     queue_insert(usuario_a_seguir->notificaciones, strdup(notificacion));
+    addEdge(grafo, usuario_actual->user, usuario_a_seguir->user);
     printf("Ahora sigues a %s.\n", usuario_a_seguir->user);
 }
 
-void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir) {
+void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir, Graph *grafo) {
     if (usuario_actual == NULL || usuario_a_dejar_de_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -577,6 +579,8 @@ void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_s
         }
         aux = list_next(seguidores);
     }
+
+    removeEdge(grafo, usuario_actual->user, usuario_a_dejar_de_seguir->user);
 
     printf("Has dejado de seguir a %s.\n", usuario_a_dejar_de_seguir->user);
 }
@@ -611,7 +615,7 @@ void verNotificaciones(Usuario *usuario_actual) {
     queue_clean(notificaciones); // Limpiar las notificaciones después de mostrarlas
 }
 
-void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada) {
+void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
     if (usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -650,7 +654,7 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
     int contador_usuario = 1;
     while (usuario != NULL) {
         if (contador_usuario == opcion) {
-            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada);
+            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo);
             return;
         }
         usuario = list_next(lista);
@@ -658,7 +662,7 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
     }
 }
 
-void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada) {
+void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
     if (usuario_actual == NULL || *usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -696,8 +700,8 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada)
             }
 
             if (map_search(usuarios, nuevo_username) != NULL) {
-            printf("El nombre de usuario ya existe. Intente con otro.\n");
-            continue;
+                printf("El nombre de usuario ya existe. Intente con otro.\n");
+                continue;
             }
 
             break; 
@@ -774,7 +778,7 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada)
 
         if(strcmp(confirmacion, "confirmo") != 0){
             printf("Texto incorrecto.\n");
-            editarPerfil(usuario_actual, usuarios, sesion_iniciada);
+            editarPerfil(usuario_actual, usuarios, sesion_iniciada, grafo);
             return;
         }
 
@@ -842,6 +846,8 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada)
 
         free(*usuario_actual);
 
+        removeNode(grafo, (*usuario_actual)->user);
+
 
         printf("Cuenta eliminada correctamente.\n");
 
@@ -850,6 +856,166 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada)
 
         return;
 
+    }
+}
+
+bool yaSigue(Usuario *usuario_actual, const char *username) {
+    Usuario *seguido = list_first(usuario_actual->seguidos);
+
+    while (seguido != NULL) {
+        if (strcmp(seguido->user, username) == 0)
+            return true;
+
+        seguido = list_next(usuario_actual->seguidos);
+    }
+
+    return false;
+}
+
+Sugerencia *buscarSugerencia(List *sugerencias, const char *username) {
+    Sugerencia *sug = list_first(sugerencias);
+
+    while (sug != NULL) {
+        if (strcmp(sug->usuario->user, username) == 0)
+            return sug;
+
+        sug = list_next(sugerencias);
+    }
+
+    return NULL;
+}
+
+int ordenarSugerencias(const void *a, const void *b) {
+    Sugerencia *sugA = *(Sugerencia **)a;
+    Sugerencia *sugB = *(Sugerencia **)b;
+
+    return sugB->peso - sugA->peso;
+}
+
+void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, int *sesion_iniciada) {
+    if (usuario_actual == NULL || *usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+
+    limpiarPantalla();
+    puts("=======================================");
+    puts("        Sugerencias para ti");
+    puts("=======================================");
+
+    List *sugerencias = list_create();
+
+    List *nivel1 = getAdjacentLabels(grafo, (*usuario_actual)->user);
+    if (nivel1 == NULL) {
+    printf("No hay sugerencias disponibles por ahora.\n");
+    return;
+    }
+    char *seguido = list_first(nivel1);
+
+    while (seguido != NULL) {
+        List *nivel2 = getAdjacentLabels(grafo, seguido);
+        char *candidato = list_first(nivel2);
+
+        while (candidato != NULL) {
+            bool soy_yo = strcmp(candidato, (*usuario_actual)->user) == 0;
+            bool lo_sigo = yaSigue(*usuario_actual, candidato);
+
+            if (!soy_yo && !lo_sigo) {
+                Sugerencia *existente = buscarSugerencia(sugerencias, candidato);
+                if (existente != NULL) existente->peso++;
+                else {
+                    MapPair *pair = map_search(usuarios, candidato);
+
+                    if (pair != NULL) { 
+                        Sugerencia *nueva = malloc(sizeof(Sugerencia));
+                        nueva->usuario = pair->value;
+                        nueva->peso = 1;
+                        list_pushBack(sugerencias, nueva);
+                    }
+                }
+            }
+            candidato = list_next(nivel2);
+        }
+        list_clean(nivel2);
+        free(nivel2);
+
+        seguido = list_next(nivel1);
+    }
+
+    list_clean(nivel1);
+    free(nivel1);
+
+    int cantidad = list_size(sugerencias);
+
+    if (cantidad == 0) {
+        printf("No hay sugerencias disponibles por ahora.\n");
+        list_clean(sugerencias);
+        free(sugerencias);
+        return;
+    }
+
+    Sugerencia **arreglo = malloc(cantidad * sizeof(Sugerencia *));
+    Sugerencia *sug = list_first(sugerencias);
+
+    int i = 0;
+    while (sug != NULL) {
+        arreglo[i++] = sug;
+        sug = list_next(sugerencias);
+    }
+
+    qsort(arreglo, cantidad, sizeof(Sugerencia *), ordenarSugerencias);
+
+    for (int i = 0; i < cantidad; i++) {
+        printf("%2d) %s | peso: %d\n", i + 1, arreglo[i]->usuario->user, arreglo[i]->peso);
+    }
+
+    puts("=======================================");
+    printf("\nIngrese el número del usuario que desea ver (0 para volver): ");
+
+    int opcion;
+    scanf("%d", &opcion);
+
+    while (opcion < 0 || opcion > cantidad) {
+        printf("Opción inválida.\n");
+        printf("Ingrese nuevamente: ");
+        scanf("%d", &opcion);
+    }
+
+    if (opcion > 0) {
+        MostrarPerfil(usuario_actual, arreglo[opcion - 1]->usuario, usuarios, sesion_iniciada, grafo);
+    }
+
+    for (int i = 0; i < cantidad; i++) {
+        free(arreglo[i]);
+    }
+
+    free(arreglo);
+    list_clean(sugerencias);
+    free(sugerencias);
+
+}
+
+void construirGrafoDesdeUsuarios(Map *usuarios, Graph *grafo) {
+    MapPair *pair = map_first(usuarios);
+
+    while (pair != NULL) {
+        Usuario *usuario = pair->value;
+        addNode(grafo, usuario->user);
+        pair = map_next(usuarios);
+    }
+
+    pair = map_first(usuarios);
+
+    while (pair != NULL) {
+        Usuario *usuario = pair->value;
+
+        Usuario *seguido = list_first(usuario->seguidos);
+        while (seguido != NULL) {
+            addEdge(grafo, usuario->user, seguido->user);
+            seguido = list_next(usuario->seguidos);
+        }
+
+        pair = map_next(usuarios);
     }
 }
 
@@ -948,7 +1114,7 @@ void mostrarMenuPrincipal(Usuario *usuario_actual){
     puts("8) Salir");
 }
 
-void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
+void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios, Graph *grafo) {
     char opcion_inicial = '\0'; //se inicializa para evitar q contenga valores basura
     do{
         mostrarMenuInicial();
@@ -961,6 +1127,9 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
             break;
         case '2':
             *sesion_iniciada = registrarUsuario(usuarios, usuario_actual);
+            if (*sesion_iniciada) {
+                addNode(grafo, (*usuario_actual)->user);
+            }
             break;
         case '3':
             salir(usuarios, archivo_usuarios);
@@ -987,6 +1156,9 @@ int main(){
         printf("No se pudo abrir el archivo de usuarios. Se iniciará con una base de datos vacía.\n");
     }
 
+    Graph *grafo = createGraph();
+    construirGrafoDesdeUsuarios(usuarios, grafo);
+
     
     char opcion = '\0'; //se inicializa para evitar q contenga valores basura
     int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
@@ -995,7 +1167,11 @@ int main(){
     int enEjecucion = 1; // Variable para controlar el bucle principal
 
     while (enEjecucion) {
-        menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios);
+        menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios, grafo);
+
+        if (usuario_actual != NULL) {
+            addNode(grafo, usuario_actual->user);
+        }
 
         if (!sesion_iniciada) {
             enEjecucion = 0; //si el usuario escoge opcion 3 (salir) en el menu inicial, se sale del programa
@@ -1015,15 +1191,16 @@ int main(){
                 publicarMensaje(usuario_actual);
                 break;
             case '3':
-                buscarUsuario(usuarios, &usuario_actual, &sesion_iniciada);
+                buscarUsuario(usuarios, &usuario_actual, &sesion_iniciada, grafo);
                 break;
             case '4':
                 verNotificaciones(usuario_actual);
                 break;
             case '5':
-                MostrarPerfil(&usuario_actual, usuario_actual, usuarios, &sesion_iniciada);
+                MostrarPerfil(&usuario_actual, usuario_actual, usuarios, &sesion_iniciada, grafo);
                 break;
             case '6':
+                sugerenciasParaTi(&usuario_actual, usuarios, grafo, &sesion_iniciada);
                 break;
             case '7':
                 sesion_iniciada = 0; // Marcar que la sesión no está iniciada
