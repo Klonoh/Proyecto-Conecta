@@ -46,23 +46,28 @@ void mostrarMenuPrincipal(Usuario *usuario_actual){
 }
 
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios, Graph *grafo) {
-    char opcion_inicial = '\0'; //se inicializa para evitar q contenga valores basura
-    do{
+    int opcion_inicial = 0; //se inicializa para evitar q contenga valores basura
+    do {
         mostrarMenuInicial();
         printf("Ingrese su opción: ");
-        scanf(" %c", &opcion_inicial);
-    
+        if (scanf(" %d", &opcion_inicial) != 1) {
+            opcion_inicial = 0; // Opción inválida, se reinicia a 0
+        }
+        
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF); // Limpiar el buffer de entrada
+
         switch (opcion_inicial) {
-        case '1':
+        case 1:
             *sesion_iniciada = iniciarSesion(usuarios, usuario_actual);
             break;
-        case '2':
+        case 2:
             *sesion_iniciada = registrarUsuario(usuarios, usuario_actual);
             if (*sesion_iniciada) {
                 addNode(grafo, (*usuario_actual)->user);
             }
             break;
-        case '3':
+        case 3:
             salir(usuarios, archivo_usuarios);
             break;
         default:

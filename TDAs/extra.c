@@ -11,8 +11,7 @@ void limpiarPantalla() {
 
 void presioneTeclaParaContinuar() {
     puts("Presione una tecla para continuar...");
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF); // limpia buffer completo
+    fseek(stdin, 0, SEEK_END);
     getchar(); // espera a que el usuario presione una tecla
 }
 
