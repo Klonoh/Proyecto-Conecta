@@ -205,6 +205,11 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
         if (leidos != 2) continue; // línea vacía o basura, saltarla
 
         MapPair *pair_usuario = map_search(usuarios, username);
+
+        if (pair_usuario == NULL) {
+            continue;
+        }
+
         Usuario *usuario = pair_usuario->value;
 
         fgets(line, sizeof(line), archivo); //leer la línea de publicaciones
@@ -448,7 +453,13 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("3) Editar perfil\n");
         printf("4) Volver\n");
         printf("\nIngrese su opción: ");
-        scanf("%d", &opcion);
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4) {
+            printf("Opción inválida.\n");
+            printf("Ingrese nuevamente: ");
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
 
         switch (opcion) {
             case 1:
@@ -663,9 +674,15 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
         printf("Opción inválida. Intente de nuevo: \n");
         while (getchar() != '\n'); // Limpiar el buffer de entrada
     }
-    while(opcion < 0 || opcion > contador) {
-        printf("Opción inválida. Intente de nuevo: \n");
-        scanf("%d", &opcion);
+    while (opcion < 0 || opcion > contador) {
+        printf("Opción inválida. Intente de nuevo: ");
+
+        while (scanf("%d", &opcion) != 1) {
+            printf("Opción inválida. Intente de nuevo: ");
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
     }
     if (opcion == 0) {
         return; // Cancelar y volver al menú principal
@@ -698,11 +715,12 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
 
     int opcion;
     printf("\nIngrese su opción: ");
-    scanf("%d", &opcion);
-    while(opcion < 1 || opcion > 4) {
+    while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4) {
         printf("Opción inválida.\n");
         printf("Ingrese nuevamente: ");
-        scanf("%d", &opcion);
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
     }
     if(opcion == 1) {
         char nuevo_username[16];
@@ -1007,12 +1025,13 @@ void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph **grafo, i
     printf("\nIngrese el número del usuario que desea ver (0 para volver): ");
 
     int opcion;
-    scanf("%d", &opcion);
 
-    while (opcion < 0 || opcion > limite) {
+    while (scanf("%d", &opcion) != 1 || opcion < 0 || opcion > limite) {
         printf("Opción inválida.\n");
         printf("Ingrese nuevamente: ");
-        scanf("%d", &opcion);
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
     }
 
     if (opcion > 0) {
@@ -1067,6 +1086,11 @@ void salir(Map *usuarios, FILE *archivo) {
     }
 
     archivo = fopen("Usuarios.txt", "w");
+
+    if (archivo == NULL) {
+        printf("Error al guardar los usuarios.\n");
+        exit(1);
+    }
 
     MapPair *pair = map_first(usuarios);
 
