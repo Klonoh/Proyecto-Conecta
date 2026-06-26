@@ -20705,7 +20705,7 @@ nachomap
 noticiero24
 renataai
 streamqueen
-SEGUIDORES 352
+SEGUIDORES 353
 agus576
 agus995
 aguscl
@@ -21058,7 +21058,8 @@ valeria_dev
 valeriacola
 vicente_vx
 victor_tech
-NOTIFICACIONES 7
+seba
+NOTIFICACIONES 8
 El usuario streamqueen te menciono en una publicacion.
 El usuario nachomap te menciono en una publicacion.
 El usuario ivanstorm te menciono en una publicacion.
@@ -21066,6 +21067,7 @@ El usuario dominic_fox ha comenzado a seguirte.
 El usuario martincat ha comenzado a seguirte.
 El usuario aialerta ha publicado un nuevo mensaje.
 El usuario streamqueen ha publicado un nuevo mensaje.
+El usuario seba ha comenzado a seguirte.
 FIN
 USUARIO techinsider cele123
 PUBLICACIONES 16
@@ -21880,7 +21882,7 @@ juanx
 liam_kernel
 martin91
 sofifit
-SEGUIDORES 382
+SEGUIDORES 383
 agus211
 agus576
 agustin335
@@ -22263,7 +22265,8 @@ vicente928
 vicente_vx
 vichox
 victorx
-NOTIFICACIONES 7
+seba
+NOTIFICACIONES 8
 El usuario golazo24 te menciono en una publicacion.
 El usuario martin91 te menciono en una publicacion.
 El usuario claudia706 te menciono en una publicacion.
@@ -22271,6 +22274,7 @@ El usuario cata_run ha comenzado a seguirte.
 El usuario golazo24 ha publicado un nuevo mensaje.
 El usuario cineadicto ha publicado un nuevo mensaje.
 Hay nuevos temas populares en tu feed.
+El usuario seba ha comenzado a seguirte.
 FIN
 USUARIO gadgetnews cele123
 PUBLICACIONES 20
@@ -25012,7 +25016,7 @@ martin_lista
 martinvx
 raultv
 vicente928
-SEGUIDORES 348
+SEGUIDORES 349
 agus576
 agustin_nova
 agustinmeme
@@ -25361,11 +25365,13 @@ victor415
 victor_star
 victor_tech
 victorx
-NOTIFICACIONES 4
+seba
+NOTIFICACIONES 5
 El usuario martin60 ha comenzado a seguirte.
 El usuario mati899 ha comenzado a seguirte.
 El usuario camilafit ha comenzado a seguirte.
 Hay nuevas sugerencias basadas en conexiones en comun.
+El usuario seba ha comenzado a seguirte.
 FIN
 USUARIO viajescl cele123
 PUBLICACIONES 20
@@ -76818,11 +76824,13 @@ PUBLICACIONES 0
 SEGUIDOS 2
 seba
 agustinmeme
-SEGUIDORES 0
-NOTIFICACIONES 1
+SEGUIDORES 1
+seba
+NOTIFICACIONES 2
 El usuario seba ha publicado un nuevo mensaje.
+El usuario seba ha comenzado a seguirte.
 FIN
-USUARIO seba 123
+USUARIO seba 1234
 PUBLICACIONES 20
 seba 1782520000 El feed se siente mas vivo cuando hay cuentas grandes comentando de todo
 seba 1782523600 Hoy el Mundial y la IA se pelearon el primer lugar del timeline
@@ -76844,7 +76852,7 @@ seba 1782606142 @stacklord tu prediccion duro menos que mi cafe
 seba 1782701678 @klonoh tu teoria del Mundial parecia meme pero ahora tiene sentido
 seba 1782701683 @tito lo de no era penal ya es tradicion entre nosotros
 seba 1782515527 221212
-SEGUIDOS 73
+SEGUIDOS 77
 agus211
 agustinmeme
 aialerta
@@ -76918,6 +76926,10 @@ valebeta
 valebyte
 varcentral
 cineadicto
+datawizard
+cancha360
+chefviral
+aleg
 SEGUIDORES 66
 agusbash
 alonsobits

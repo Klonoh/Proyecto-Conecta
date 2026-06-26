@@ -230,7 +230,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
             if (offset == 1 && opcion == 1) continue; //el usuario eligio mostrar mas publis
 
             int accion = (offset == 1) ? opcion - 1 : opcion; //ajustar accion segun offset
-            
+
             switch (accion) {
                 case 1:
                     verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada, grafo);
@@ -447,6 +447,7 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
             reconstruirGrafo(usuarios, grafo);
 
             printf("Nombre de usuario actualizado correctamente.\n");
+            presioneTeclaParaContinuar();
 
     }
     else if(opcion == 2) {
@@ -485,6 +486,7 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
         strcpy((*usuario_actual)->pass, nueva_password);
 
         printf("Contraseña actualizada exitosamente.\n");
+        presioneTeclaParaContinuar();
     }
     else if(opcion == 3) {
         char confirmacion[10];

@@ -87,4 +87,5 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
 void cerrarSesion(Usuario **usuario_actual) {
     *usuario_actual = NULL;
     printf("Sesión cerrada exitosamente.\n");
+    presioneTeclaParaContinuar();
 }

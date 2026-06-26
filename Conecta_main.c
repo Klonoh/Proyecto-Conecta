@@ -97,8 +97,6 @@ int main() {
                     break;
             }
 
-            presioneTeclaParaContinuar();
-
         } while (opcion != 9 && sesion_iniciada);
     }
 
