@@ -98,13 +98,24 @@ int _is_equal(Map *map, MapPair *pair, void *key) {
            !map->lower_than(key, pair->key)));
 }
 
-MapPair *map_remove(Map *map, void *key) {
+void *map_remove(Map *map, void *key) {
+  if (map == NULL) return NULL;
+
   for (MapPair *pair = list_first(map->ls); pair != NULL;
-       pair = list_next(map->ls))
+       pair = list_next(map->ls)) {
+
     if (_is_equal(map, pair, key)) {
+      void *value = pair->value;
+
       list_popCurrent(map->ls);
-      return pair;
+
+      free(pair->key);
+      free(pair);
+
+      return value;
     }
+  }
+
   return NULL;
 }
 

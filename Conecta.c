@@ -34,6 +34,11 @@ typedef struct Sugerencia {
     int peso;
 } Sugerencia;
 
+typedef struct Tendencia {
+    char hashtag[50];
+    int contador;
+} Tendencia;
+
 bool iniciarSesion(Map *usuarios, Usuario **usuario_actual);
 bool registrarUsuario(Map *usuarios, Usuario **usuario_actual);
 void inicializarUsuario(Map *usuarios, char *username, char *password);
@@ -43,20 +48,32 @@ void mostrarMenuInicial(void);
 void mostrarMenuPrincipal(Usuario *usuario_actual);
 void cerrarSesion(Usuario **usuario_actual);
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios, Graph *grafo);
-void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph *grafo);
-void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph *grafo);
+void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph **grafo);
+void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph **grafo);
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir, Graph *grafo);
 void dejarDeSeguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_dejar_de_seguir, Graph *grafo);
 void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
-void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph *grafo);
-void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph *grafo);
+void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph **grafo);
+void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph **grafo);
 void verFeed(Usuario *usuario_actual);
-void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, int *sesion_iniciada);
+void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph **grafo, int *sesion_iniciada);
 Sugerencia *buscarSugerencia(List *sugerencias, const char *username);
 bool yaSigue(Usuario *usuario_actual, const char *username);
 int ordenarSugerencias(const void *a, const void *b);
 void construirGrafoDesdeUsuarios(Map *usuarios, Graph *grafo);
+void reconstruirGrafo(Map *usuarios, Graph **grafo);
+bool usernameValido(const char *username);
+void convertirUsernameMinusculas(char *username);
+void verTendencias(Map *usuarios);
+bool hashtagValido(char c);
+void contarHashtag(Map *hashtags, const char *hashtag);
+void procesarHashtagsPublicacion(Map *hashtags, const char *contenido);
+int ordenarTendencias(const void *a, const void *b);
+void liberarMapaConteos(Map *hashtags);
+bool publicacionContieneHashtag(const char *contenido, const char *hashtag);
+void mostrarPublicacionesPorHashtag(Map *usuarios, const char *hashtag);
+
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -71,9 +88,9 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     char password[21];
     printf("Ingrese su nombre de usuario: ");
     scanf("%15s", username);
-    for (int i = 0; username[i] != '\0'; i++) {
-        username[i] = tolower(username[i]);
-    }
+
+    convertirUsernameMinusculas(username);
+
     printf("Ingrese su contraseña: ");
     scanf("%20s", password);
     MapPair *pair = map_search(usuarios, username);
@@ -96,23 +113,36 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     puts("=======================================");
     puts("           Registrar Usuario");
     puts("=======================================");
+
     char username[16];
+    char username_input[50];
     char password[21];
     char confirmar_pass[21];
-    printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
-    scanf("%15s", username);
-    for (int i = 0; username[i] != '\0'; i++) {
-        username[i] = tolower(username[i]);
+
+    while (1) {
+        printf("Ingrese un nombre de usuario: (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"): ");
+        scanf("%49s", username_input);
+
+        if (!usernameValido(username_input)) {
+            printf("Nombre de usuario inválido.\n");
+            continue;
+        }
+
+        convertirUsernameMinusculas(username_input);
+
+        if (map_search(usuarios, username_input) != NULL) {
+            printf("El nombre de usuario ya existe. Intente con otro.\n");
+            continue;
+        }
+
+        strcpy(username, username_input);
+        break;
     }
     printf("Ingrese una contraseña: (máximo 20 caracteres) ");
     scanf("%20s", password);
 
     printf("Confirme la contraseña: ");
     scanf("%20s", confirmar_pass);
-    if (map_search(usuarios, username) != NULL) {
-        printf("El nombre de usuario ya existe. Intente con otro.\n");
-        return 0;
-    }
 
     if (strcmp(password, confirmar_pass) != 0) {
         printf("Las contraseñas ingresadas no coinciden entre sí. Intente nuevamente.\n");
@@ -124,6 +154,36 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     
     *usuario_actual = map_search(usuarios, username)->value;
     return 1;
+}
+
+bool usernameValido(const char *username) {
+    int largo = strlen(username);
+
+    if (largo < 4 || largo > 15) {
+        return false;
+    }
+
+    for (int i = 0; username[i] != '\0'; i++) {
+        unsigned char c = (unsigned char) username[i];
+
+        bool es_letra = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        bool es_numero = (c >= '0' && c <= '9');
+        bool es_simbolo_valido = (c == '.' || c == '_');
+
+        if (!es_letra && !es_numero && !es_simbolo_valido) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void convertirUsernameMinusculas(char *username) {
+    for (int i = 0; username[i] != '\0'; i++) {
+        if (username[i] >= 'A' && username[i] <= 'Z') {
+            username[i] = username[i] + 32;
+        }
+    }
 }
 
 void inicializarUsuario(Map *usuarios, char *username, char *password) {
@@ -142,9 +202,7 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
 
     //primera pasada:
     //se crean los usuarios y se agregan sus publicaciones y notificaciones
-    printf("DEBUG: leyendo archivo de usuarios\n");
     while (fgets(line, sizeof(line), archivo)) {
-        printf("DEBUG: linea = %s\n", line); 
         char username[16], password[21];
         int leidos = sscanf(line, "USUARIO %s %s", username, password);
         if (leidos != 2) continue; // línea vacía o basura, saltarla
@@ -205,6 +263,11 @@ void leerArchivo(Map *usuarios, FILE *archivo) {
         if (leidos != 2) continue; // línea vacía o basura, saltarla
 
         MapPair *pair_usuario = map_search(usuarios, username);
+
+        if (pair_usuario == NULL) {
+            continue;
+        }
+
         Usuario *usuario = pair_usuario->value;
 
         fgets(line, sizeof(line), archivo); //leer la línea de publicaciones
@@ -261,9 +324,12 @@ void publicarMensaje(Usuario *usuario_actual) {
     puts("=======================================");
     char contenido[141];
     printf("Ingrese el contenido de su mensaje (máximo 140 caracteres): ");
-    getchar(); // Limpiar el buffer de entrada
+
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
     fgets(contenido, sizeof(contenido), stdin);
-    contenido[strcspn(contenido, "\n")] = '\0'; // Eliminar el salto de línea al final
+    contenido[strcspn(contenido, "\n")] = '\0';
 
     Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
     strcpy(nueva_publicacion->contenido, contenido);
@@ -283,7 +349,7 @@ void publicarMensaje(Usuario *usuario_actual) {
     }
 }
 
-void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph *grafo) {
+void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph **grafo) {
     while (1) {
         limpiarPantalla();
         puts("=======================================");
@@ -292,9 +358,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
         char username[16];
         printf("Ingrese el nombre de usuario a buscar: ");
         scanf("%15s", username);
-        for (int i = 0; username[i] != '\0'; i++) {
-            username[i] = tolower(username[i]);
-        }
+        convertirUsernameMinusculas(username);
         MapPair *pair = map_first(usuarios);
         int coincidencias = 0;
 
@@ -353,7 +417,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
     }
 }
 
-void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
+void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph **grafo) {
     limpiarPantalla();
     puts("=======================================");
     printf("               %s\n", usuario->user);
@@ -398,25 +462,19 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         int opcion;
         printf("\nIngrese su opción: ");
 
-        while (scanf("%d", &opcion) != 1) {
-                printf("Opción inválida. Intente de nuevo: \n");
-                while (getchar() != '\n'); // Limpiar el buffer de entrada
-            }
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 2) {
+            printf("Opción inválida. Intente de nuevo: ");
 
-        while(opcion < 1 || opcion > 2) {
-            printf("Opción inválida. Intente de nuevo:\n");
-            while (scanf("%d", &opcion) != 1) {
-            printf("Opción inválida. Intente de nuevo: \n");
-            while (getchar() != '\n'); //limpiar el buffer de entrada
-        }
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
         }
         
         if (opcion == 1) {
             if (ya_sigue == true) {
-                dejarDeSeguirUsuario(*usuario_actual, usuario, grafo);
+                dejarDeSeguirUsuario(*usuario_actual, usuario, *grafo);
                 presioneTeclaParaContinuar();
             } else if (ya_sigue == false) {
-                seguirUsuario(*usuario_actual, usuario, grafo);
+                seguirUsuario(*usuario_actual, usuario, *grafo);
                 presioneTeclaParaContinuar();
             }
         } else if (opcion == 2) {
@@ -427,7 +485,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
             MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
         }
     } 
-    else if (*usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
+    else if (usuario_actual != NULL && *usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
         Publicacion *pub = list_first(usuario->publicaciones);
         while (pub != NULL) {
             char fecha[30];
@@ -445,7 +503,13 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("3) Editar perfil\n");
         printf("4) Volver\n");
         printf("\nIngrese su opción: ");
-        scanf("%d", &opcion);
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4) {
+            printf("Opción inválida.\n");
+            printf("Ingrese nuevamente: ");
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
 
         switch (opcion) {
             case 1:
@@ -476,7 +540,13 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
 int ordenar(const void *a, const void *b) {
     Publicacion *pubA = *(Publicacion **)a;
     Publicacion *pubB = *(Publicacion **)b;
-    return (pubB->timestamp - pubA->timestamp); //orden descendente (mas reciente primero)
+
+    //orden descendente (mas reciente primero)
+    if (pubB->timestamp > pubA->timestamp) return 1; 
+
+    if (pubB->timestamp < pubA->timestamp) return -1;
+
+    return 0;
 }
 
 void verFeed(Usuario* usuario_actual) {
@@ -624,7 +694,7 @@ void verNotificaciones(Usuario *usuario_actual) {
     queue_clean(notificaciones); // Limpiar las notificaciones después de mostrarlas
 }
 
-void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
+void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada, Graph **grafo) {
     if (usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -654,9 +724,15 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
         printf("Opción inválida. Intente de nuevo: \n");
         while (getchar() != '\n'); // Limpiar el buffer de entrada
     }
-    while(opcion < 0 || opcion > contador) {
-        printf("Opción inválida. Intente de nuevo: \n");
-        scanf("%d", &opcion);
+    while (opcion < 0 || opcion > contador) {
+        printf("Opción inválida. Intente de nuevo: ");
+
+        while (scanf("%d", &opcion) != 1) {
+            printf("Opción inválida. Intente de nuevo: ");
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
     }
     if (opcion == 0) {
         return; // Cancelar y volver al menú principal
@@ -673,7 +749,7 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
     }
 }
 
-void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph *grafo) {
+void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada, Graph **grafo) {
     if (usuario_actual == NULL || *usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -689,57 +765,66 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
 
     int opcion;
     printf("\nIngrese su opción: ");
-    scanf("%d", &opcion);
-    while(opcion < 1 || opcion > 4) {
+    while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4) {
         printf("Opción inválida.\n");
         printf("Ingrese nuevamente: ");
-        scanf("%d", &opcion);
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
     }
     if(opcion == 1) {
         char nuevo_username[16];
+        char nuevo_username_input[50];
+
         while (1) {
             printf("Ingrese el nuevo nombre de usuario: ");
-            scanf("%15s", nuevo_username);
+            scanf("%49s", nuevo_username_input);
 
-            for (int i = 0; nuevo_username[i] != '\0'; i++) {
-            nuevo_username[i] = tolower(nuevo_username[i]);
+            if (!usernameValido(nuevo_username_input)) {
+                printf("Nombre de usuario inválido (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"):\n");
+                continue;
             }
 
-            if (strcmp(nuevo_username, (*usuario_actual)->user) == 0) {
+            convertirUsernameMinusculas(nuevo_username_input);
+
+            if (strcmp(nuevo_username_input, (*usuario_actual)->user) == 0) {
                 printf("El nuevo nombre de usuario no puede ser igual al actual.\n");
                 continue;
             }
 
-            if (map_search(usuarios, nuevo_username) != NULL) {
+            if (map_search(usuarios, nuevo_username_input) != NULL) {
                 printf("El nombre de usuario ya existe. Intente con otro.\n");
                 continue;
             }
 
+            strcpy(nuevo_username, nuevo_username_input);
             break; 
-        }       
-
-        
-        char nombre_antiguo[16];
-        strcpy(nombre_antiguo, (*usuario_actual)->user);
-
-        MapPair *eliminado = map_remove(usuarios, nombre_antiguo);
-
-        if (eliminado == NULL) {
-            printf("Error al actualizar el usuario.\n");
-            return;
         }
 
-        strcpy((*usuario_actual)->user, nuevo_username);
+            
+            char nombre_antiguo[16];
+            strcpy(nombre_antiguo, (*usuario_actual)->user);
 
-        Publicacion *pub = list_first((*usuario_actual)->publicaciones);
-            while (pub != NULL) {
-            strcpy(pub->autor, nuevo_username);
-            pub = list_next((*usuario_actual)->publicaciones);
-        }
+            Usuario *usuario_sacado = map_remove(usuarios, nombre_antiguo);
 
-        map_insert(usuarios, strdup(nuevo_username), *usuario_actual);
+            if (usuario_sacado == NULL) {
+                printf("Error al actualizar el usuario.\n");
+                return;
+            }
 
-        printf("Nombre de usuario actualizado correctamente.\n");
+            strcpy((*usuario_actual)->user, nuevo_username);
+
+            Publicacion *pub = list_first((*usuario_actual)->publicaciones);
+                while (pub != NULL) {
+                strcpy(pub->autor, nuevo_username);
+                pub = list_next((*usuario_actual)->publicaciones);
+            }
+
+            map_insert(usuarios, strdup(nuevo_username), *usuario_actual);
+
+            reconstruirGrafo(usuarios, grafo);
+
+            printf("Nombre de usuario actualizado correctamente.\n");
 
     }
     else if(opcion == 2) {
@@ -824,9 +909,9 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
             seguidor = list_next((*usuario_actual)->seguidores);
         }
 
-        MapPair *pair = map_remove(usuarios, (*usuario_actual)->user);
+        Usuario *usuario_removido = map_remove(usuarios, (*usuario_actual)->user);
 
-        if (pair == NULL) {
+        if (usuario_removido == NULL) {
             printf("Error al eliminar la cuenta.\n");
             return;
         }
@@ -855,12 +940,9 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
         free((*usuario_actual)->seguidos);
         free((*usuario_actual)->notificaciones);
 
+        removeNode(*grafo, (*usuario_actual)->user);
+
         free(*usuario_actual);
-
-        removeNode(grafo, (*usuario_actual)->user);
-
-
-        printf("Cuenta eliminada correctamente.\n");
 
         *usuario_actual = NULL;
         *sesion_iniciada = 0;
@@ -903,7 +985,7 @@ int ordenarSugerencias(const void *a, const void *b) {
     return sugB->peso - sugA->peso;
 }
 
-void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, int *sesion_iniciada) {
+void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph **grafo, int *sesion_iniciada) {
     if (usuario_actual == NULL || *usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
         return;
@@ -916,15 +998,23 @@ void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, in
 
     List *sugerencias = list_create();
 
-    List *nivel1 = getAdjacentLabels(grafo, (*usuario_actual)->user);
+    List *nivel1 = getAdjacentLabels(*grafo, (*usuario_actual)->user);
     if (nivel1 == NULL) {
-    printf("No hay sugerencias disponibles por ahora.\n");
-    return;
+        printf("No hay sugerencias disponibles por ahora.\n");
+        list_clean(sugerencias);
+        free(sugerencias);
+        return;
     }
     char *seguido = list_first(nivel1);
 
     while (seguido != NULL) {
-        List *nivel2 = getAdjacentLabels(grafo, seguido);
+        List *nivel2 = getAdjacentLabels(*grafo, seguido);
+        if (nivel2 == NULL) {
+            seguido = list_next(nivel1);
+            continue;
+        }
+
+
         char *candidato = list_first(nivel2);
 
         while (candidato != NULL) {
@@ -976,7 +1066,14 @@ void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, in
 
     qsort(arreglo, cantidad, sizeof(Sugerencia *), ordenarSugerencias);
 
-    for (int i = 0; i < 10; i++) {
+    int limite;
+
+    if(cantidad < 10){
+        limite = cantidad;
+    }
+    else limite = 10;
+
+    for (int i = 0; i < limite; i++) {
         printf("%2d) %s - %d seguidores en común\n", i + 1, arreglo[i]->usuario->user, arreglo[i]->peso);
     }
 
@@ -984,12 +1081,13 @@ void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, in
     printf("\nIngrese el número del usuario que desea ver (0 para volver): ");
 
     int opcion;
-    scanf("%d", &opcion);
 
-    while (opcion < 0 || opcion > cantidad) {
+    while (scanf("%d", &opcion) != 1 || opcion < 0 || opcion > limite) {
         printf("Opción inválida.\n");
         printf("Ingrese nuevamente: ");
-        scanf("%d", &opcion);
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
     }
 
     if (opcion > 0) {
@@ -1030,9 +1128,317 @@ void construirGrafoDesdeUsuarios(Map *usuarios, Graph *grafo) {
     }
 }
 
+void reconstruirGrafo(Map *usuarios, Graph **grafo) {
+    destroyGraph(*grafo);
+
+    *grafo = createGraph();
+
+    construirGrafoDesdeUsuarios(usuarios, *grafo);
+}
+
+void verTendencias(Map *usuarios) {
+    limpiarPantalla();
+    puts("=======================================");
+    puts("              Tendencias");
+    puts("=======================================");
+
+    Map *hashtags = map_create(is_equal_str);
+
+    MapPair *pair = map_first(usuarios);
+
+    while (pair != NULL) {
+        Usuario *usuario = pair->value;
+
+        Publicacion *pub = list_first(usuario->publicaciones);
+
+        while (pub != NULL) {
+            procesarHashtagsPublicacion(hashtags, pub->contenido);
+            pub = list_next(usuario->publicaciones);
+        }
+
+        pair = map_next(usuarios);
+    }
+
+    int cantidad = 0;
+    MapPair *pair_hashtag = map_first(hashtags);
+
+    while (pair_hashtag != NULL) {
+        cantidad++;
+        pair_hashtag = map_next(hashtags);
+    }
+
+    if (cantidad == 0) {
+        printf("No hay hashtags publicados todavía.\n");
+        liberarMapaConteos(hashtags);
+        return;
+    }
+
+    Tendencia *tendencias = malloc(cantidad * sizeof(Tendencia));
+
+    if (tendencias == NULL) {
+        printf("Error al reservar memoria para tendencias.\n");
+        liberarMapaConteos(hashtags);
+        return;
+    }
+
+    pair_hashtag = map_first(hashtags);
+    int i = 0;
+
+    while (pair_hashtag != NULL) {
+        strcpy(tendencias[i].hashtag, (char *)pair_hashtag->key);
+        tendencias[i].contador = *((int *)pair_hashtag->value);
+
+        i++;
+        pair_hashtag = map_next(hashtags);
+    }
+
+    qsort(tendencias, cantidad, sizeof(Tendencia), ordenarTendencias);
+
+    int limite;
+
+    if (cantidad < 10) {
+        limite = cantidad;
+    } else {
+        limite = 10;
+    }
+
+    for (int i = 0; i < limite; i++) {
+        printf("%2d) %s - %d publicaciones\n", i + 1, tendencias[i].hashtag, tendencias[i].contador);
+    }
+
+    puts("=======================================");
+    printf("\nIngrese el número del hashtag que desea ver (0 para volver): ");
+
+    int opcion;
+
+    while (scanf("%d", &opcion) != 1 || opcion < 0 || opcion > limite) {
+        printf("Opción inválida. Intente nuevamente: ");
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
+
+    if (opcion > 0) {
+        mostrarPublicacionesPorHashtag(usuarios, tendencias[opcion - 1].hashtag);
+    }
+
+    free(tendencias);
+    liberarMapaConteos(hashtags);
+}
+
+bool hashtagValido(char c) {
+    bool es_letra = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+    bool es_numero = (c >= '0' && c <= '9');
+    bool es_guion_bajo = (c == '_');
+
+    return es_letra || es_numero || es_guion_bajo;
+}
+
+void contarHashtag(Map *hashtags, const char *hashtag) {
+    MapPair *pair = map_search(hashtags, (void *) hashtag);
+
+    if (pair != NULL) {
+        int *contador = pair->value;
+        (*contador)++;
+    } 
+    else {
+        int *contador = malloc(sizeof(int));
+
+        if (contador == NULL) {
+            printf("Error al reservar memoria para contador de hashtag.\n");
+            return;
+        }
+
+        *contador = 1;
+
+        map_insert(hashtags, strdup(hashtag), contador);
+    }
+}
+
+void procesarHashtagsPublicacion(Map *hashtags, const char *contenido) {
+    int i = 0;
+
+    while (contenido[i] != '\0') {
+        if (contenido[i] == '#') {
+            char hashtag[50];
+            int k = 0;
+
+            hashtag[k++] = '#';
+            i++;
+
+            while (contenido[i] != '\0' && hashtagValido(contenido[i])) {
+                if (k < 49) {
+                    hashtag[k++] = contenido[i];
+                }
+
+                i++;
+            }
+
+            hashtag[k] = '\0';
+
+            if (k > 1) {
+                convertirUsernameMinusculas(hashtag);
+                contarHashtag(hashtags, hashtag);
+            }
+        } 
+        else {
+            i++;
+        }
+    }
+}
+
+int ordenarTendencias(const void *a, const void *b) {
+    Tendencia *tendenciaA = (Tendencia *)a;
+    Tendencia *tendenciaB = (Tendencia *)b;
+
+    return tendenciaB->contador - tendenciaA->contador;
+}
+
+void liberarMapaConteos(Map *hashtags) {
+    MapPair *pair = map_first(hashtags);
+
+    while (pair != NULL) {
+        char key[50];
+        strcpy(key, (char *)pair->key);
+
+        int *contador = map_remove(hashtags, key);
+        free(contador);
+
+        pair = map_first(hashtags);
+    }
+
+    map_clean(hashtags);
+    free(hashtags);
+}
+
+bool publicacionContieneHashtag(const char *contenido, const char *hashtag) {
+    int i = 0;
+
+    while (contenido[i] != '\0') {
+        if (contenido[i] == '#') {
+            char hashtag_encontrado[50];
+            int k = 0;
+
+            hashtag_encontrado[k++] = '#';
+            i++;
+
+            while (contenido[i] != '\0' && hashtagValido(contenido[i])) {
+                if (k < 49) {
+                    hashtag_encontrado[k++] = contenido[i];
+                }
+
+                i++;
+            }
+
+            hashtag_encontrado[k] = '\0';
+
+            if (k > 1) {
+                convertirUsernameMinusculas(hashtag_encontrado);
+
+                if (strcmp(hashtag_encontrado, hashtag) == 0) {
+                    return true;
+                }
+            }
+        } 
+        else {
+            i++;
+        }
+    }
+
+    return false;
+}
+
+void mostrarPublicacionesPorHashtag(Map *usuarios, const char *hashtag) {
+    List *publicaciones_hashtag = list_create();
+
+    MapPair *pair = map_first(usuarios);
+
+    while (pair != NULL) {
+        Usuario *usuario = pair->value;
+
+        Publicacion *pub = list_first(usuario->publicaciones);
+
+        while (pub != NULL) {
+            if (publicacionContieneHashtag(pub->contenido, hashtag)) {
+                list_pushBack(publicaciones_hashtag, pub);
+            }
+
+            pub = list_next(usuario->publicaciones);
+        }
+
+        pair = map_next(usuarios);
+    }
+
+    int total = list_size(publicaciones_hashtag);
+
+    if (total == 0) {
+        printf("No hay publicaciones para %s.\n", hashtag);
+        list_clean(publicaciones_hashtag);
+        free(publicaciones_hashtag);
+        return;
+    }
+
+    printf("\n=======================================\n");
+    printf("        Publicaciones con %s\n", hashtag);
+    printf("=======================================\n");
+
+    Publicacion *pub = list_first(publicaciones_hashtag);
+    int mostradas = 0;
+
+    while (pub != NULL) {
+        int contador_lote = 0;
+
+        while (pub != NULL && contador_lote < 5) {
+            char fecha[30];
+            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+
+            printf("\n%s:\n\n%s\n\n%s\n", pub->autor, pub->contenido, fecha);
+            puts("=======================================");
+
+            mostradas++;
+            contador_lote++;
+
+            pub = list_next(publicaciones_hashtag);
+        }
+
+        if (pub == NULL) {
+            printf("\nNo hay más publicaciones para mostrar.\n");
+            break;
+        }
+
+        int opcion;
+        printf("\nMostrando %d de %d publicaciones.\n", mostradas, total);
+        printf("1) Ver más\n");
+        printf("2) Salir\n");
+        printf("Ingrese su opción: ");
+
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 2) {
+            printf("Opción inválida. Intente nuevamente: ");
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
+
+        if (opcion == 2) {
+            break;
+        }
+    }
+
+    list_clean(publicaciones_hashtag);
+    free(publicaciones_hashtag);
+}
+
 void salir(Map *usuarios, FILE *archivo) {
-    fclose(archivo);
+    if(archivo != NULL){
+        fclose(archivo);
+    }
+
     archivo = fopen("Usuarios.txt", "w");
+
+    if (archivo == NULL) {
+        printf("Error al guardar los usuarios.\n");
+        exit(1);
+    }
 
     MapPair *pair = map_first(usuarios);
 
@@ -1121,8 +1527,9 @@ void mostrarMenuPrincipal(Usuario *usuario_actual){
     puts("4) Ver notificaciones");
     puts("5) Ver mi perfil");
     puts("6) Sugerencias para ti");
-    puts("7) Cerrar sesión");
-    puts("8) Salir");
+    puts("7) Ver tendencias");
+    puts("8) Cerrar sesión");
+    puts("9) Salir");
 }
 
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios, Graph *grafo) {
@@ -1202,28 +1609,31 @@ int main(){
                 publicarMensaje(usuario_actual);
                 break;
             case '3':
-                buscarUsuario(usuarios, &usuario_actual, &sesion_iniciada, grafo);
+                buscarUsuario(usuarios, &usuario_actual, &sesion_iniciada, &grafo);
                 break;
             case '4':
                 verNotificaciones(usuario_actual);
                 break;
             case '5':
-                MostrarPerfil(&usuario_actual, usuario_actual, usuarios, &sesion_iniciada, grafo);
+                MostrarPerfil(&usuario_actual, usuario_actual, usuarios, &sesion_iniciada, &grafo);
                 break;
             case '6':
-                sugerenciasParaTi(&usuario_actual, usuarios, grafo, &sesion_iniciada);
+                sugerenciasParaTi(&usuario_actual, usuarios, &grafo, &sesion_iniciada);
                 break;
             case '7':
+                verTendencias(usuarios);
+                break;
+            case '8':
                 sesion_iniciada = 0; // Marcar que la sesión no está iniciada
                 cerrarSesion(&usuario_actual); // Cerrar sesión
                 break;
-            case '8':
+            case '9':
                 enEjecucion = 0; // Marcar que se desea salir del programa
                 break;
             }
             presioneTeclaParaContinuar();
 
-        } while (opcion != '8' && sesion_iniciada);
+        } while (opcion != '9' && sesion_iniciada);
 
     }
     salir(usuarios, archivo_usuarios);

@@ -87,7 +87,7 @@ tomabyte
 valebyte
 varcentral
 emiroot
-SEGUIDORES 54
+SEGUIDORES 53
 agusbash
 alonsobits
 andresdev
@@ -142,9 +142,8 @@ sam446
 stacklord
 tito
 martinsigma
-NOTIFICACIONES 65
+NOTIFICACIONES 2
 El usuario klonoh ha publicado un nuevo mensaje.
-<<<<<<< HEAD
 El usuario mundialhub ha publicado un nuevo mensaje.
 FIN
 USUARIO test 123
@@ -207,97 +206,6 @@ matistack
 mauroia
 maxkernel
 memelord
-El usuario martinsigma ha comenzado a seguirte.
-FIN
-USUARIO klonoh 123456
-PUBLICACIONES 24
-klonoh 1782521100 El Mundial esta generando mas teorias que mi grupo de trabajo
-klonoh 1782524700 Techinsider publico de IA y medio mundo salio a opinar
-klonoh 1782528300 Me gusta cuando el feed mezcla futbol tecnologia memes y caos
-klonoh 1782531900 Golazo24 esta farmeando interacciones con cada jugada dudosa
-klonoh 1782535500 Hoy internet decidio que todos somos analistas tacticos
-klonoh 1782539100 La mejor parte de una red social es leer opiniones que nadie pidio
-klonoh 1782602368 @valebyte si esto se vuelve tendencia fue culpa tuya
-klonoh 1782602664 @nicograph ese post tuyo envejecio como leche al sol
-klonoh 1782603071 @matistack me rei mas de esto de lo que deberia
-klonoh 1782603182 @soficode el meme que mandaste envejecio demasiado bien
-klonoh 1782603219 @loopmaster esto merece hilo y no acepto menos
-klonoh 1782603441 @debugfox esto merece hilo y no acepto menos
-klonoh 1782603515 @tito hoy el algoritmo nos tiene encerrados en el mismo tema
-klonoh 1782604107 @rutabit tu prediccion duro menos que mi cafe
-klonoh 1782605439 @martinbits esto se fue de las manos como toda buena conversacion
-klonoh 1782605624 @ivancode esta captura va directo al chat del grupo
-klonoh 1782605809 @neonacho me rei mas de esto de lo que deberia
-klonoh 1782606179 @camilabits el grupo familiar ya esta citando tus opiniones
-klonoh 1782606364 @mapachedev el grupo familiar ya esta citando tus opiniones
-klonoh 1782606401 @claudata ven a defender tu prediccion en publico
-klonoh 1782606919 @test oficialmente quedas citado como fuente poco confiable
-klonoh 1782607178 @benjacl el dato que tiraste salvo la conversacion
-klonoh 1782701679 @seba no me cites cuando claramente estaba improvisando
-klonoh 1782701684 @tito tu chat familiar tiene mejor cobertura que varios medios
-SEGUIDOS 17
-agusbash
-aialerta
-ameliadev
-antocode
-camilabits
-cancha360
-cata_logic
-cineadicto
-darknova
-datawizard
-ferdebug
-franco_nova
-futboltotal
-gabotxt
-isi786
-isigo
-ivancode
-SEGUIDORES 19
-liam_byte
-joaquin
-mapachedev
-martin41
-martin53
-martin69
-martin_data
-martin_loop
-martin_vx
-martinbits
-martinlight
-martinmoon
-martinpro
-matistack
-memelord
-mundialhub
-musicnova
-neonacho
-nicograph
-NOTIFICACIONES 24
-noticiero24
-pablo465
-pauli855
-pepe466
-pixelcat
-rafaeltv
-renata372
-rutabit
-seba
-sofia343
-sofia734
-soficode
-streamqueen
-techinsider
-test
-tito
-valebyte
-victor_star
-SEGUIDORES 59
-benjacl
-bitrunner
-camilabits
-carocode
-claudata
 FIN
 USUARIO tito 123
 PUBLICACIONES 19
@@ -13503,10 +13411,16 @@ martinsigma 1782644085 @martinseven no prometo coherencia antes del cafe
 martinsigma 1782674600 Nada une mas que discutir donde venden el mejor completo tremendo momento #Deportes
 martinsigma 1782677903 Alemania perdiendo siempre abre una asamblea mundialista sin contexto #Musica
 martinsigma 1782679020 Paraguay y Australia hicieron sufrir a todos con calculadora en mano no supero esto #Cine
+<<<<<<< HEAD
 SEGUIDOS 3
 andresdev
 cancha360
 seba
+=======
+SEGUIDOS 2
+andresdev
+cancha360
+>>>>>>> 58a8fd359aabed650be5eb982d765aa898fb49f3
 SEGUIDORES 3
 datawizard
 gadgetnews
@@ -28476,6 +28390,391 @@ camiia 1782908600 Trabajar en equipo ensena paciencia y control de versiones hoy
 camiia 1782911854 No subestimen el poder de un buen nombre de variable opinion rapida #Tendencias
 camiia 1782914150 El grupo de WhatsApp estuvo mas activo que la clase se abrio debate #Memes
 SEGUIDOS 33
+<<<<<<< HEAD
+=======
+=======
+SEGUIDOS 30
+FIN
+USUARIO andresgo 123
+PUBLICACIONES 1
+andresgo 1782909500 el timeline amanecio con energia rara se abrio debate #Musica
+SEGUIDOS 27
+aialerta
+anto_play
+beatv
+chefviral
+climaaldia
+cony363
+datawizard
+diego689
+gamerzone
+golazo24
+hectorx
+ignaciobyte
+javi_var
+juampicl
+majobyte
+marcos933
+martin45
+martin_wolf
+martinmap
+mundialhub
+musicnova
+nachoup
+noticiero24
+sam_lab
+streamqueen
+techinsider
+valeria_dev
+SEGUIDORES 15
+antonia785
+cony363
+emilio_map
+estefi628
+hectorx
+ignaciacl
+lucho_fox
+martin17
+martin90
+mati899
+maxi_src
+panchomain
+sam963
+santi935
+sofigo
+NOTIFICACIONES 4
+El usuario estefi628 ha comenzado a seguirte.
+El usuario gabo651 ha comenzado a seguirte.
+El usuario mundialhub ha publicado un nuevo mensaje.
+Mundial2026 esta generando conversacion.
+FIN
+USUARIO estefi628 123
+PUBLICACIONES 2
+estefi628 1782627158 @sofigo el cafe no arreglo mi productividad pero si mi animo
+estefi628 1782910400 La privacidad vuelve a ser tema cada vez que una app pide permisos raros minuto viral #Mundial2026
+SEGUIDOS 14
+andresgo
+chefviral
+claudia141
+cristobalstack
+datawizard
+emilionews
+juampi779
+mati899
+max465
+sam963
+sofigo
+streamqueen
+valeria666
+varcentral
+SEGUIDORES 15
+amelia931
+anto953
+anto_play
+arielmoon
+claudia141
+cony363
+cristobalstack
+emilionews
+ivan_hub
+juandev
+lucas_moon
+martin_zen
+pepego
+sam963
+sofigo
+NOTIFICACIONES 6
+El usuario sofigo te menciono en una publicacion.
+El usuario claudia141 te menciono en una publicacion.
+El usuario pepego ha comenzado a seguirte.
+El usuario datawizard ha publicado un nuevo mensaje.
+Hay nuevas sugerencias basadas en conexiones en comun.
+Hay nuevos temas populares en tu feed.
+FIN
+USUARIO emilio_map 123
+PUBLICACIONES 3
+emilio_map 1782911300 ese momento merece captura comentario del dia #Memes
+emilio_map 1782912850 El futuro llego en forma de notificacion de actualizacion queda fijado #Chile
+emilio_map 1782915978 Estados Unidos y Turquia se fueron al empate y el timeline exploto captura necesaria #Musica
+SEGUIDOS 24
+andresgo
+anto953
+cineadicto
+florup
+futboltotal
+gamerzone
+ignaciacl
+ignaciolab
+isa_graph
+isi567
+javi482
+javi_var
+karlapro
+maite_root
+marcos933
+matias370
+memelord
+mundialhub
+musicnova
+robotica24
+sam_lab
+streamqueen
+techinsider
+victor415
+SEGUIDORES 13
+alonsohub
+alonsoia
+cony363
+cristobalstack
+diego536
+elisacl
+gabobyte
+ignacia798
+martincat
+martinzen
+rafael872
+sam_lab
+valeria666
+NOTIFICACIONES 4
+El usuario cony363 ha comenzado a seguirte.
+El usuario martinzen ha comenzado a seguirte.
+El usuario martin19 ha comenzado a seguirte.
+El usuario techinsider ha publicado un nuevo mensaje.
+FIN
+USUARIO ivan_hub 123
+PUBLICACIONES 1
+ivan_hub 1782912200 Hoy el timeline esta entre futbol memes y opiniones demasiado serias minuto viral #WorldCup
+SEGUIDOS 23
+cancha360
+catabits
+chefviral
+cineadicto
+climaaldia
+datawizard
+elisago
+emilionews
+estefi628
+ignaciacl
+ivanstorm
+liamloop
+lucas_moon
+marcos933
+martin_src
+mati899
+memelord
+modaurbana
+nachoup
+noacl
+panchodev
+panchomain
+techinsider
+SEGUIDORES 21
+anto953
+antocode
+beatv
+claudia141
+cony363
+cristobalstack
+cristobalup
+elisacl
+juampix
+juandev
+lucas_moon
+lucho_fox
+marcos933
+martin_gamer
+martindark
+martinseven
+maxidark
+pepego
+sam963
+sam_lab
+stacklord
+NOTIFICACIONES 4
+El usuario diego_ia ha comenzado a seguirte.
+El usuario martin_gamer ha comenzado a seguirte.
+El usuario techinsider ha publicado un nuevo mensaje.
+Un tema de actualidad esta subiendo rapido.
+FIN
+USUARIO maxi_src 123
+PUBLICACIONES 5
+maxi_src 1782630876 @lucas_moon mi ranking musical no se discute en publico
+maxi_src 1782641477 @ignaciolab te sigo solo por este tipo de caos
+maxi_src 1782913100 Ver un trend morir en tiempo real tambien es experiencia cultural plot twist #Universidad
+maxi_src 1782915012 Las recomendaciones de musica estan sospechosamente precisas version extendida #Noticias
+maxi_src 1782918576 La tecnologia corre y la regulacion intenta alcanzarla con mochila captura necesaria #Noticias
+SEGUIDOS 24
+aialerta
+amelia757
+amelia_src
+andresgo
+cancha360
+chefviral
+cony363
+daniela_pro
+datawizard
+diego536
+elisacl
+emilionews
+ignaciacl
+ignaciolab
+lucas_moon
+martinsun
+memelord
+modaurbana
+mundialhub
+musicnova
+oliver_run
+sam_lab
+valeria666
+viajescl
+SEGUIDORES 12
+beatv
+cony363
+emilia381
+ignaciacl
+ignaciolab
+ivanmeme
+ivanstorm
+lucas_moon
+max465
+pepememe
+sam963
+samvx
+NOTIFICACIONES 6
+El usuario lucas_moon te menciono en una publicacion.
+El usuario ignaciolab te menciono en una publicacion.
+El usuario pepememe ha comenzado a seguirte.
+El usuario javierafox ha comenzado a seguirte.
+El usuario cony363 ha comenzado a seguirte.
+El usuario cancha360 ha publicado un nuevo mensaje.
+FIN
+USUARIO anto_play 123
+PUBLICACIONES 4
+anto_play 1782637906 @domix me niego a aceptar esa acusacion sin revision VAR
+anto_play 1782914000 Los memes explican la actualidad mas rapido que algunos noticieros para debatir #Tech
+anto_play 1782914784 La privacidad vuelve a ser tema cada vez que una app pide permisos raros version extendida #WorldCup
+anto_play 1782915328 Me rei de un meme que no deberia haber entendido tan rapido modo resumen #Deportes
+SEGUIDOS 17
+bea_stack
+cancha360
+cata_run
+catabits
+chefviral
+cineadicto
+climaaldia
+cony363
+estefi628
+fabridev
+gamerzone
+hectormoon
+ivania
+max465
+modaurbana
+pablo465
+sam963
+SEGUIDORES 13
+andresgo
+elisa_light
+gabrielgo
+ignaciolab
+juampiloop
+liamup
+martin_sigma
+martinnet
+martinpixel
+nico112
+panchodev
+sofigo
+tomasia
+NOTIFICACIONES 19
+NOTIFICACIONES 5
+El usuario domix te menciono en una publicacion.
+El usuario aguscl ha comenzado a seguirte.
+El usuario domix ha comenzado a seguirte.
+El usuario gabrielgo ha comenzado a seguirte.
+El usuario modaurbana ha publicado un nuevo mensaje.
+FIN
+USUARIO max_var 123
+PUBLICACIONES 2
+max_var 1782636500 @camiia admito errores pero no frente al timeline
+max_var 1782914900 El taco de la tarde aparece justo cuando uno tiene apuro anoten eso #Robotica
+SEGUIDOS 22
+bea_stack
+camiia
+chefviral
+claudia_byte
+climaaldia
+datawizard
+emilionews
+FIN
+USUARIO ignaciolab 123
+PUBLICACIONES 2
+ignaciolab 1782641495 @maxi_src no prometo coherencia antes del cafe
+ignaciolab 1782915800 Noruega contra Francia va a poner a todos mirando a los delanteros para debatir #Cine
+SEGUIDOS 25
+aialerta
+anto_play
+beatv
+beaup
+cancha360
+caro_debug
+claudia141
+climaaldia
+diego536
+elisacl
+emilia_logic
+emilionews
+hectorx
+liamloop
+marcos933
+martin82
+mati899
+maxi_src
+maxidark
+musicnova
+noticiero24
+rocioroot
+santi468
+sofigo
+techinsider
+SEGUIDORES 9
+beatv
+claudia141
+emilio_map
+emilionews
+juandev
+liamloop
+maxi_src
+nicox
+renataai
+NOTIFICACIONES 7
+El usuario liamloop te menciono en una publicacion.
+El usuario claudia141 te menciono en una publicacion.
+El usuario maxi_src te menciono en una publicacion.
+El usuario nicox ha comenzado a seguirte.
+El usuario aialerta ha publicado un nuevo mensaje.
+El usuario techinsider ha publicado un nuevo mensaje.
+Tu publicacion esta generando interacciones.
+FIN
+USUARIO cony363 123
+PUBLICACIONES 5
+cony363 1782626658 @domix si mi teoria funciona quiero creditos
+cony363 1782916700 me fui un rato y cambiaron todos los temas tremendo momento #Timeline
+cony363 1782919961 Ecuador pegandole a Alemania dejo el grupo en modo incendio alguien mas lo vio #Mundial2026
+cony363 1782922007 El Mundial esta convirtiendo almuerzos en mesas de analisis minuto viral #Futbol
+cony363 1782923392 Un cero a cero tambien puede ser pelicula de suspenso fin del comunicado #Timeline
+SEGUIDOS 1
+andresgo
+SEGUIDORES 4
+catabits
+cristobalstack
+dominic_fox
+edugo
+NOTIFICACIONES 5
+domix
+>>>>>>> a14dc021fc9beaba749e2eb90fe5c2cb7c104aed
+>>>>>>> 58a8fd359aabed650be5eb982d765aa898fb49f3
 emilio_map
 emilionews
 estefi628
@@ -59518,4 +59817,94 @@ El usuario nataliacl ha comenzado a seguirte.
 El usuario techinsider ha publicado un nuevo mensaje.
 Hay nuevos temas populares en tu feed.
 IA y tecnologia aparecen entre los temas mas comentados.
+FIN
+USUARIO klonoh 123456
+PUBLICACIONES 24
+klonoh 1782521100 El Mundial esta generando mas teorias que mi grupo de trabajo
+klonoh 1782524700 Techinsider publico de IA y medio mundo salio a opinar
+klonoh 1782528300 Me gusta cuando el feed mezcla futbol tecnologia memes y caos
+klonoh 1782531900 Golazo24 esta farmeando interacciones con cada jugada dudosa
+klonoh 1782535500 Hoy internet decidio que todos somos analistas tacticos
+klonoh 1782539100 La mejor parte de una red social es leer opiniones que nadie pidio
+klonoh 1782602368 @valebyte si esto se vuelve tendencia fue culpa tuya
+klonoh 1782602664 @nicograph ese post tuyo envejecio como leche al sol
+klonoh 1782603071 @matistack me rei mas de esto de lo que deberia
+klonoh 1782603182 @soficode el meme que mandaste envejecio demasiado bien
+klonoh 1782603219 @loopmaster esto merece hilo y no acepto menos
+klonoh 1782603441 @debugfox esto merece hilo y no acepto menos
+klonoh 1782603515 @tito hoy el algoritmo nos tiene encerrados en el mismo tema
+klonoh 1782604107 @rutabit tu prediccion duro menos que mi cafe
+klonoh 1782605439 @martinbits esto se fue de las manos como toda buena conversacion
+klonoh 1782605624 @ivancode esta captura va directo al chat del grupo
+klonoh 1782605809 @neonacho me rei mas de esto de lo que deberia
+klonoh 1782606179 @camilabits el grupo familiar ya esta citando tus opiniones
+klonoh 1782606364 @mapachedev el grupo familiar ya esta citando tus opiniones
+klonoh 1782606401 @claudata ven a defender tu prediccion en publico
+klonoh 1782606919 @test oficialmente quedas citado como fuente poco confiable
+klonoh 1782607178 @benjacl el dato que tiraste salvo la conversacion
+klonoh 1782701679 @seba no me cites cuando claramente estaba improvisando
+klonoh 1782701684 @tito tu chat familiar tiene mejor cobertura que varios medios
+SEGUIDOS 17
+agusbash
+aialerta
+ameliadev
+antocode
+camilabits
+cancha360
+cata_logic
+cineadicto
+darknova
+datawizard
+ferdebug
+franco_nova
+futboltotal
+gabotxt
+isi786
+isigo
+ivancode
+SEGUIDORES 19
+liam_byte
+joaquin
+mapachedev
+martin41
+martin53
+martin69
+martin_data
+martin_loop
+martin_vx
+martinbits
+martinlight
+martinmoon
+martinpro
+matistack
+memelord
+mundialhub
+musicnova
+neonacho
+nicograph
+NOTIFICACIONES 24
+noticiero24
+pablo465
+pauli855
+pepe466
+pixelcat
+rafaeltv
+renata372
+rutabit
+seba
+sofia343
+sofia734
+soficode
+streamqueen
+techinsider
+test
+tito
+valebyte
+victor_star
+SEGUIDORES 59
+benjacl
+bitrunner
+camilabits
+carocode
+claudata
 FIN

@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+#ifdef _WIN32
+    #include <windows.h>
+#endif
+
+#include "Conecta/entidades.h"
+#include "Conecta/generales.h"
+#include "Conecta/identificacion.h"
+#include "Conecta/usuarios.h"
+#include "Conecta/publicaciones.h"
+#include "Conecta/sugerencias.h"
+#include "Conecta/tendencias.h"
+#include "Conecta/guardado.h"
+#include "Conecta/menu.h"
+
+#include "TDAs/map.h"
+#include "TDAs/graph.h"
+#include "TDAs/extra.h"
+
+int main() {
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    FILE *archivo_usuarios = fopen("Usuarios.txt", "r+");
+
+    Map *usuarios = map_create(is_equal_str);
+
+    if (archivo_usuarios != NULL) {
+        leerArchivo(usuarios, archivo_usuarios);
+    } else {
+        printf("No se pudo abrir el archivo de usuarios. Se iniciará con una base de datos vacía.\n");
+    }
+
+    Graph *grafo = createGraph();
+    construirGrafoDesdeUsuarios(usuarios, grafo);
+
+    char opcion = '\0';
+    int sesion_iniciada = 0;
+    Usuario *usuario_actual = NULL;
+    int enEjecucion = 1;
+
+    while (enEjecucion) {
+        menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios, grafo);
+
+        if (usuario_actual != NULL) {
+            addNode(grafo, usuario_actual->user);
+        }
+
+        if (!sesion_iniciada) {
+            enEjecucion = 0;
+            continue;
+        }
+
+        do {
+            mostrarMenuPrincipal(usuario_actual);
+            printf("Ingrese su opción: ");
+            scanf(" %c", &opcion);
+
+            switch (opcion) {
+                case '1':
+                    verFeed(usuario_actual);
+                    break;
+                case '2':
+                    publicarMensaje(usuario_actual);
+                    break;
+                case '3':
+                    buscarUsuario(usuarios, &usuario_actual, &sesion_iniciada, &grafo);
+                    break;
+                case '4':
+                    verNotificaciones(usuario_actual);
+                    break;
+                case '5':
+                    MostrarPerfil(&usuario_actual, usuario_actual, usuarios, &sesion_iniciada, &grafo);
+                    break;
+                case '6':
+                    sugerenciasParaTi(&usuario_actual, usuarios, &grafo, &sesion_iniciada);
+                    break;
+                case '7':
+                    verTendencias(usuarios);
+                    break;
+                case '8':
+                    sesion_iniciada = 0;
+                    cerrarSesion(&usuario_actual);
+                    break;
+                case '9':
+                    enEjecucion = 0;
+                    break;
+                default:
+                    printf("Opción inválida.\n");
+                    break;
+            }
+
+            presioneTeclaParaContinuar();
+
+        } while (opcion != '9' && sesion_iniciada);
+    }
+
+    salir(usuarios, archivo_usuarios);
+    return 0;
+}
