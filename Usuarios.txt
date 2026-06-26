@@ -1,174 +1,3 @@
-USUARIO seba 123
-PUBLICACIONES 19
-seba 1782520000 El feed se siente mas vivo cuando hay cuentas grandes comentando de todo
-seba 1782523600 Hoy el Mundial y la IA se pelearon el primer lugar del timeline
-seba 1782527200 Estoy probando sugerencias y ahora los famosos aparecen con peso fuerte
-seba 1782530800 Si tres personas que sigo hablan de lo mismo ya me convence el algoritmo
-seba 1782534400 Necesito cafe y un resumen de todos los partidos del dia
-seba 1782538000 Conecta ya parece red social de verdad con tanto movimiento
-seba 1782602294 @valebyte te sigo solo por este tipo de caos
-seba 1782602479 @nicograph esta captura va directo al chat del grupo
-seba 1782602923 @darknova esta captura va directo al chat del grupo
-seba 1782603034 @loopmaster el meme que mandaste envejecio demasiado bien
-seba 1782603330 @tito lo dije en broma y ahora paso, ayuda
-seba 1782605069 @martincl tu teoria del empate ahora es canon
-seba 1782605291 @javidev prometiste no hablar del VAR y duraste diez minutos
-seba 1782605328 @neonacho tu feed parece mezcla de Mundial IA y cafe
-seba 1782605550 @martin_byte te etiqueto porque este meme tiene tu energia
-seba 1782606068 @nachomap necesito que hagas resumen de este desastre
-seba 1782606142 @stacklord tu prediccion duro menos que mi cafe
-seba 1782701678 @klonoh tu teoria del Mundial parecia meme pero ahora tiene sentido
-seba 1782701683 @tito lo de no era penal ya es tradicion entre nosotros
-SEGUIDOS 73
-agus211
-agustinmeme
-aialerta
-ameliaia
-antocode
-arielx
-bea829
-bea_bug
-benjacl
-benjagit
-bytewolf
-camilabits
-cata_git
-codedragon
-constanza816
-cony702
-darknova
-darkseba
-diego675
-ferlogic
-florbyte
-franco226
-franstack
-futboltotal
-gabo70
-gabotxt
-gamerzone
-golazo24
-ignacio_map
-isi_lista
-ivancode
-javidev
-juampicode
-leoup
-loopmaster
-martin21
-martin_byte
-martin_fox
-martincl
-martinkai
-martinzen
-matias_git
-matistack
-maxi_logic
-memelord
-modaurbana
-mundialhub
-musicnova
-nachomap
-nati777
-neonacho
-nicograph
-noticiero24
-panchohub
-panchotv
-paulilab
-renapixel
-rochidebug
-rochidev
-rodrinet
-rutabit
-simonia
-sofi197
-sofia343
-soficode
-stacklord
-streamqueen
-techinsider
-tito
-tomabyte
-valebeta
-valebyte
-varcentral
-SEGUIDORES 65
-agusbash
-alonsobits
-andresdev
-antonia785
-bastianx
-bitrunner
-darknova
-debugfox
-diegodev
-isicode
-javidev
-joaquin
-klonoh
-leobits
-liam_byte
-loopmaster
-lunadata
-majobyte
-martin19
-martin23
-martin30
-martin50
-martin56
-martin61
-martin66
-martin74
-martin90
-martin_byte
-martin_code
-martin_cola
-martin_dark
-martin_gamer
-martin_graph
-martin_kai
-martin_lab
-martin_loop
-martin_moon
-martin_neo
-martin_null
-martin_pixel
-martin_pro
-martin_wolf
-martin_zen
-martinbeta
-martincl
-martincode
-martinfox
-martingamer
-martinhub
-martinloop
-martinnet
-martinsigma
-martinwolf
-maxkernel
-nachomap
-neonacho
-nexodev
-nicograph
-pipepixel
-pixelcat
-sam446
-stacklord
-test
-tito
-valebyte
-NOTIFICACIONES 8
-El usuario javidev te menciono en una publicacion.
-El usuario nachomap te menciono en una publicacion.
-El usuario klonoh te menciono en una publicacion.
-El usuario tito te menciono en una publicacion.
-El usuario tito ha comenzado a seguirte.
-El usuario klonoh ha publicado un nuevo mensaje.
-El usuario mundialhub ha publicado un nuevo mensaje.
-Mundial2026 esta generando conversacion.
-FIN
 USUARIO klonoh 123456
 PUBLICACIONES 24
 klonoh 1782521100 El Mundial esta generando mas teorias que mi grupo de trabajo
@@ -2094,7 +1923,7 @@ test
 tomabyte
 valebyte
 viajescl
-SEGUIDORES 33
+SEGUIDORES 32
 agusbash
 agustin_nova
 andresdev
@@ -2123,7 +1952,6 @@ nexodev
 nicograph
 pipepixel
 pixelcat
-seba
 soficode
 tito
 tomabyte
@@ -27354,7 +27182,7 @@ rafaeltv
 sofiacl
 streamqueen
 techinsider
-SEGUIDORES 22
+SEGUIDORES 23
 antobyte
 beadark
 beatrizx
@@ -27377,12 +27205,14 @@ pato969
 pepe332
 rickymap
 seba
-NOTIFICACIONES 5
+aleg
+NOTIFICACIONES 6
 El usuario antobyte te menciono en una publicacion.
 El usuario lunatv ha comenzado a seguirte.
 El usuario noticiero24 ha publicado un nuevo mensaje.
 El usuario aialerta ha publicado un nuevo mensaje.
 Tu red esta mas activa que de costumbre.
+El usuario aleg ha comenzado a seguirte.
 FIN
 USUARIO matiasia 123
 PUBLICACIONES 4
@@ -76915,4 +76745,184 @@ El usuario nataliacl ha comenzado a seguirte.
 El usuario techinsider ha publicado un nuevo mensaje.
 Hay nuevos temas populares en tu feed.
 IA y tecnologia aparecen entre los temas mas comentados.
+FIN
+USUARIO aleg 456
+PUBLICACIONES 0
+SEGUIDOS 2
+seba
+agustinmeme
+SEGUIDORES 0
+NOTIFICACIONES 0
+FIN
+USUARIO seba 123
+PUBLICACIONES 19
+seba 1782520000 El feed se siente mas vivo cuando hay cuentas grandes comentando de todo
+seba 1782523600 Hoy el Mundial y la IA se pelearon el primer lugar del timeline
+seba 1782527200 Estoy probando sugerencias y ahora los famosos aparecen con peso fuerte
+seba 1782530800 Si tres personas que sigo hablan de lo mismo ya me convence el algoritmo
+seba 1782534400 Necesito cafe y un resumen de todos los partidos del dia
+seba 1782538000 Conecta ya parece red social de verdad con tanto movimiento
+seba 1782602294 @valebyte te sigo solo por este tipo de caos
+seba 1782602479 @nicograph esta captura va directo al chat del grupo
+seba 1782602923 @darknova esta captura va directo al chat del grupo
+seba 1782603034 @loopmaster el meme que mandaste envejecio demasiado bien
+seba 1782603330 @tito lo dije en broma y ahora paso, ayuda
+seba 1782605069 @martincl tu teoria del empate ahora es canon
+seba 1782605291 @javidev prometiste no hablar del VAR y duraste diez minutos
+seba 1782605328 @neonacho tu feed parece mezcla de Mundial IA y cafe
+seba 1782605550 @martin_byte te etiqueto porque este meme tiene tu energia
+seba 1782606068 @nachomap necesito que hagas resumen de este desastre
+seba 1782606142 @stacklord tu prediccion duro menos que mi cafe
+seba 1782701678 @klonoh tu teoria del Mundial parecia meme pero ahora tiene sentido
+seba 1782701683 @tito lo de no era penal ya es tradicion entre nosotros
+SEGUIDOS 72
+agus211
+agustinmeme
+aialerta
+ameliaia
+antocode
+arielx
+bea829
+bea_bug
+benjacl
+benjagit
+bytewolf
+camilabits
+cata_git
+codedragon
+constanza816
+cony702
+darknova
+darkseba
+diego675
+ferlogic
+florbyte
+franco226
+franstack
+futboltotal
+gabo70
+gabotxt
+gamerzone
+golazo24
+ignacio_map
+isi_lista
+ivancode
+javidev
+juampicode
+leoup
+loopmaster
+martin21
+martin_byte
+martin_fox
+martincl
+martinkai
+martinzen
+matias_git
+matistack
+maxi_logic
+memelord
+modaurbana
+mundialhub
+musicnova
+nachomap
+nati777
+nicograph
+noticiero24
+panchohub
+panchotv
+paulilab
+renapixel
+rochidebug
+rochidev
+rodrinet
+rutabit
+simonia
+sofi197
+sofia343
+soficode
+stacklord
+streamqueen
+techinsider
+tito
+tomabyte
+valebeta
+valebyte
+varcentral
+SEGUIDORES 66
+agusbash
+alonsobits
+andresdev
+antonia785
+bastianx
+bitrunner
+darknova
+debugfox
+diegodev
+isicode
+javidev
+joaquin
+klonoh
+leobits
+liam_byte
+loopmaster
+lunadata
+majobyte
+martin19
+martin23
+martin30
+martin50
+martin56
+martin61
+martin66
+martin74
+martin90
+martin_byte
+martin_code
+martin_cola
+martin_dark
+martin_gamer
+martin_graph
+martin_kai
+martin_lab
+martin_loop
+martin_moon
+martin_neo
+martin_null
+martin_pixel
+martin_pro
+martin_wolf
+martin_zen
+martinbeta
+martincl
+martincode
+martinfox
+martingamer
+martinhub
+martinloop
+martinnet
+martinsigma
+martinwolf
+maxkernel
+nachomap
+neonacho
+nexodev
+nicograph
+pipepixel
+pixelcat
+sam446
+stacklord
+test
+tito
+valebyte
+aleg
+NOTIFICACIONES 9
+El usuario javidev te menciono en una publicacion.
+El usuario nachomap te menciono en una publicacion.
+El usuario klonoh te menciono en una publicacion.
+El usuario tito te menciono en una publicacion.
+El usuario tito ha comenzado a seguirte.
+El usuario klonoh ha publicado un nuevo mensaje.
+El usuario mundialhub ha publicado un nuevo mensaje.
+Mundial2026 esta generando conversacion.
+El usuario aleg ha comenzado a seguirte.
 FIN

@@ -12,6 +12,8 @@ void inicializarUsuario(Map *usuarios, char *username, char *password);
 
 void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada, Graph **grafo);
 
+int mostrarPublicacionesPaginadas(List *publicaciones, Publicacion **pub);
+
 void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph **grafo);
 
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir, Graph *grafo);

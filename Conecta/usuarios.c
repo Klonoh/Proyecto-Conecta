@@ -87,120 +87,167 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
     }
 }
 
+int mostrarPublicacionesPaginadas(List *publicaciones, Publicacion **pub)
+{
+    int mostradas = 0;
+
+    while (*pub != NULL && mostradas < 3)
+    {
+        char fecha[30];
+        formatearFecha((*pub)->timestamp, fecha, sizeof(fecha));
+
+        printf("\n%s:\n\n%s\n\n%s\n\n",
+               (*pub)->autor,
+               (*pub)->contenido,
+               fecha);
+
+        puts("=======================================");
+
+        *pub = list_next(publicaciones);
+        mostradas++;
+    }
+
+    return (*pub != NULL);
+}
+
 void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, int *sesion_iniciada, Graph **grafo) {
-    limpiarPantalla();
-    puts("=======================================");
-    printf("               %s\n", usuario->user);
-    puts("=======================================");
-    printf("Publicaciones: %d | Seguidores: %d | Seguidos: %d", list_size(usuario->publicaciones), list_size(usuario->seguidores), list_size(usuario->seguidos));
-    puts("\n=======================================");
+
+
     if (usuario_actual != NULL && *usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) != 0) {
         List *seguidos = (*usuario_actual)->seguidos;
         Usuario *temp = list_first(seguidos);
         bool ya_sigue = false;
 
-        while (temp != NULL) {
+        while (temp != NULL) { //verificar si el usuario actual ya sigue al usuario cuyo perfil se está mostrando
             if (strcmp(temp->user, usuario->user) == 0) {
                 ya_sigue = true;
                 break;
             }
             temp = list_next(seguidos);
         }
-
-        if (ya_sigue == true) {
-            printf("\nSiguiendo\n");
-        } else {
-            printf("\nNo le sigues\n");
-        }
-        puts("=======================================");
         
-        Publicacion *pub = list_first(usuario->publicaciones);
-        while (pub != NULL) {
-            char fecha[30];
-            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
-            printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
-            puts("=======================================");
-            pub = list_next(usuario->publicaciones);
-        }
-
-        if (ya_sigue == true) {
-            printf("\n1) Dejar de seguir\n");
-        } else {
-            printf("\n1) Seguir\n");
-        }
-        printf("2) Volver al menú principal\n");
+        Publicacion *pub_otro = list_first(usuario->publicaciones);
+        int quedan_publicaciones = 1;
         int opcion;
-        printf("\nIngrese su opción: ");
 
-        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 2) {
-            printf("Opción inválida. Intente de nuevo: ");
+        do {
+            limpiarPantalla();
+            puts("=======================================");
+            printf("               %s\n", usuario->user);
+            puts("=======================================");
+            printf("Publicaciones: %d | Seguidores: %d | Seguidos: %d", list_size(usuario->publicaciones), list_size(usuario->seguidores), list_size(usuario->seguidos));
+            puts("\n=======================================");
 
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF);
-        }
-        
-        if (opcion == 1) {
-            if (ya_sigue == true) {
-                dejarDeSeguirUsuario(*usuario_actual, usuario, *grafo);
-                presioneTeclaParaContinuar();
-            } else if (ya_sigue == false) {
-                seguirUsuario(*usuario_actual, usuario, *grafo);
-                presioneTeclaParaContinuar();
+            if (ya_sigue == true) printf("\nSiguiendo\n");
+            else printf("\nNo le sigues\n");
+    
+            puts("=======================================");
+
+            // Mostrar el bloque actual de 3 publicaciones
+            quedan_publicaciones = mostrarPublicacionesPaginadas(usuario->publicaciones, &pub_otro);
+            
+            int offset = 0;
+            if (quedan_publicaciones) {
+                printf("\n1) Ver más publicaciones\n");
+                offset = 1;
             }
-        } else if (opcion == 2) {
-            return; // Volver 
-        } else {
-            printf("Opción inválida.\n");
-            presioneTeclaParaContinuar();
-            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
-        }
-    } 
-    else if (usuario_actual != NULL && *usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
-        Publicacion *pub = list_first(usuario->publicaciones);
-        while (pub != NULL) {
-            char fecha[30];
-            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
-            printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
-            puts("=======================================");
-            pub = list_next(usuario->publicaciones);
-        }
-
-
-
-        int opcion;
-        printf("\n1) Ver seguidores\n");
-        printf("2) Ver seguidos\n");
-        printf("3) Editar perfil\n");
-        printf("4) Volver\n");
-        printf("\nIngrese su opción: ");
-        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4) {
-            printf("Opción inválida.\n");
-            printf("Ingrese nuevamente: ");
-
+            
+            if (ya_sigue == true) {
+                printf("\n%d) Dejar de seguir\n", offset + 1);
+            } else {
+                printf("\n%d) Seguir\n", offset + 1);
+            }
+            printf("\n%d) Volver al menú principal\n", offset + 2);
+            int opcion;
+            printf("\nIngrese su opción: ");
+            
+            while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > (2 + offset)) {
+                printf("Opción inválida. Intente de nuevo: ");
+                int c;
+                while ((c = getchar()) != '\n' && c != EOF);
+            }
+            
             int c;
             while ((c = getchar()) != '\n' && c != EOF);
-        }
 
-        switch (opcion) {
-            case 1:
-                verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada, grafo);
+            //si el usuario eligió ver mas
+            if (offset == 1 && opcion == 1) {
+                continue; //el do-while da otra vuelta y muestra las siguientes 3
+            }
+
+            int accion = (offset == 1) ? opcion - 1 : opcion;//ajustar accion segun offset
+
+            if (accion == 1) {
+                if (ya_sigue == true) {
+                    dejarDeSeguirUsuario(*usuario_actual, usuario, *grafo);
+                    ya_sigue = false; //actualizar estado
+                } else if (ya_sigue == false) {
+                    seguirUsuario(*usuario_actual, usuario, *grafo);
+                    ya_sigue = true; //actualizar estado
+                }
+                presioneTeclaParaContinuar();
+                pub_otro = list_first(usuario->publicaciones);
                 break;
-            case 2:
-                verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada, grafo);
-                break;
-            case 3:
-                editarPerfil(usuario_actual, usuarios, sesion_iniciada, grafo);
-                break;
-            case 4:
-                return; // Volver
-            default:
-                printf("Opción inválida. Volviendo al menu principal...\n");
+            } else if (accion == 2) {
+                return; // Volver 
+            } 
+        } while (1);
+    } 
+
+    else if (usuario_actual != NULL && *usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
+
+        Publicacion *pub = list_first(usuario->publicaciones);
+        int quedanPublicaciones = 1;
+        int opcion;
+
+        do {
+            limpiarPantalla();
+            puts("=======================================");
+            printf("               %s\n", usuario->user);
+            puts("=======================================");
+            printf("Publicaciones: %d | Seguidores: %d | Seguidos: %d", list_size(usuario->publicaciones), list_size(usuario->seguidores), list_size(usuario->seguidos));
+            puts("\n=======================================");
+
+            quedanPublicaciones = mostrarPublicacionesPaginadas(usuario->publicaciones, &pub);
+
+            int offset = 0;
+            if (quedanPublicaciones) {
+                printf("\n1) Ver más publicaciones\n");
+                offset = 1; 
+            }
+            printf("%d) Ver seguidores\n", offset + 1);
+            printf("%d) Ver seguidos\n", offset + 2);
+            printf("%d) Editar perfil\n", offset + 3);
+            printf("%d) Volver\n", offset + 4);
+            printf("\nIngrese su opción: ");
+
+            while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 4 + offset) {
+                printf("Opción inválida. Ingrese nuevamente: ");
                 int c;
-                while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
-                //MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
-                return;
-        }
+                while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer entrada
+            }
+            
+            if (offset == 1 && opcion == 1) continue; //el usuario eligio mostrar mas publis
 
+            int accion = (offset == 1) ? opcion - 1 : opcion; //ajustar accion segun offset
+            
+            switch (accion) {
+                case 1:
+                    verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada, grafo);
+                    pub = list_first(usuario->publicaciones); //reiniciar puntero a publicaciones 
+                    break;
+                case 2:
+                    verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada, grafo);
+                    pub = list_first(usuario->publicaciones); //reiniciar puntero a publicaciones
+                    break;
+                case 3:
+                    editarPerfil(usuario_actual, usuarios, sesion_iniciada, grafo);
+                    pub = list_first(usuario->publicaciones); //reiniciar puntero a publicaciones
+                    break;
+                case 4:
+                    return; // Volver
+            }
+        } while (1);
     } 
     else {
         printf("Error: Usuario no válido.\n");
@@ -290,7 +337,7 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
     }
     puts("=======================================");
 
-    printf("\nIngrese el número del usuario que desea ver (0 para volver al menú principal): ");
+    printf("\nIngrese el número del usuario que desea ver (0 para volver): ");
     int opcion;
     while (scanf("%d", &opcion) != 1) {
         printf("Opción inválida. Intente de nuevo: \n");
@@ -306,8 +353,11 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
             while ((c = getchar()) != '\n' && c != EOF);
         }
     }
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
     if (opcion == 0) {
-        return; // Cancelar y volver al menú principal
+        return; // Cancelar y volver 
     }
     usuario = list_first(lista);
     int contador_usuario = 1;
@@ -333,7 +383,7 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
     puts("1) Cambiar nombre de usuario");
     puts("2) Cambiar contraseña");
     puts("3) Eliminar cuenta");
-    puts("4) Volver al menú principal");
+    puts("4) Volver");
 
     int opcion;
     printf("\nIngrese su opción: ");
