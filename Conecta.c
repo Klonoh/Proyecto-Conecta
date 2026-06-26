@@ -58,6 +58,8 @@ bool yaSigue(Usuario *usuario_actual, const char *username);
 int ordenarSugerencias(const void *a, const void *b);
 void construirGrafoDesdeUsuarios(Map *usuarios, Graph *grafo);
 void reconstruirGrafo(Map *usuarios, Graph **grafo);
+bool usernameValido(const char *username);
+void convertirUsernameMinusculas(char *username);
 
 
 int is_equal_str(void *key1, void *key2){
@@ -98,13 +100,30 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     puts("=======================================");
     puts("           Registrar Usuario");
     puts("=======================================");
+
     char username[16];
+    char username_input[50];
     char password[21];
     char confirmar_pass[21];
-    printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
-    scanf("%15s", username);
-    for (int i = 0; username[i] != '\0'; i++) {
-        username[i] = tolower(username[i]);
+
+    while (1) {
+        printf("Ingrese un nombre de usuario: (a-z sin ñ, 0-9, \".\" y \"_\"): ");
+        scanf("%49s", username_input);
+
+        if (!usernameValido(username_input)) {
+            printf("Nombre de usuario inválido.\n");
+            continue;
+        }
+
+        convertirUsernameMinusculas(username_input);
+
+        if (map_search(usuarios, username_input) != NULL) {
+            printf("El nombre de usuario ya existe. Intente con otro.\n");
+            continue;
+        }
+
+        strcpy(username, username_input);
+        break;
     }
     printf("Ingrese una contraseña: (máximo 20 caracteres) ");
     scanf("%20s", password);
@@ -126,6 +145,36 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     
     *usuario_actual = map_search(usuarios, username)->value;
     return 1;
+}
+
+bool usernameValido(const char *username) {
+    int largo = strlen(username);
+
+    if (largo < 4 || largo > 15) {
+        return false;
+    }
+
+    for (int i = 0; username[i] != '\0'; i++) {
+        unsigned char c = (unsigned char) username[i];
+
+        bool es_letra = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        bool es_numero = (c >= '0' && c <= '9');
+        bool es_simbolo_valido = (c == '.' || c == '_');
+
+        if (!es_letra && !es_numero && !es_simbolo_valido) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void convertirUsernameMinusculas(char *username) {
+    for (int i = 0; username[i] != '\0'; i++) {
+        if (username[i] >= 'A' && username[i] <= 'Z') {
+            username[i] = username[i] + 32;
+        }
+    }
 }
 
 void inicializarUsuario(Map *usuarios, char *username, char *password) {
@@ -724,26 +773,32 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
     }
     if(opcion == 1) {
         char nuevo_username[16];
-        while (1) {
-            printf("Ingrese el nuevo nombre de usuario: ");
-            scanf("%15s", nuevo_username);
+    char nuevo_username_input[50];
 
-            for (int i = 0; nuevo_username[i] != '\0'; i++) {
-            nuevo_username[i] = tolower(nuevo_username[i]);
-            }
+    while (1) {
+        printf("Ingrese el nuevo nombre de usuario: ");
+        scanf("%49s", nuevo_username_input);
 
-            if (strcmp(nuevo_username, (*usuario_actual)->user) == 0) {
-                printf("El nuevo nombre de usuario no puede ser igual al actual.\n");
-                continue;
-            }
+        if (!usernameValido(nuevo_username_input)) {
+            printf("Nombre de usuario inválido (a-z sin ñ, 0-9, \".\" y \"_\"):\n");
+            continue;
+        }
 
-            if (map_search(usuarios, nuevo_username) != NULL) {
-                printf("El nombre de usuario ya existe. Intente con otro.\n");
-                continue;
-            }
+        convertirUsernameMinusculas(nuevo_username_input);
 
-            break; 
-        }       
+        if (strcmp(nuevo_username_input, (*usuario_actual)->user) == 0) {
+            printf("El nuevo nombre de usuario no puede ser igual al actual.\n");
+            continue;
+        }
+
+        if (map_search(usuarios, nuevo_username_input) != NULL) {
+            printf("El nombre de usuario ya existe. Intente con otro.\n");
+            continue;
+        }
+
+        strcpy(nuevo_username, nuevo_username_input);
+        break; 
+    }
 
         
         char nombre_antiguo[16];
