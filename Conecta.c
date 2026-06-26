@@ -449,17 +449,11 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         int opcion;
         printf("\nIngrese su opción: ");
 
-        while (scanf("%d", &opcion) != 1) {
-                printf("Opción inválida. Intente de nuevo: \n");
-                while (getchar() != '\n'); // Limpiar el buffer de entrada
-            }
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > 2) {
+            printf("Opción inválida. Intente de nuevo: ");
 
-        while(opcion < 1 || opcion > 2) {
-            printf("Opción inválida. Intente de nuevo:\n");
-            while (scanf("%d", &opcion) != 1) {
-            printf("Opción inválida. Intente de nuevo: \n");
-            while (getchar() != '\n'); //limpiar el buffer de entrada
-        }
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
         }
         
         if (opcion == 1) {
@@ -767,57 +761,57 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
     }
     if(opcion == 1) {
         char nuevo_username[16];
-    char nuevo_username_input[50];
+        char nuevo_username_input[50];
 
-    while (1) {
-        printf("Ingrese el nuevo nombre de usuario: ");
-        scanf("%49s", nuevo_username_input);
+        while (1) {
+            printf("Ingrese el nuevo nombre de usuario: ");
+            scanf("%49s", nuevo_username_input);
 
-        if (!usernameValido(nuevo_username_input)) {
-            printf("Nombre de usuario inválido (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"):\n");
-            continue;
+            if (!usernameValido(nuevo_username_input)) {
+                printf("Nombre de usuario inválido (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"):\n");
+                continue;
+            }
+
+            convertirUsernameMinusculas(nuevo_username_input);
+
+            if (strcmp(nuevo_username_input, (*usuario_actual)->user) == 0) {
+                printf("El nuevo nombre de usuario no puede ser igual al actual.\n");
+                continue;
+            }
+
+            if (map_search(usuarios, nuevo_username_input) != NULL) {
+                printf("El nombre de usuario ya existe. Intente con otro.\n");
+                continue;
+            }
+
+            strcpy(nuevo_username, nuevo_username_input);
+            break; 
         }
 
-        convertirUsernameMinusculas(nuevo_username_input);
+            
+            char nombre_antiguo[16];
+            strcpy(nombre_antiguo, (*usuario_actual)->user);
 
-        if (strcmp(nuevo_username_input, (*usuario_actual)->user) == 0) {
-            printf("El nuevo nombre de usuario no puede ser igual al actual.\n");
-            continue;
-        }
+            Usuario *usuario_sacado = map_remove(usuarios, nombre_antiguo);
 
-        if (map_search(usuarios, nuevo_username_input) != NULL) {
-            printf("El nombre de usuario ya existe. Intente con otro.\n");
-            continue;
-        }
+            if (usuario_sacado == NULL) {
+                printf("Error al actualizar el usuario.\n");
+                return;
+            }
 
-        strcpy(nuevo_username, nuevo_username_input);
-        break; 
-    }
+            strcpy((*usuario_actual)->user, nuevo_username);
 
-        
-        char nombre_antiguo[16];
-        strcpy(nombre_antiguo, (*usuario_actual)->user);
+            Publicacion *pub = list_first((*usuario_actual)->publicaciones);
+                while (pub != NULL) {
+                strcpy(pub->autor, nuevo_username);
+                pub = list_next((*usuario_actual)->publicaciones);
+            }
 
-        Usuario *usuario_cambiado = map_remove(usuarios, nombre_antiguo);
+            map_insert(usuarios, strdup(nuevo_username), *usuario_actual);
 
-        if (usuario_cambiado == NULL) {
-            printf("Error al actualizar el usuario.\n");
-            return;
-        }
+            reconstruirGrafo(usuarios, grafo);
 
-        strcpy((*usuario_actual)->user, nuevo_username);
-
-        Publicacion *pub = list_first((*usuario_actual)->publicaciones);
-            while (pub != NULL) {
-            strcpy(pub->autor, nuevo_username);
-            pub = list_next((*usuario_actual)->publicaciones);
-        }
-
-        map_insert(usuarios, strdup(nuevo_username), *usuario_actual);
-
-        reconstruirGrafo(usuarios, grafo);
-
-        printf("Nombre de usuario actualizado correctamente.\n");
+            printf("Nombre de usuario actualizado correctamente.\n");
 
     }
     else if(opcion == 2) {
