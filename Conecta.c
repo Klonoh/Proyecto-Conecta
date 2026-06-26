@@ -75,9 +75,9 @@ bool iniciarSesion(Map *usuarios, Usuario **usuario_actual) {
     char password[21];
     printf("Ingrese su nombre de usuario: ");
     scanf("%15s", username);
-    for (int i = 0; username[i] != '\0'; i++) {
-        username[i] = tolower(username[i]);
-    }
+
+    convertirUsernameMinusculas(username);
+
     printf("Ingrese su contraseña: ");
     scanf("%20s", password);
     MapPair *pair = map_search(usuarios, username);
@@ -107,7 +107,7 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     char confirmar_pass[21];
 
     while (1) {
-        printf("Ingrese un nombre de usuario: (a-z sin ñ, 0-9, \".\" y \"_\"): ");
+        printf("Ingrese un nombre de usuario: (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"): ");
         scanf("%49s", username_input);
 
         if (!usernameValido(username_input)) {
@@ -130,10 +130,6 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
 
     printf("Confirme la contraseña: ");
     scanf("%20s", confirmar_pass);
-    if (map_search(usuarios, username) != NULL) {
-        printf("El nombre de usuario ya existe. Intente con otro.\n");
-        return 0;
-    }
 
     if (strcmp(password, confirmar_pass) != 0) {
         printf("Las contraseñas ingresadas no coinciden entre sí. Intente nuevamente.\n");
@@ -349,9 +345,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
         char username[16];
         printf("Ingrese el nombre de usuario a buscar: ");
         scanf("%15s", username);
-        for (int i = 0; username[i] != '\0'; i++) {
-            username[i] = tolower(username[i]);
-        }
+        convertirUsernameMinusculas(username);
         MapPair *pair = map_first(usuarios);
         int coincidencias = 0;
 
@@ -780,7 +774,7 @@ void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada,
         scanf("%49s", nuevo_username_input);
 
         if (!usernameValido(nuevo_username_input)) {
-            printf("Nombre de usuario inválido (a-z sin ñ, 0-9, \".\" y \"_\"):\n");
+            printf("Nombre de usuario inválido (4 a 15 caracteres, letras sin tilde, números, \".\" y \"_\"):\n");
             continue;
         }
 
