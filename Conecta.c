@@ -490,7 +490,6 @@ void verFeed(Usuario* usuario_actual) {
 
 }   
 
-
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
@@ -883,7 +882,7 @@ void mostrarMenuInicial(){
         "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
         "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
         "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
-        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
+        "\\_____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
     puts("=======================================");
 
     puts("1) Iniciar Sesión");
@@ -900,7 +899,7 @@ void mostrarMenuPrincipal(Usuario *usuario_actual){
         "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
         "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
         "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
-        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
+        "\\_____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
     puts("=======================================");
 
     printf("Bienvenido, %s\n", usuario_actual->user);
