@@ -18,7 +18,7 @@ void presioneTeclaParaContinuar() {
 
 void formatearFecha(time_t timestamp, char* buffer, int tam) {
     struct tm *info = localtime(&timestamp);
-    strftime(buffer, tam, "%d-%m-%Y %H:%M", info);
+    strftime(buffer, tam, "%H:%M · %d %b, %Y", info);
 }
 
 
