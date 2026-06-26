@@ -977,7 +977,7 @@ void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph *grafo, in
     qsort(arreglo, cantidad, sizeof(Sugerencia *), ordenarSugerencias);
 
     for (int i = 0; i < 10; i++) {
-        printf("%2d) %s \n", i + 1, arreglo[i]->usuario->user);
+        printf("%2d) %s - %d seguidores en común\n", i + 1, arreglo[i]->usuario->user, arreglo[i]->peso);
     }
 
     puts("=======================================");
