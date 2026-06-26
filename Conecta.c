@@ -451,6 +451,11 @@ void verFeed(Usuario* usuario_actual) {
         aux = list_next(usuario_actual->seguidos);
     }
 
+    if (nPublicaciones == 0) {
+        printf("No hay publicaciones en tu feed.\n");
+        return;
+    }
+    
     //se crea un arreglo dinámico para almacenar todas las publicaciones de los usuarios seguidos
     Publicacion** publicaciones = (Publicacion**) malloc(nPublicaciones * sizeof(Publicacion*));
     int i = 0;
@@ -716,7 +721,12 @@ void cerrarSesion(Usuario **usuario_actual) {
 void mostrarMenuInicial(){
     limpiarPantalla();
     puts("=======================================");
-    puts("                Conecta");
+    printf(" _____                       _        \n"
+        "/  __ \\                     | |       \n"
+        "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
+        "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
+        "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
+        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
     puts("=======================================");
 
     puts("1) Iniciar Sesión");
@@ -728,7 +738,12 @@ void mostrarMenuPrincipal(Usuario *usuario_actual){
   
     limpiarPantalla();
     puts("=======================================");
-    puts("                Conecta");
+    printf(" _____                       _        \n"
+        "/  __ \\                     | |       \n"
+        "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
+        "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
+        "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
+        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
     puts("=======================================");
 
     printf("Bienvenido, %s\n", usuario_actual->user);
