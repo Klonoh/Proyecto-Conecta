@@ -54,10 +54,9 @@ void removeNode(Graph* g, const char* label) {
     }
 
     // 2. Eliminar la lista de aristas del nodo y el nodo del mapa
-    MapPair* par = map_remove(g->adjacencyMap, (void*) label);
-    if (par == NULL) return;
+    List* edgesList = map_remove(g->adjacencyMap, (void*) label);
 
-    List* edgesList = (List*) par->value;
+    if (edgesList == NULL) return;
     Edge* e = list_first(edgesList);
     while (e != NULL) {
         free(e->target);
@@ -66,8 +65,6 @@ void removeNode(Graph* g, const char* label) {
     }
     list_clean(edgesList);
     free(edgesList);
-    free(par->key);
-    free(par);
 }
 
 void addEdge(Graph* g, const char* src, const char* dest) {
