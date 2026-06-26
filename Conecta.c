@@ -17,10 +17,10 @@
 typedef struct Usuario {
     char user[16];
     char pass[21];
-    List *publicaciones; 
-    List *seguidores;
-    List *seguidos;
-    Queue* notificaciones;
+    List *publicaciones; //lista de Publicacion*
+    List *seguidores; //lista de usuario*
+    List *seguidos; //lista de usuario*
+    Queue* notificaciones; //cola de strings
 } Usuario;
 
 typedef struct Publicacion {
@@ -46,7 +46,7 @@ void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
 void verListaUsuarios( Usuario *usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios);
 void editarPerfil(Usuario *usuario_actual, Map *usuarios);
-//void verFeed(Usuario *usuario_actual, Map *usuarios);
+void verFeed(Usuario *usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -427,7 +427,65 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
         printf("Error: Usuario no válido.\n");
     }
 }
-   
+
+int ordenar(const void *a, const void *b) {
+    Publicacion *pubA = *(Publicacion **)a;
+    Publicacion *pubB = *(Publicacion **)b;
+    return (pubB->timestamp - pubA->timestamp); //orden descendente (mas reciente primero)
+}
+
+void verFeed(Usuario* usuario_actual) {
+    if (usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    puts("=======================================");
+    puts("                Mi Feed");
+    puts("=======================================");
+
+    //primero se consiguen el numero total de publicaciones del feed
+    int nPublicaciones = 0;
+    Usuario* aux = list_first(usuario_actual->seguidos);
+    while (aux != NULL) {
+        nPublicaciones += list_size(aux->publicaciones);
+        aux = list_next(usuario_actual->seguidos);
+    }
+
+    //se crea un arreglo dinámico para almacenar todas las publicaciones de los usuarios seguidos
+    Publicacion** publicaciones = (Publicacion**) malloc(nPublicaciones * sizeof(Publicacion*));
+    int i = 0;
+    aux = list_first(usuario_actual->seguidos);
+    while (aux != NULL) {
+        Publicacion* pub = list_first(aux->publicaciones);
+        while (pub != NULL) {
+            publicaciones[i] = pub;
+            i++;
+            pub = list_next(aux->publicaciones);
+        }
+        aux = list_next(usuario_actual->seguidos);
+    }
+
+    //se ordena el arreglo de publicaciones por fecha (de mas reciente a mas antigua)
+    qsort(publicaciones, nPublicaciones, sizeof(Publicacion*), ordenar);
+
+    //se muestran las publicaciones 
+    Publicacion* pub = NULL;
+    for (int i = 0; i < nPublicaciones; i++) {
+        pub = publicaciones[i];
+        char fecha[20];
+        formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+        printf("\n%s:\n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+        if (i < nPublicaciones - 1) {
+            puts("=======================================");
+        }
+    }
+
+    //Liberar memoria del arreglo de publicaciones
+    free(publicaciones);
+
+}   
+
+
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
@@ -745,6 +803,7 @@ int main(){
             
             switch (opcion) {
             case '1':
+                verFeed(usuario_actual);
                 break;
             case '2':
                 publicarMensaje(usuario_actual);

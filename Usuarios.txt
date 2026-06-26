@@ -1,6 +1,7 @@
 USUARIO seba 123
-PUBLICACIONES 1
+PUBLICACIONES 2
 seba 1782268687 hola
+seba 1782432200 test 2  
 SEGUIDOS 2
 joaquin
 tito
@@ -18,10 +19,11 @@ test
 SEGUIDORES 2
 seba
 tito
-NOTIFICACIONES 3
+NOTIFICACIONES 4
 El usuario seba ha comenzado a seguirte.
 El usuario seba ha publicado un nuevo mensaje.
 El usuario tito ha comenzado a seguirte.
+El usuario seba ha publicado un nuevo mensaje.
 FIN
 USUARIO test 123
 PUBLICACIONES 0
@@ -38,6 +40,7 @@ seba
 joaquin
 SEGUIDORES 1
 seba
-NOTIFICACIONES 1
+NOTIFICACIONES 2
 El usuario seba ha comenzado a seguirte.
+El usuario seba ha publicado un nuevo mensaje.
 FIN
