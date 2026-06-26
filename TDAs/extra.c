@@ -1,7 +1,13 @@
 #include "extra.h"
 #include <time.h>
 // Función para limpiar la pantalla
-void limpiarPantalla() { system("clear"); }
+void limpiarPantalla() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
 
 void presioneTeclaParaContinuar() {
     puts("Presione una tecla para continuar...");
@@ -12,7 +18,7 @@ void presioneTeclaParaContinuar() {
 
 void formatearFecha(time_t timestamp, char* buffer, int tam) {
     struct tm *info = localtime(&timestamp);
-    strftime(buffer, tam, "%d-%m-%Y %H:%M", info);
+    strftime(buffer, tam, "%H:%M · %d %b, %Y", info);
 }
 
 

@@ -17,10 +17,10 @@
 typedef struct Usuario {
     char user[16];
     char pass[21];
-    List *publicaciones; 
-    List *seguidores;
-    List *seguidos;
-    Queue* notificaciones;
+    List *publicaciones; //lista de Publicacion*
+    List *seguidores; //lista de usuario*
+    List *seguidos; //lista de usuario*
+    Queue* notificaciones; //cola de strings
 } Usuario;
 
 typedef struct Publicacion {
@@ -46,6 +46,7 @@ void verNotificaciones(Usuario *usuario_actual);
 void publicarMensaje(Usuario *usuario_actual);
 void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada);
 void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada);
+void verFeed(Usuario *usuario_actual);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -119,7 +120,7 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
     //por lo q al finalizarse esta funcion, username dejaba de existir y el puntero del mapa quedaba apuntando a una direccion de 
     //memoria inválida. este era el bug principal que no dejaba iniciar sesion.
 
-    printf("DEBUG: insertado '%s' en el mapa\n", username);
+    //printf("DEBUG: insertado '%s' en el mapa\n", username);
 }
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
@@ -358,13 +359,12 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         
         Publicacion *pub = list_first(usuario->publicaciones);
         while (pub != NULL) {
-            char fecha[20];
+            char fecha[30];
             formatearFecha(pub->timestamp, fecha, sizeof(fecha));
             printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+            puts("=======================================");
             pub = list_next(usuario->publicaciones);
         }
-
-        puts("=======================================");
 
         if (ya_sigue == true) {
             printf("\n1) Dejar de seguir\n");
@@ -392,12 +392,13 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
     else if (*usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
         Publicacion *pub = list_first(usuario->publicaciones);
         while (pub != NULL) {
-            char fecha[20];
+            char fecha[30];
             formatearFecha(pub->timestamp, fecha, sizeof(fecha));
             printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+            puts("=======================================");
             pub = list_next(usuario->publicaciones);
         }
-        puts("=======================================");
+
 
 
         int opcion;
@@ -426,7 +427,70 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("Error: Usuario no válido.\n");
     }
 }
-   
+
+int ordenar(const void *a, const void *b) {
+    Publicacion *pubA = *(Publicacion **)a;
+    Publicacion *pubB = *(Publicacion **)b;
+    return (pubB->timestamp - pubA->timestamp); //orden descendente (mas reciente primero)
+}
+
+void verFeed(Usuario* usuario_actual) {
+    if (usuario_actual == NULL) {
+        printf("Error: Usuario no válido.\n");
+        return;
+    }
+    puts("=======================================");
+    puts("                Mi Feed");
+    puts("=======================================");
+
+    //primero se consiguen el numero total de publicaciones del feed
+    int nPublicaciones = 0;
+    Usuario* aux = list_first(usuario_actual->seguidos);
+    while (aux != NULL) {
+        nPublicaciones += list_size(aux->publicaciones);
+        aux = list_next(usuario_actual->seguidos);
+    }
+
+    if (nPublicaciones == 0) {
+        printf("No hay publicaciones en tu feed.\n");
+        return;
+    }
+    
+    //se crea un arreglo dinámico para almacenar todas las publicaciones de los usuarios seguidos
+    Publicacion** publicaciones = (Publicacion**) malloc(nPublicaciones * sizeof(Publicacion*));
+    int i = 0;
+    aux = list_first(usuario_actual->seguidos);
+    while (aux != NULL) {
+        Publicacion* pub = list_first(aux->publicaciones);
+        while (pub != NULL) {
+            publicaciones[i] = pub;
+            i++;
+            pub = list_next(aux->publicaciones);
+        }
+        aux = list_next(usuario_actual->seguidos);
+    }
+
+    //se ordena el arreglo de publicaciones por fecha (de mas reciente a mas antigua)
+    qsort(publicaciones, nPublicaciones, sizeof(Publicacion*), ordenar);
+
+    //se muestran las publicaciones 
+    Publicacion* pub = NULL;
+    for (int i = 0; i < nPublicaciones; i++) {
+        pub = publicaciones[i];
+        char fecha[30];
+        formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+        printf("\n%s:\n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+        if (i < nPublicaciones - 1) {
+            puts("=======================================");
+        }
+    }
+
+    //Liberar memoria del arreglo de publicaciones
+    free(publicaciones);
+
+}   
+
+
 void seguirUsuario(Usuario *usuario_actual, Usuario *usuario_a_seguir) {
     if (usuario_actual == NULL || usuario_a_seguir == NULL) {
         printf("Error: Usuario no válido.\n");
@@ -812,31 +876,42 @@ void cerrarSesion(Usuario **usuario_actual) {
 }
 
 void mostrarMenuInicial(){
-  limpiarPantalla();
-  puts("=======================================");
-  puts("                Conecta");
-  puts("=======================================");
+    limpiarPantalla();
+    puts("=======================================");
+    printf(" _____                       _        \n"
+        "/  __ \\                     | |       \n"
+        "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
+        "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
+        "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
+        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
+    puts("=======================================");
 
-  puts("1) Iniciar Sesión");
-  puts("2) Registrar Usuario");
-  puts("3) Salir");
+    puts("1) Iniciar Sesión");
+    puts("2) Registrar Usuario");
+    puts("3) Salir");
 }
 
 void mostrarMenuPrincipal(Usuario *usuario_actual){
-  limpiarPantalla();
-  puts("=======================================");
-  puts("                Conecta");
-  puts("=======================================");
+  
+    limpiarPantalla();
+    puts("=======================================");
+    printf(" _____                       _        \n"
+        "/  __ \\                     | |       \n"
+        "| /  \\/ ___  _ __   ___  ___| |_ __ _ \n"
+        "| |    / _ \\| '_ \\ / _ \\/ __| __/ _` |\n"
+        "| \\__/\\ (_) | | | |  __/ (__| || (_| |\n"
+        "\\____/\\___/|_| |_|\\___|\\___|\\__\\__,_|\n\n");
+    puts("=======================================");
 
-  printf("Bienvenido, %s\n", usuario_actual->user);
-  puts("1) Ver feed");
-  puts("2) Publicar mensaje");
-  puts("3) Buscar usuario");
-  puts("4) Ver notificaciones");
-  puts("5) Ver mi perfil");
-  puts("6) Sugerencias para ti");
-  puts("7) Cerrar sesión");
-  puts("8) Salir");
+    printf("Bienvenido, %s\n", usuario_actual->user);
+    puts("1) Ver feed");
+    puts("2) Publicar mensaje");
+    puts("3) Buscar usuario");
+    puts("4) Ver notificaciones");
+    puts("5) Ver mi perfil");
+    puts("6) Sugerencias para ti");
+    puts("7) Cerrar sesión");
+    puts("8) Salir");
 }
 
 void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, FILE *archivo_usuarios) {
@@ -900,6 +975,7 @@ int main(){
             
             switch (opcion) {
             case '1':
+                verFeed(usuario_actual);
                 break;
             case '2':
                 publicarMensaje(usuario_actual);
