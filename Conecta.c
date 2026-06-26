@@ -405,17 +405,26 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
 
         while(opcion < 1 || opcion > 2) {
             printf("Opción inválida. Intente de nuevo:\n");
-            scanf("%d", &opcion);
+            while (scanf("%d", &opcion) != 1) {
+            printf("Opción inválida. Intente de nuevo: \n");
+            while (getchar() != '\n'); //limpiar el buffer de entrada
+        }
         }
         
         if (opcion == 1) {
             if (ya_sigue == true) {
                 dejarDeSeguirUsuario(*usuario_actual, usuario, grafo);
+                presioneTeclaParaContinuar();
             } else if (ya_sigue == false) {
                 seguirUsuario(*usuario_actual, usuario, grafo);
+                presioneTeclaParaContinuar();
             }
         } else if (opcion == 2) {
-            return; // Volver al menú principal
+            return; // Volver 
+        } else {
+            printf("Opción inválida.\n");
+            presioneTeclaParaContinuar();
+            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada, grafo); // Volver a mostrar el perfil
         }
     } 
     else if (*usuario_actual != NULL && strcmp((*usuario_actual)->user, usuario->user) == 0) {
@@ -641,7 +650,6 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
 
     printf("\nIngrese el número del usuario que desea ver (0 para volver al menú principal): ");
     int opcion;
-    scanf("%d", &opcion);
     while (scanf("%d", &opcion) != 1) {
         printf("Opción inválida. Intente de nuevo: \n");
         while (getchar() != '\n'); // Limpiar el buffer de entrada

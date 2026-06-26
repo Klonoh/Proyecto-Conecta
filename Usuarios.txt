@@ -166,8 +166,22 @@ El usuario klonoh te menciono en una publicacion.
 El usuario tito te menciono en una publicacion.
 El usuario tito ha comenzado a seguirte.
 El usuario klonoh ha publicado un nuevo mensaje.
+<<<<<<< HEAD
 El usuario mundialhub ha publicado un nuevo mensaje.
 Mundial2026 esta generando conversacion.
+=======
+FIN
+USUARIO test 123
+PUBLICACIONES 0
+SEGUIDOS 0
+SEGUIDORES 2
+klonoh
+seba
+NOTIFICACIONES 3
+El usuario joaquin ha comenzado a seguirte.
+El usuario joaquin ha comenzado a seguirte.
+El usuario seba ha comenzado a seguirte.
+>>>>>>> 7ae8af51cd293189ca80f066fd458b2da3bbbb79
 FIN
 USUARIO klonoh 123456
 PUBLICACIONES 24
@@ -546,6 +560,7 @@ rochistack
 rodrinet
 samuel376
 seba
+<<<<<<< HEAD
 soficode
 streamqueen
 techinsider
@@ -40765,6 +40780,9 @@ panchomain
 pepe466
 tomas654
 tomas_stack
+=======
+SEGUIDORES 0
+>>>>>>> 7ae8af51cd293189ca80f066fd458b2da3bbbb79
 NOTIFICACIONES 3
 El usuario max465 ha comenzado a seguirte.
 El usuario musicnova ha publicado un nuevo mensaje.
