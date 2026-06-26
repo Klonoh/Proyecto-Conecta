@@ -158,15 +158,9 @@ sam446
 stacklord
 test
 tito
-valebyte
-NOTIFICACIONES 8
-El usuario javidev te menciono en una publicacion.
-El usuario nachomap te menciono en una publicacion.
-El usuario klonoh te menciono en una publicacion.
-El usuario tito te menciono en una publicacion.
+NOTIFICACIONES 2
 El usuario tito ha comenzado a seguirte.
 El usuario klonoh ha publicado un nuevo mensaje.
-<<<<<<< HEAD
 El usuario mundialhub ha publicado un nuevo mensaje.
 FIN
 USUARIO test 123
@@ -30123,9 +30117,6 @@ matiia
 pablo378
 NOTIFICACIONES 4
 El usuario joaquin ha comenzado a seguirte.
-El usuario camicat ha comenzado a seguirte.
-El usuario techinsider ha publicado un nuevo mensaje.
-Hay nuevos temas populares en tu feed.
 FIN
 USUARIO clau_src 123
 PUBLICACIONES 3
@@ -40539,9 +40530,12 @@ panchomain
 pepe466
 tomas654
 tomas_stack
+<<<<<<< HEAD
 NOTIFICACIONES 23
 SEGUIDORES 0
 >>>>>>> 7ae8af51cd293189ca80f066fd458b2da3bbbb79
+=======
+>>>>>>> 4c58c2a9ddd621b0d06e80246459b22f1124b8a4
 NOTIFICACIONES 3
 El usuario max465 ha comenzado a seguirte.
 El usuario musicnova ha publicado un nuevo mensaje.
@@ -47944,71 +47938,7 @@ paulicl
 pepego
 rafaelvx
 seba
-sofix
-valenx
-NOTIFICACIONES 4
-El usuario claudiadev ha comenzado a seguirte.
-El usuario martin64 ha comenzado a seguirte.
-El usuario futboltotal ha publicado un nuevo mensaje.
-El timeline esta especialmente activo hoy.
-FIN
-USUARIO valebeta 123
-PUBLICACIONES 5
-valebeta 1782644326 @agus946 tu prediccion fue valiente, incorrecta, pero valiente
-valebeta 1782995900 La palabra del ano podria ser automatizacion opinion rapida #Gaming
-valebeta 1782997420 Alemania perdiendo siempre abre una asamblea mundialista se tenia que decir #IA
-valebeta 1782998411 Los datos malos siguen arruinando sistemas buenos version extendida #Estudio
-valebeta 1783000286 Hoy el timeline esta entre futbol memes y opiniones demasiado serias queda fijado #Memes
-SEGUIDOS 29
-agus946
-alonso_news
-ameliaalpha
-beatrizgo
-chefviral
-claudiadev
-claugo
-danilodev
-danilox
-diegoup
-dominic_play
-emi_cl
-flor943
-franco219
-gabo70
-gonzalocl
-lucasgol
-martin_seven
-martin_vx
-maxi_moon
-memelord
-mundialhub
-musicnova
-samuel376
-santi338
-sofix
-tomas_bash
-tomas_beta
-valenpro
-SEGUIDORES 21
-agus946
-ameliaalpha
-andreskernel
-ariel_null
-bastiango
-carlamap
-climaaldia
-cristobaltv
-emilio167
-gabo70
-hectorx
-jose_loop
-leo_alpha
-liam_byte
-luna_play
-pato_pixel
-pauli685
-rafaelvx
-ricky_git
+SEGUIDORES 1
 seba
 sofix
 NOTIFICACIONES 4
