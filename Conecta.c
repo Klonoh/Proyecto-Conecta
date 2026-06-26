@@ -362,10 +362,9 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
             char fecha[30];
             formatearFecha(pub->timestamp, fecha, sizeof(fecha));
             printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+            puts("=======================================");
             pub = list_next(usuario->publicaciones);
         }
-
-        puts("=======================================");
 
         if (ya_sigue == true) {
             printf("\n1) Dejar de seguir\n");
@@ -396,9 +395,10 @@ void MostrarPerfil(Usuario *usuario_actual, Usuario *usuario, Map *usuarios) {
             char fecha[30];
             formatearFecha(pub->timestamp, fecha, sizeof(fecha));
             printf("\n%s: \n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+            puts("=======================================");
             pub = list_next(usuario->publicaciones);
         }
-        puts("=======================================");
+
 
 
         int opcion;
