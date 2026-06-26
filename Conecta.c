@@ -397,11 +397,20 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("2) Volver al menú principal\n");
         int opcion;
         printf("\nIngrese su opción: ");
+
         while (scanf("%d", &opcion) != 1) {
+                printf("Opción inválida. Intente de nuevo: \n");
+                while (getchar() != '\n'); // Limpiar el buffer de entrada
+            }
+
+        while(opcion < 1 || opcion > 2) {
+            printf("Opción inválida. Intente de nuevo:\n");
+            while (scanf("%d", &opcion) != 1) {
             printf("Opción inválida. Intente de nuevo: \n");
             while (getchar() != '\n'); //limpiar el buffer de entrada
         }
-
+        }
+        
         if (opcion == 1) {
             if (ya_sigue == true) {
                 dejarDeSeguirUsuario(*usuario_actual, usuario, grafo);
@@ -641,11 +650,13 @@ void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo
 
     printf("\nIngrese el número del usuario que desea ver (0 para volver al menú principal): ");
     int opcion;
-    while(scanf("%d", &opcion) != 1 || opcion < 0 || opcion > contador ) {
-        printf("Opción inválida.\n");
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-        printf("Ingrese nuevamente: ");
+    while (scanf("%d", &opcion) != 1) {
+        printf("Opción inválida. Intente de nuevo: \n");
+        while (getchar() != '\n'); // Limpiar el buffer de entrada
+    }
+    while(opcion < 0 || opcion > contador) {
+        printf("Opción inválida. Intente de nuevo: \n");
+        scanf("%d", &opcion);
     }
     if (opcion == 0) {
         return; // Cancelar y volver al menú principal
