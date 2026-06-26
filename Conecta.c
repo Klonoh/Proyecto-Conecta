@@ -134,11 +134,6 @@ void inicializarUsuario(Map *usuarios, char *username, char *password) {
     nuevo_usuario->seguidos = list_create();
     nuevo_usuario->notificaciones = queue_create();
     map_insert(usuarios, strdup(username), nuevo_usuario);
-    //IMPORTANTE: se puso strdup para que se haga una copia del username, ya que la variable username es local a la funcion registrarUsuario,
-    //por lo q al finalizarse esta funcion, username dejaba de existir y el puntero del mapa quedaba apuntando a una direccion de 
-    //memoria inválida. este era el bug principal que no dejaba iniciar sesion.
-
-    //printf("DEBUG: insertado '%s' en el mapa\n", username);
 }
 
 void leerArchivo(Map *usuarios, FILE *archivo) {
@@ -319,6 +314,11 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
         printf("\nIngrese el número del perfil que desea ver (0 para cancelar): ");
         scanf("%d", &opcion);
 
+        if (!isdigit(opcion) && opcion != 0) {
+            printf("Opción inválida.\n");
+            return;
+        }
+        
         if (opcion > 0 && opcion <= coincidencias) {
             pair = map_first(usuarios);
             int contador = 1;
@@ -427,17 +427,24 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("\nIngrese su opción: ");
         scanf("%d", &opcion);
 
-        if (opcion == 1) {
-            verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada);
-        } else if (opcion == 2) {
-            verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada);
-        } else if (opcion == 3) {
-            editarPerfil(usuario_actual, usuarios, sesion_iniciada);
-        } else if (opcion == 4) {
-            return; // Volver al menú principal
-        } else {
-            printf("Opción inválida.\n");
-            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada); // Volver a mostrar el perfil
+        switch (opcion) {
+            case 1:
+                verListaUsuarios(usuario_actual, usuario->seguidores, "Seguidores", "No tienes seguidores.", usuarios, sesion_iniciada);
+                break;
+            case 2:
+                verListaUsuarios(usuario_actual, usuario->seguidos, "Seguidos", "No estás siguiendo a nadie.", usuarios, sesion_iniciada);
+                break;
+            case 3:
+                editarPerfil(usuario_actual, usuarios, sesion_iniciada);
+                break;
+            case 4:
+                return; // Volver al menú principal
+            default:
+                printf("Opción inválida. Volviendo al menu principal...\n");
+                int c;
+                while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
+                //MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada); // Volver a mostrar el perfil
+                return;
         }
 
     } 
