@@ -6,8 +6,9 @@ SEGUIDOS 1
 tito
 SEGUIDORES 1
 tito
-NOTIFICACIONES 1
+NOTIFICACIONES 2
 El usuario tito ha comenzado a seguirte.
+El usuario klonoh ha publicado un nuevo mensaje.
 FIN
 USUARIO test 123
 PUBLICACIONES 0
@@ -19,7 +20,8 @@ El usuario joaquin ha comenzado a seguirte.
 El usuario joaquin ha comenzado a seguirte.
 FIN
 USUARIO klonoh 123456
-PUBLICACIONES 0
+PUBLICACIONES 1
+klonoh 1782436916 a
 SEGUIDOS 2
 seba
 test
@@ -38,7 +40,8 @@ SEGUIDOS 1
 seba
 SEGUIDORES 1
 seba
-NOTIFICACIONES 2
+NOTIFICACIONES 3
 El usuario seba ha comenzado a seguirte.
 El usuario seba ha publicado un nuevo mensaje.
+El usuario klonoh ha publicado un nuevo mensaje.
 FIN
