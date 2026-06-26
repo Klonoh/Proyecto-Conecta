@@ -29,6 +29,11 @@ typedef struct Publicacion {
     time_t timestamp;
 } Publicacion;
 
+typedef struct Sugerencia {
+    Usuario *usuario;
+    int peso;
+} Sugerencia;
+
 bool iniciarSesion(Map *usuarios, Usuario **usuario_actual);
 bool registrarUsuario(Map *usuarios, Usuario **usuario_actual);
 void inicializarUsuario(Map *usuarios, char *username, char *password);
@@ -47,6 +52,10 @@ void publicarMensaje(Usuario *usuario_actual);
 void verListaUsuarios( Usuario **usuario_actual, List *lista, const char *titulo, const char *mensaje_vacio, Map *usuarios, int *sesion_iniciada);
 void editarPerfil(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada);
 void verFeed(Usuario *usuario_actual);
+void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, int *sesion_iniciada);
+Sugerencia *buscarSugerencia(List *sugerencias, Usuario *usuario);
+bool usuarioYaSeguido(Usuario *usuario_actual, Usuario *posible);
+int ordenarSugerencias(const void *a, const void *b);
 
 int is_equal_str(void *key1, void *key2){
   return strcmp((char *)key1, (char *)key2) == 0;
@@ -88,6 +97,7 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     puts("=======================================");
     char username[16];
     char password[21];
+    char confirmar_pass[21];
     printf("Ingrese un nombre de usuario: (máximo 15 caracteres) ");
     scanf("%15s", username);
     for (int i = 0; username[i] != '\0'; i++) {
@@ -95,8 +105,16 @@ bool registrarUsuario(Map *usuarios, Usuario **usuario_actual) {
     }
     printf("Ingrese una contraseña: (máximo 20 caracteres) ");
     scanf("%20s", password);
+
+    printf("Confirme la contraseña: ");
+    scanf("%20s", confirmar_pass);
     if (map_search(usuarios, username) != NULL) {
         printf("El nombre de usuario ya existe. Intente con otro.\n");
+        return 0;
+    }
+
+    if (strcmp(password, confirmar_pass) != 0) {
+        printf("Las contraseñas ingresadas no coinciden entre sí. Intente nuevamente.\n");
         return 0;
     }
 
