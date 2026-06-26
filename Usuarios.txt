@@ -2,11 +2,9 @@ USUARIO seba 123
 PUBLICACIONES 2
 seba 1782268687 hola
 seba 1782432200 test 2  
-SEGUIDOS 2
-joaquin
+SEGUIDOS 1
 tito
-SEGUIDORES 2
-joaquin
+SEGUIDORES 1
 tito
 NOTIFICACIONES 1
 El usuario tito ha comenzado a seguirte.
@@ -16,7 +14,8 @@ PUBLICACIONES 0
 SEGUIDOS 0
 SEGUIDORES 1
 klonoh
-NOTIFICACIONES 1
+NOTIFICACIONES 2
+El usuario joaquin ha comenzado a seguirte.
 El usuario joaquin ha comenzado a seguirte.
 FIN
 USUARIO klonoh 123456
@@ -33,19 +32,10 @@ El usuario seba ha publicado un nuevo mensaje.
 El usuario tito ha comenzado a seguirte.
 El usuario seba ha publicado un nuevo mensaje.
 FIN
-USUARIO test 123
-PUBLICACIONES 0
-SEGUIDOS 0
-SEGUIDORES 1
-joaquin
-NOTIFICACIONES 1
-El usuario joaquin ha comenzado a seguirte.
-FIN
 USUARIO tito 123
 PUBLICACIONES 0
-SEGUIDOS 2
+SEGUIDOS 1
 seba
-joaquin
 SEGUIDORES 1
 seba
 NOTIFICACIONES 2
