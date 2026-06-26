@@ -283,68 +283,72 @@ void publicarMensaje(Usuario *usuario_actual) {
 }
 
 void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada) {
-    limpiarPantalla();
-    puts("=======================================");
-    puts("           Buscar Usuario");
-    puts("=======================================");
-    char username[16];
-    printf("Ingrese el nombre de usuario a buscar: ");
-    scanf("%15s", username);
-    for (int i = 0; username[i] != '\0'; i++) {
-        username[i] = tolower(username[i]);
-    }
-    MapPair *pair = map_first(usuarios);
-    int coincidencias = 0;
+    while (1) {
+        limpiarPantalla();
+        puts("=======================================");
+        puts("           Buscar Usuario");
+        puts("=======================================");
+        char username[16];
+        printf("Ingrese el nombre de usuario a buscar: ");
+        scanf("%15s", username);
+        for (int i = 0; username[i] != '\0'; i++) {
+            username[i] = tolower(username[i]);
+        }
+        MapPair *pair = map_first(usuarios);
+        int coincidencias = 0;
 
-    puts("\nResultados de la búsqueda:");
+        puts("\nResultados de la búsqueda:");
 
-    while (pair != NULL) {
-        Usuario *usuario = pair->value;
+        while (pair != NULL) {
+            Usuario *usuario = pair->value;
 
-        if (strstr(usuario->user, username) != NULL) {
-            coincidencias++;
-            printf("%d) %s\n", coincidencias, usuario->user);
+            if (strstr(usuario->user, username) != NULL) {
+                coincidencias++;
+                printf("%d) %s\n", coincidencias, usuario->user);
+            }
+
+            pair = map_next(usuarios);
         }
 
-        pair = map_next(usuarios);
-    }
+        if (coincidencias > 0) {
+            int opcion;
+            printf("\nIngrese el número del perfil que desea ver (0 para cancelar): ");
 
-    if (coincidencias > 0) {
-        int opcion;
-        printf("\nIngrese el número del perfil que desea ver (0 para cancelar): ");
-        scanf("%d", &opcion);
+            while (scanf("%d", &opcion) != 1) {
+                printf("Opción inválida. Intente de nuevo: \n");
+                while (getchar() != '\n'); // Limpiar el buffer de entrada
+            }
 
-        if (!isdigit(opcion) && opcion != 0) {
-            printf("Opción inválida.\n");
+            if (opcion > 0 && opcion <= coincidencias) {
+                pair = map_first(usuarios);
+                int contador = 1;
+
+                while (pair != NULL) {
+                    Usuario *usuario = pair->value;
+
+                    if (strstr(usuario->user, username) != NULL) {
+                        if (contador == opcion) {
+                            MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada);
+                            break;
+                        }
+                        contador++;
+                    }
+
+                    pair = map_next(usuarios);
+                }
+            } else if (opcion == 0) {
+                printf("Operación cancelada.\n");
+                return;
+            } else {
+                printf("Opción inválida.\n");
+                presioneTeclaParaContinuar();
+                continue;
+            }
+        } 
+        else if (coincidencias == 0) {
+            printf("No se encontraron usuarios que coincidan con la búsqueda.\n");
             return;
         }
-        
-        if (opcion > 0 && opcion <= coincidencias) {
-            pair = map_first(usuarios);
-            int contador = 1;
-
-            while (pair != NULL) {
-                Usuario *usuario = pair->value;
-
-                if (strstr(usuario->user, username) != NULL) {
-                    if (contador == opcion) {
-                        MostrarPerfil(usuario_actual, usuario, usuarios, sesion_iniciada);
-                        break;
-                    }
-                    contador++;
-                }
-
-                pair = map_next(usuarios);
-            }
-        } else if (opcion == 0) {
-            printf("Operación cancelada.\n");
-        } else {
-            printf("Opción inválida.\n");
-        }
-    } 
-    else if (coincidencias == 0) {
-        printf("No se encontraron usuarios que coincidan con la búsqueda.\n");
-        return;
     }
 }
 
@@ -423,7 +427,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
         printf("\n1) Ver seguidores\n");
         printf("2) Ver seguidos\n");
         printf("3) Editar perfil\n");
-        printf("4) Volver al menú principal\n");
+        printf("4) Volver\n");
         printf("\nIngrese su opción: ");
         scanf("%d", &opcion);
 
@@ -438,7 +442,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
                 editarPerfil(usuario_actual, usuarios, sesion_iniciada);
                 break;
             case 4:
-                return; // Volver al menú principal
+                return; // Volver
             default:
                 printf("Opción inválida. Volviendo al menu principal...\n");
                 int c;
