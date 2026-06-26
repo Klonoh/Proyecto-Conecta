@@ -17,5 +17,5 @@ gcc Conecta.c TDAs/*.c -I TDAs -Wno-unused-result -o Conecta
 ## Ejecución
 
 ```
-
+./Conecta
 ```

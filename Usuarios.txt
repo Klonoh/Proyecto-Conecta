@@ -19,7 +19,7 @@ seba 1782606068 @nachomap necesito que hagas resumen de este desastre
 seba 1782606142 @stacklord tu prediccion duro menos que mi cafe
 seba 1782701678 @klonoh tu teoria del Mundial parecia meme pero ahora tiene sentido
 seba 1782701683 @tito lo de no era penal ya es tradicion entre nosotros
-SEGUIDOS 73
+SEGUIDOS 74
 agus211
 agustinmeme
 aialerta
@@ -93,7 +93,8 @@ tomabyte
 valebeta
 valebyte
 varcentral
-SEGUIDORES 65
+emiroot
+SEGUIDORES 64
 agusbash
 alonsobits
 andresdev
@@ -105,7 +106,6 @@ debugfox
 diegodev
 isicode
 javidev
-joaquin
 klonoh
 leobits
 liam_byte
@@ -168,20 +168,133 @@ El usuario tito ha comenzado a seguirte.
 El usuario klonoh ha publicado un nuevo mensaje.
 <<<<<<< HEAD
 El usuario mundialhub ha publicado un nuevo mensaje.
-Mundial2026 esta generando conversacion.
-=======
 FIN
 USUARIO test 123
-PUBLICACIONES 0
-SEGUIDOS 0
-SEGUIDORES 2
+PUBLICACIONES 9
+test 1782522200 Usuario de prueba verificando que el feed cargue publicaciones recientes
+test 1782525800 Si esto aparece ordenado entonces el archivo esta funcionando
+test 1782529400 Probando notificaciones seguidores y usuarios populares
+test 1782606882 @joaquin necesito contexto antes de seguir discutiendo
+test 1782606993 @loopmaster tu comentario fue mas preciso que el resumen oficial
+test 1782625604 @bitrunner esto se fue de las manos como toda buena conversacion
+test 1782629526 @diegodev admitelo, la sopaipilla era parte del analisis
+test 1782635002 @noa_bits te etiqueto porque esto parece exactamente lo que dijiste ayer
+test 1782701682 @joaquin confirmo que las menciones se leen perfecto
+SEGUIDOS 73
+agus257
+agusbash
+aialerta
+andresgo
+antocode
+antonia382
+antoniabug
+bastianx
+bitrunner
+bytewolf
+camilabits
+carocode
+caromeme
+cineadicto
+claudia_byte
+codedragon
+cristobalmap
+diego536
+diegodev
+emilia381
+esteban_stack
+fer176
+francodev
+futboltotal
+gamerzone
+isicode
+isidorax
+ivan228
+javidev
+karlalight
+klonoh
+loopmaster
+maitedebug
+majo329
+majobyte
+majolab
+majosun
+mapachedev
+martin79
+martin_main
+martin_storm
+martinsigma
+martinvx
+matias485
+matistack
+mauroia
+maxkernel
+memelord
+mundialhub
+musicnova
+nacho19
+nati777
+nexodev
+noa_bits
+pablogit
+pabloroot
+pipepixel
+pixelcat
+rafaelgo
+robotica24
+rutabit
+samlogic
+seba
+sofigo
+stacklord
+streamqueen
+techinsider
+tito
+vale_vx
+varcentral
+vicente863
+vicente_vx
+vichox
+SEGUIDORES 29
 klonoh
 seba
-NOTIFICACIONES 3
+agusbash
+antocode
+bitrunner
+debugfox
+diegodev
+estebanfut
+gabotxt
+klonoh
+leobits
+loopmaster
+mapachedev
+martin30
+martin56
+martin74
+martin_stack
+martinstack
+maurolab
+modaurbana
+neonacho
+nexodev
+noa_bits
+pixelcat
+samuelnet
+santiloop
+simonfox
+trinigit
+valenx
+NOTIFICACIONES 10
 El usuario joaquin ha comenzado a seguirte.
 El usuario joaquin ha comenzado a seguirte.
 El usuario seba ha comenzado a seguirte.
->>>>>>> 7ae8af51cd293189ca80f066fd458b2da3bbbb79
+El usuario joaquin te menciono en una publicacion.
+El usuario klonoh te menciono en una publicacion.
+El usuario loopmaster te menciono en una publicacion.
+El usuario joaquin te menciono en una publicacion.
+El usuario klonoh ha comenzado a seguirte.
+El usuario joaquin ha comenzado a seguirte.
+Hay nuevos temas populares en tu feed.
 FIN
 USUARIO klonoh 123456
 PUBLICACIONES 24
@@ -209,7 +322,7 @@ klonoh 1782606919 @test oficialmente quedas citado como fuente poco confiable
 klonoh 1782607178 @benjacl el dato que tiraste salvo la conversacion
 klonoh 1782701679 @seba no me cites cuando claramente estaba improvisando
 klonoh 1782701684 @tito tu chat familiar tiene mejor cobertura que varios medios
-SEGUIDOS 64
+SEGUIDOS 63
 agusbash
 aialerta
 ameliadev
@@ -234,7 +347,6 @@ isi786
 isigo
 ivancode
 javitv
-joaquin
 liam_byte
 loopmaster
 mapachedev
@@ -347,130 +459,6 @@ El usuario futboltotal ha publicado un nuevo mensaje.
 El usuario techinsider ha publicado un nuevo mensaje.
 IA y futbol aparecen entre los temas mas comentados.
 FIN
-USUARIO test 123
-PUBLICACIONES 9
-test 1782522200 Usuario de prueba verificando que el feed cargue publicaciones recientes
-test 1782525800 Si esto aparece ordenado entonces el archivo esta funcionando
-test 1782529400 Probando notificaciones seguidores y usuarios populares
-test 1782606882 @joaquin necesito contexto antes de seguir discutiendo
-test 1782606993 @loopmaster tu comentario fue mas preciso que el resumen oficial
-test 1782625604 @bitrunner esto se fue de las manos como toda buena conversacion
-test 1782629526 @diegodev admitelo, la sopaipilla era parte del analisis
-test 1782635002 @noa_bits te etiqueto porque esto parece exactamente lo que dijiste ayer
-test 1782701682 @joaquin confirmo que las menciones se leen perfecto
-SEGUIDOS 74
-agus257
-agusbash
-aialerta
-andresgo
-antocode
-antonia382
-antoniabug
-bastianx
-bitrunner
-bytewolf
-camilabits
-carocode
-caromeme
-cineadicto
-claudia_byte
-codedragon
-cristobalmap
-diego536
-diegodev
-emilia381
-esteban_stack
-fer176
-francodev
-futboltotal
-gamerzone
-isicode
-isidorax
-ivan228
-javidev
-joaquin
-karlalight
-klonoh
-loopmaster
-maitedebug
-majo329
-majobyte
-majolab
-majosun
-mapachedev
-martin79
-martin_main
-martin_storm
-martinsigma
-martinvx
-matias485
-matistack
-mauroia
-maxkernel
-memelord
-mundialhub
-musicnova
-nacho19
-nati777
-nexodev
-noa_bits
-pablogit
-pabloroot
-pipepixel
-pixelcat
-rafaelgo
-robotica24
-rutabit
-samlogic
-seba
-sofigo
-stacklord
-streamqueen
-techinsider
-tito
-vale_vx
-varcentral
-vicente863
-vicente_vx
-vichox
-SEGUIDORES 28
-agusbash
-antocode
-bitrunner
-debugfox
-diegodev
-estebanfut
-gabotxt
-joaquin
-klonoh
-leobits
-loopmaster
-mapachedev
-martin30
-martin56
-martin74
-martin_stack
-martinstack
-maurolab
-modaurbana
-neonacho
-nexodev
-noa_bits
-pixelcat
-samuelnet
-santiloop
-simonfox
-trinigit
-valenx
-NOTIFICACIONES 7
-El usuario joaquin te menciono en una publicacion.
-El usuario klonoh te menciono en una publicacion.
-El usuario loopmaster te menciono en una publicacion.
-El usuario joaquin te menciono en una publicacion.
-El usuario klonoh ha comenzado a seguirte.
-El usuario joaquin ha comenzado a seguirte.
-Hay nuevos temas populares en tu feed.
-FIN
 USUARIO tito 123
 PUBLICACIONES 19
 tito 1782523300 No era penal pero tampoco estoy listo para discutirlo con el timeline
@@ -492,7 +480,7 @@ tito 1782607326 @agusbash tu lista de favoritos parece hecha por una IA con suen
 tito 1782607363 @rodrinet lo tuyo no es opinion, es deporte extremo
 tito 1782607918 @trinigit ven a explicar por que el algoritmo me recomienda esto
 tito 1782701680 @seba sigo diciendo que ese partido se definia por detalles
-SEGUIDOS 74
+SEGUIDOS 72
 agusbash
 agustinia
 ameliaia
@@ -521,7 +509,6 @@ ian_main
 isapixel
 isicode
 javidev
-joaquin
 jose_beta
 juampicode
 juampifit
@@ -560,15 +547,13 @@ rochistack
 rodrinet
 samuel376
 seba
-<<<<<<< HEAD
 soficode
 streamqueen
 techinsider
 trinigit
 vale_debug
 valenia
-viajescl
-SEGUIDORES 57
+SEGUIDORES 56
 agusbash
 andresdev
 arielcat
@@ -584,7 +569,6 @@ codedragon
 darknova
 ivanmeme
 javidev
-joaquin
 klonoh
 luis_storm
 mapachedev
@@ -626,23 +610,7 @@ stacklord
 test
 tomabyte
 trinigit
-NOTIFICACIONES 8
-El usuario martin_logic te menciono en una publicacion.
-El usuario javidev te menciono en una publicacion.
-El usuario seba te menciono en una publicacion.
-El usuario klonoh te menciono en una publicacion.
-El usuario martin_logic ha comenzado a seguirte.
-El usuario bitrunner ha comenzado a seguirte.
-El usuario martin_cat ha comenzado a seguirte.
-El usuario techinsider ha publicado un nuevo mensaje.
-FIN
-USUARIO joaquin 123
-PUBLICACIONES 25
-joaquin 1782524400 Los datos de prueba realistas hacen que la demo se vea mucho mejor
-joaquin 1782528000 Las sugerencias con peso tienen mas sentido cuando hay celebridades y comunidades
-joaquin 1782531600 El grafo social queda mas interesante con usuarios puente y cuentas masivas
-joaquin 1782535200 Hoy el feed mezcla Mundial tecnologia universidad y memes como corresponde
-joaquin 1782538800 Un buen dataset salva una presentacion mas de lo que parece
+NOTIFICACIONES 74
 joaquin 1782602405 @valebyte esta captura va directo al chat del grupo
 joaquin 1782602701 @nicograph no abras los comentarios, te lo digo por experiencia
 joaquin 1782602997 @darknova te etiqueto porque esto parece exactamente lo que dijiste ayer
@@ -717,95 +685,6 @@ panchohub
 panchoia
 paula158
 pauli855
-pepememe
-raulmain
-renapixel
-renata23
-renata_wolf
-renataai
-rickymap
-rutabit
-seba
-simon_neo
-sofia700
-soficode
-techinsider
-test
-tito
-valebyte
-viajescl
-SEGUIDORES 62
-agustin_nova
-alonsohub
-andres_git
-antocode
-antodev
-arielstack
-benjacl
-bitrunner
-bytewolf
-camilabits
-clau925
-cristobalmap
-darknova
-debugfox
-diegodev
-ferlogic
-gabotxt
-gonzaweb
-javidev
-klonoh
-leobits
-loopmaster
-mapachedev
-martin12
-martin34
-martin56
-martin70
-martin71
-martin_bits
-martin_cola
-martin_data
-martin_light
-martin_lista
-martin_pixel
-martindebug
-martindev
-martinfox
-martingraph
-martinkai
-martinlight
-martinmoon
-martinnull
-martinprime
-martinsigma
-martinsrc
-matistack
-matizero
-maxi_ia
-nachomap
-nexodev
-nicograph
-pabloroot
-panchohub
-pixelcat
-rodrigo_cola
-rodrinet
-rutabit
-santiloop
-soficode
-test
-tito
-valebyte
-NOTIFICACIONES 8
-El usuario martindebug te menciono en una publicacion.
-El usuario camilabits te menciono en una publicacion.
-El usuario test te menciono en una publicacion.
-El usuario test te menciono en una publicacion.
-El usuario martin34 ha comenzado a seguirte.
-El usuario camilabits ha comenzado a seguirte.
-El usuario mundialhub ha publicado un nuevo mensaje.
-El usuario memelord ha publicado un nuevo mensaje.
 FIN
 USUARIO bytewolf 123
 PUBLICACIONES 21
@@ -830,7 +709,7 @@ bytewolf 1782604699 @bitrunner ven a defender tu prediccion en publico
 bytewolf 1782604810 @martin_moon te etiqueto porque esto parece exactamente lo que dijiste ayer
 bytewolf 1782604884 @ferlogic nadie pidio tu opinion pero igual era correcta
 bytewolf 1782605254 @benjacl la proxima vez que digas facil voy a guardar captura
-SEGUIDOS 41
+SEGUIDOS 40
 antocode
 benjacl
 bitrunner
@@ -847,7 +726,6 @@ ferlogic
 futboltotal
 gadgetnews
 gamerzone
-joaquin
 juampicode
 loopmaster
 martin45
@@ -972,7 +850,7 @@ darknova 1782605513 @maxkernel te sigo solo por este tipo de caos
 darknova 1782605772 @camilabits nadie pidio tu opinion pero igual era correcta
 darknova 1782606216 @stacklord tu teoria era absurda pero ahora tiene sentido y me preocupa
 darknova 1782606771 @benjacl te dije que el VAR iba a incendiar el grupo
-SEGUIDOS 30
+SEGUIDOS 29
 aialerta
 alonso714
 antocode
@@ -985,7 +863,6 @@ cineadicto
 climaaldia
 diegomoon
 ian_play
-joaquin
 leobits
 martin70
 martin_neo
@@ -1003,7 +880,7 @@ streamqueen
 tito
 tomabyte
 viajescl
-SEGUIDORES 64
+SEGUIDORES 63
 agusbash
 antocode
 benjacl
@@ -1017,7 +894,6 @@ hector407
 isicode
 ivancode
 javidev
-joaquin
 klonoh
 loopmaster
 luisa_net
@@ -1090,7 +966,7 @@ pixelcat 1782607844 @rutabit me rei mas de esto de lo que deberia
 pixelcat 1782617057 @javidev si esto sale bien te invito un completo imaginario
 pixelcat 1782617316 @neonacho te dije que el grupo iba a quedar apretado
 pixelcat 1782618870 @juampicode el dato que tiraste salvo la conversacion
-SEGUIDOS 46
+SEGUIDOS 45
 aialerta
 benjacl
 bitrunner
@@ -1108,7 +984,6 @@ golazo24
 gonzaweb
 isigo
 javidev
-joaquin
 juampicode
 loopmaster
 luna_cafe
@@ -1195,7 +1070,7 @@ debugfox 1782606734 @majobyte tu feed parece mezcla de Mundial IA y cafe
 debugfox 1782606845 @juampicode esto merece hilo y no acepto menos
 debugfox 1782607548 @benjacl ven a defender tu prediccion en publico
 debugfox 1782607696 @lunadata necesito que hagas resumen de este desastre
-SEGUIDOS 49
+SEGUIDOS 48
 antocode
 benjacl
 camilabits
@@ -1211,7 +1086,6 @@ gamerzone
 golazo24
 isa534
 javidev
-joaquin
 josecl
 juampicode
 klonoh
@@ -1245,7 +1119,7 @@ streamqueen
 techinsider
 test
 valebyte
-SEGUIDORES 58
+SEGUIDORES 57
 agusbash
 antonia785
 bea_fut
@@ -1261,7 +1135,6 @@ franstack
 gabotxt
 gonzaweb
 javidev
-joaquin
 juampicode
 klonoh
 lunadata
@@ -1434,7 +1307,7 @@ nexodev 1782615059 @martingraph necesito que hagas resumen de este desastre
 nexodev 1782620387 @antocode tu teoria del empate ahora es canon
 nexodev 1782621904 @neonacho necesito que hagas resumen de este desastre
 nexodev 1782638850 @camilabits guardo este post para cuando cambies de opinion
-SEGUIDOS 44
+SEGUIDOS 43
 agustinmeme
 aialerta
 antocode
@@ -1452,7 +1325,6 @@ debugfox
 felipeia
 golazo24
 isicode
-joaquin
 martin24
 martin41
 martin56
@@ -1479,7 +1351,7 @@ test
 tito
 valebyte
 viajescl
-SEGUIDORES 33
+SEGUIDORES 32
 antocode
 benjacl
 bitrunner
@@ -1496,7 +1368,6 @@ gonzaweb
 hectorgamer
 ivancode
 javidev
-joaquin
 leobits
 luisia
 majobyte
@@ -1530,7 +1401,7 @@ mapachedev 1782511248 El invierno en Chile me tiene funcionando a puro te y sopa
 mapachedev 1782511684 El futuro llego en forma de notificacion de actualizacion
 mapachedev 1782606623 @soficode te dije que el VAR iba a incendiar el grupo
 mapachedev 1782619610 @diegodev si esto se vuelve tendencia fue culpa tuya
-SEGUIDOS 42
+SEGUIDOS 41
 aialerta
 bytewolf
 cancha360
@@ -1547,7 +1418,6 @@ golazo24
 gonzaweb
 ivancode
 javidev
-joaquin
 juampicode
 klonoh
 leobits
@@ -1627,7 +1497,7 @@ rutabit 1782610915 @rodrinet hoy el algoritmo nos tiene encerrados en el mismo t
 rutabit 1782611137 @ferlogic hoy te ganaste el premio al comentario mas exagerado
 rutabit 1782613135 @benjacl hoy te ganaste el premio al comentario mas exagerado
 rutabit 1782614356 @panchohub admitelo, la sopaipilla era parte del analisis
-SEGUIDOS 51
+SEGUIDOS 50
 aialerta
 andresdev
 antocode
@@ -1648,7 +1518,6 @@ golazo24
 hector407
 isicode
 javidev
-joaquin
 juampicode
 juandev
 klonoh
@@ -1679,7 +1548,7 @@ stacklord
 streamqueen
 techinsider
 tito
-SEGUIDORES 44
+SEGUIDORES 43
 agusbash
 andresdev
 antocode
@@ -1700,7 +1569,6 @@ ferlogic
 flor943
 franco226
 javidev
-joaquin
 klonoh
 leobits
 loopmaster
@@ -1751,7 +1619,7 @@ loopmaster 1782605365 @andresdev necesito contexto antes de seguir discutiendo
 loopmaster 1782606808 @stacklord esta captura va directo al chat del grupo
 loopmaster 1782607011 @test esa captura esta sacada de contexto y lo sabes
 loopmaster 1782607067 @renapixel el meme que mandaste envejecio demasiado bien
-SEGUIDOS 41
+SEGUIDOS 40
 agusbash
 andresdev
 bytewolf
@@ -1766,7 +1634,6 @@ esteban_stack
 gamerzone
 gonzaweb
 ian299
-joaquin
 juampicode
 klonoh
 martin17
@@ -1793,7 +1660,7 @@ techinsider
 test
 valebyte
 valen_graph
-SEGUIDORES 61
+SEGUIDORES 60
 andresdev
 antocode
 bastianx
@@ -1809,7 +1676,6 @@ isicode
 ivan228
 ivancode
 javiloop
-joaquin
 klonoh
 martin12
 martin32
@@ -1958,7 +1824,7 @@ bitrunner 1782513500 Salir sin parka fue exceso de confianza
 bitrunner 1782515642 La app del transporte hoy decidio escribir ficcion
 bitrunner 1782516645 El metro lleno tiene su propio ecosistema social
 bitrunner 1782613912 @pabloroot te sigo solo por este tipo de caos
-SEGUIDOS 47
+SEGUIDOS 46
 agus257
 aialerta
 antocode
@@ -1977,7 +1843,6 @@ gamerzone
 isi_lista
 ivancode
 javidev
-joaquin
 klonoh
 loopmaster
 luisacola
@@ -2006,7 +1871,7 @@ test
 tito
 valebyte
 viajescl
-SEGUIDORES 30
+SEGUIDORES 29
 antocode
 benjacl
 bytewolf
@@ -2017,7 +1882,6 @@ darknova
 diego689
 gabotxt
 javidev
-joaquin
 juampicode
 martin_nova
 martin_root
@@ -2109,7 +1973,7 @@ test
 tomabyte
 valebyte
 viajescl
-SEGUIDORES 33
+SEGUIDORES 32
 agusbash
 agustin_nova
 andresdev
@@ -2122,7 +1986,6 @@ diego930
 diegodev
 ferlogic
 gabotxt
-joaquin
 julia_gamer
 klonoh
 loopmaster
@@ -2166,7 +2029,7 @@ soficode 1782606290 @majobyte te etiqueto porque esto parece exactamente lo que 
 soficode 1782606327 @santiloop lo dije en broma y ahora paso, ayuda
 soficode 1782607585 @trinigit confirmo que tu analisis tactico venia con mucho humo
 soficode 1782608991 @luis_storm cuando dijiste plot twist pense que exagerabas
-SEGUIDOS 39
+SEGUIDOS 38
 bytewolf
 codedragon
 darknova
@@ -2175,7 +2038,6 @@ debugfox
 emiliodev
 golazo24
 ian_main
-joaquin
 juampi_run
 klonoh
 loopmaster
@@ -2206,7 +2068,7 @@ trinigit
 vale793
 valebyte
 viajescl
-SEGUIDORES 61
+SEGUIDORES 60
 agusbash
 antocode
 antonia167
@@ -2223,7 +2085,6 @@ flor943
 franstack
 gabocode
 hectorcafe
-joaquin
 juampicode
 klonoh
 luis_storm
@@ -2297,7 +2158,7 @@ valebyte 1782603959 @santiloop te debo una disculpa, tu prediccion estuvo cerca
 valebyte 1782604255 @ferlogic necesito contexto antes de seguir discutiendo
 valebyte 1782604366 @renapixel necesito que hagas resumen de este desastre
 valebyte 1782604958 @luchoup el cafe no arreglo mi productividad pero si mi animo
-SEGUIDOS 41
+SEGUIDOS 40
 alonsoia
 andresdev
 antocode
@@ -2317,7 +2178,6 @@ ferlogic
 francodev
 gadgetnews
 golazo24
-joaquin
 klonoh
 loopmaster
 luchoup
@@ -2339,7 +2199,7 @@ santiloop
 seba
 stacklord
 streamqueen
-SEGUIDORES 78
+SEGUIDORES 77
 agusbash
 amelia_kernel
 andresdev
@@ -2365,7 +2225,6 @@ gabocode
 gabotxt
 isi_net
 javidev
-joaquin
 juampimoon
 juandev
 klonoh
@@ -2443,7 +2302,7 @@ matistack 1782606475 @nachomap hoy elegiste violencia futbolera
 matistack 1782606549 @isicode hoy todos somos expertos en diferencia de gol
 matistack 1782607252 @lunadata ven a explicar por que el algoritmo me recomienda esto
 matistack 1782607437 @trinigit esto merece hilo y no acepto menos
-SEGUIDOS 42
+SEGUIDOS 41
 aialerta
 alonso_news
 bitrunner
@@ -2466,7 +2325,6 @@ gadgetnews
 golazo24
 isicode
 ivancode
-joaquin
 klonoh
 loopmaster
 lunadata
@@ -2572,7 +2430,7 @@ nicograph 1782602682 @klonoh acepto la funa pero mantengo mi postura
 nicograph 1782602793 @soficode hoy no estoy opinando, estoy sobreviviendo al grupo
 nicograph 1782604421 @neonacho esa captura esta sacada de contexto y lo sabes
 nicograph 1782604662 @carocode hoy todos somos expertos en diferencia de gol
-SEGUIDOS 43
+SEGUIDOS 42
 agusbash
 andresdev
 bea_bug
@@ -2590,7 +2448,6 @@ futboltotal
 gabotxt
 gamerzone
 javi482
-joaquin
 juampicode
 klonoh
 leobits
@@ -2616,7 +2473,7 @@ tito
 trinigit
 valebyte
 varcentral
-SEGUIDORES 72
+SEGUIDORES 71
 antocode
 bitrunner
 bytewolf
@@ -2635,7 +2492,6 @@ gonzaweb
 hector_star
 ivancode
 javidev
-joaquin
 klonoh
 loopmaster
 mapachedev
@@ -2708,7 +2564,7 @@ camilabits 1782522494 La gente en redes puede convertir cualquier frase en tende
 camilabits 1782604569 @bytewolf yo solo dije lo que todos pensaban en silencio
 camilabits 1782606271 @joaquin si mi teoria funciona quiero creditos
 camilabits 1782618056 @andresdev si esto sale bien te invito un completo imaginario
-SEGUIDOS 43
+SEGUIDOS 42
 alonsohub
 andresdev
 andreskernel
@@ -2729,7 +2585,6 @@ gonzaweb
 ian_lab
 ivan_cine
 javidev
-joaquin
 karla_wolf
 klonoh
 loopmaster
@@ -2752,7 +2607,7 @@ stacklord
 streamqueen
 techinsider
 tito
-SEGUIDORES 31
+SEGUIDORES 30
 ameliafox
 andresdev
 arielstack
@@ -2765,7 +2620,6 @@ debugfox
 flor384
 gabrielrun
 ivancode
-joaquin
 klonoh
 lunadata
 maite794
@@ -2800,7 +2654,7 @@ javidev 1782519800 Hay dias en que internet parece una plaza publica con wifi
 javidev 1782605309 @seba mi comentario tenia contexto que convenientemente ignoras
 javidev 1782605975 @joaquin si esto se hace viral borro la app por dignidad
 javidev 1782606715 @tito gracias por traer pruebas al juicio del timeline
-SEGUIDOS 46
+SEGUIDOS 45
 aialerta
 bitrunner
 bytewolf
@@ -2817,7 +2671,6 @@ estefi_lab
 gamerzone
 golazo24
 gonzaweb
-joaquin
 klonoh
 leobits
 mapachedev
@@ -2847,7 +2700,7 @@ streamqueen
 tito
 valebyte
 varcentral
-SEGUIDORES 33
+SEGUIDORES 32
 benjacl
 bitrunner
 camila_src
@@ -2863,7 +2716,6 @@ gabobyte
 gabotxt
 gonzalo_storm
 gonzaweb
-joaquin
 leobits
 mapachedev
 martin_moon
@@ -2899,7 +2751,7 @@ antocode 1782605494 @darknova me niego a aceptar esa acusacion sin revision VAR
 antocode 1782605938 @joaquin mi feed no es caos, es curadoria emocional
 antocode 1782608713 @rutabit mi comentario tenia contexto que convenientemente ignoras
 antocode 1782611266 @codedragon hoy no estoy opinando, estoy sobreviviendo al grupo
-SEGUIDOS 41
+SEGUIDOS 39
 aialerta
 andresdev
 benjacl
@@ -2909,7 +2761,6 @@ carocode
 codedragon
 darknova
 diegodev
-domix
 futboltotal
 gamerzone
 golazo24
@@ -2917,7 +2768,6 @@ ivan_hub
 ivancode
 javi482
 javiloop
-joaquin
 juampicode
 loopmaster
 martin_cat
@@ -2941,7 +2791,7 @@ test
 tomabyte
 valebyte
 viajescl
-SEGUIDORES 33
+SEGUIDORES 32
 bitrunner
 bytewolf
 codedragon
@@ -2953,7 +2803,6 @@ flor384
 francosigma
 franstack
 isicode
-joaquin
 klonoh
 liam734
 lunadata
@@ -2990,7 +2839,7 @@ PUBLICACIONES 3
 benjacl 1782521600 Las recomendaciones de musica estan sospechosamente precisas
 benjacl 1782605272 @bytewolf gracias por traer pruebas al juicio del timeline
 benjacl 1782642772 @maurolab necesito que hagas resumen de este desastre
-SEGUIDOS 47
+SEGUIDOS 46
 agusbash
 aialerta
 bitrunner
@@ -3009,7 +2858,6 @@ gabotxt
 gabriel_cola
 golazo24
 javidev
-joaquin
 karlalight
 klonoh
 loopmaster
@@ -3038,7 +2886,7 @@ tomabyte
 tomas_bug
 valebyte
 varcentral
-SEGUIDORES 26
+SEGUIDORES 25
 andresdev
 antocode
 antonews
@@ -3050,7 +2898,6 @@ debugfox
 diegodev
 gabrieltv
 isa534
-joaquin
 klonoh
 lunadata
 maiteia
@@ -3397,7 +3244,7 @@ streamqueen
 tito
 tomabyte
 varcentral
-SEGUIDORES 33
+SEGUIDORES 32
 agusbash
 amelia389
 bytewolf
@@ -3413,7 +3260,6 @@ ferlogic
 gonzaweb
 hectorcl
 javidev
-joaquin
 juampicode
 leobits
 lunadata
@@ -3451,7 +3297,7 @@ ferlogic 1782616835 @pabloroot no era penal y lo sabes
 ferlogic 1782623402 @stacklord mi feed no es caos, es curadoria emocional
 ferlogic 1782625215 @maxkernel no fui yo, fue el algoritmo
 ferlogic 1782642328 @gabotxt te etiqueto porque este meme tiene tu energia
-SEGUIDOS 44
+SEGUIDOS 43
 agusbash
 aialerta
 andreskernel
@@ -3469,7 +3315,6 @@ golazo24
 gonzaweb
 isa_graph
 isicode
-joaquin
 juampicode
 klonoh
 leobits
@@ -3496,7 +3341,7 @@ techinsider
 valebyte
 valenpro
 viccode
-SEGUIDORES 28
+SEGUIDORES 27
 agusbash
 andres_gamer
 bytewolf
@@ -3509,7 +3354,6 @@ gabotxt
 ignaciacl
 isicode
 ivancode
-joaquin
 juampicode
 leobits
 lunadata
@@ -3540,7 +3384,7 @@ PUBLICACIONES 3
 gonzaweb 1782527000 La rubrica manda mas que la intuicion
 gonzaweb 1782634706 @isicode ese post tuyo envejecio como leche al sol
 gonzaweb 1782638813 @panchohub hoy todos somos expertos en diferencia de gol
-SEGUIDOS 40
+SEGUIDOS 39
 agusbash
 bytewolf
 cancha360
@@ -3557,7 +3401,6 @@ isicode
 ivancode
 javidev
 javiloop
-joaquin
 klonoh
 leobits
 lunadata
@@ -3921,7 +3764,7 @@ stacklord
 techinsider
 tomabyte
 valebyte
-SEGUIDORES 27
+SEGUIDORES 26
 agusbash
 andreskernel
 bea_bug
@@ -3934,7 +3777,6 @@ gonzalocl
 ignaciax
 ivancode
 javidev
-joaquin
 juampicode
 leobits
 loopmaster
@@ -3967,7 +3809,7 @@ panchohub 1782535319 el timeline amanecio con energia rara
 panchohub 1782535628 esto no estaba en mi bingo del dia
 panchohub 1782614374 @rutabit no era penal, era dramaturgia futbolera
 panchohub 1782638831 @gonzaweb esa captura esta sacada de contexto y lo sabes
-SEGUIDOS 33
+SEGUIDOS 32
 agus576
 alonsoia
 benjacl
@@ -3982,7 +3824,6 @@ gamerzone
 gonzaweb
 ian299
 ivancode
-joaquin
 juampicode
 leobits
 martin78
@@ -4001,7 +3842,7 @@ tito
 tomabyte
 trinigit
 trinimeme
-SEGUIDORES 26
+SEGUIDORES 25
 bea_fut
 bitrunner
 carocode
@@ -4014,7 +3855,6 @@ gabocine
 gonzalocl
 gonzalostorm
 gonzaweb
-joaquin
 jose587
 luisa501
 maxkernel
@@ -4092,7 +3932,7 @@ tomabyte
 valebyte
 varcentral
 viajescl
-SEGUIDORES 31
+SEGUIDORES 30
 agusbash
 andresdev
 antocode
@@ -4105,7 +3945,6 @@ isa534
 isicode
 ivancode
 ivania
-joaquin
 juampicode
 lunadata
 majobyte
@@ -4144,7 +3983,7 @@ diegodev 1782614152 @neonacho no era penal, era dramaturgia futbolera
 diegodev 1782615392 @juampicode tu comentario fue mas preciso que el resumen oficial
 diegodev 1782617704 @carocode si mi teoria funciona quiero creditos
 diegodev 1782618759 @claudata te debo una disculpa, tu prediccion estuvo cerca
-SEGUIDOS 49
+SEGUIDOS 48
 agusbash
 andresdev
 anto_play
@@ -4163,7 +4002,6 @@ gamerzone
 hectorhub
 isi786
 isidorabeta
-joaquin
 juampicode
 leobits
 majobyte
@@ -4335,7 +4173,7 @@ santiloop 1782535100 confirmo que el caos esta bien distribuido
 santiloop 1782537722 que alguien haga resumen porque me perdi
 santiloop 1782538932 esta semana viene con DLC de drama
 santiloop 1782612210 @pabloroot oficialmente quedas citado como fuente poco confiable
-SEGUIDOS 41
+SEGUIDOS 40
 agusbash
 agusx
 andresdev
@@ -4355,7 +4193,6 @@ gadgetnews
 golazo24
 gonzaweb
 isicode
-joaquin
 juampicode
 loopmaster
 majobyte
@@ -4531,7 +4368,7 @@ pabloroot 1782612228 @santiloop esa captura esta sacada de contexto y lo sabes
 pabloroot 1782615651 @nachomap tu prediccion fue valiente, incorrecta, pero valiente
 pabloroot 1782617612 @leobits el timeline hoy parece escrito por guionistas cansados
 pabloroot 1782618444 @renapixel tengo capturas que pueden hundir tu argumento
-SEGUIDOS 34
+SEGUIDOS 33
 bitrunner
 bytewolf
 cineadicto
@@ -4545,7 +4382,6 @@ futboltotal
 golazo24
 isicode
 ivancode
-joaquin
 juampicode
 leobits
 loopmaster
@@ -4624,7 +4460,7 @@ leobits 1782617630 @pabloroot me niego a aceptar esa acusacion sin revision VAR
 leobits 1782621404 @pipepixel no era penal, era dramaturgia futbolera
 leobits 1782636463 @juampicode si mi teoria funciona quiero creditos
 leobits 1782640626 @rodrinet no era penal y lo sabes
-SEGUIDOS 43
+SEGUIDOS 42
 andresdev
 bytewolf
 cancha360
@@ -4637,7 +4473,6 @@ gonzaweb
 isa534
 isicode
 javidev
-joaquin
 juampicode
 klonoh
 liam_kernel
@@ -4717,7 +4552,7 @@ gabotxt 1782627750 @claudata el timeline hoy parece escrito por guionistas cansa
 gabotxt 1782634539 @gonzaweb mi comentario tenia contexto que convenientemente ignoras
 gabotxt 1782635982 @stacklord ese completo imaginario ya cuenta como contrato
 gabotxt 1782642346 @ferlogic mi prediccion era emocional, no estadistica
-SEGUIDOS 39
+SEGUIDOS 38
 aialerta
 amelia_lab
 bitrunner
@@ -4734,7 +4569,6 @@ ferlogic
 gabocode
 gonzaweb
 javidev
-joaquin
 lunadata
 majo56
 martin_lab
@@ -4945,7 +4779,7 @@ renapixel
 stacklord
 streamqueen
 techinsider
-SEGUIDORES 34
+SEGUIDORES 33
 alonso_net
 antocode
 bitrunner
@@ -4957,7 +4791,6 @@ gabo_news
 gonzaweb
 hectorhub
 isicode
-joaquin
 klonoh
 lunadata
 majobyte
@@ -5032,7 +4865,7 @@ trini_hub
 trinigit
 vicho_dark
 vichox
-SEGUIDORES 29
+SEGUIDORES 28
 agusbash
 agustinmeme
 benjacl
@@ -5045,7 +4878,6 @@ gabotxt
 gonzaweb
 isicode
 javidev
-joaquin
 josebug
 leobits
 loopmaster
@@ -5072,7 +4904,7 @@ FIN
 USUARIO rodrinet 123
 PUBLICACIONES 1
 rodrinet 1782542300 Los fandoms trabajando juntos son mas rapidos que cualquier buscador alguien mas lo vio #Invierno
-SEGUIDOS 54
+SEGUIDOS 53
 agusbash
 andresdev
 antocode
@@ -5099,7 +4931,6 @@ gonzaweb
 ivancode
 javi_var
 javidev
-joaquin
 leobits
 loopmaster
 luisa_net
@@ -5267,7 +5098,7 @@ nachomap 1782550964 Un hilo bien contado puede competir con cualquier documental
 nachomap 1782601036 @cancha360 el cafe no arreglo mi productividad pero si mi animo
 nachomap 1782606086 @seba acepto la funa pero mantengo mi postura
 nachomap 1782615669 @pabloroot hoy no estoy opinando, estoy sobreviviendo al grupo
-SEGUIDOS 45
+SEGUIDOS 44
 agusbash
 bytewolf
 camilox
@@ -5287,7 +5118,6 @@ gabriel_cola
 gonzaweb
 isicode
 ivancode
-joaquin
 josecl
 juampicode
 martin21
@@ -6200,7 +6030,7 @@ matizero 1782553100 El Mundial esta convirtiendo almuerzos en mesas de analisis 
 matizero 1782555488 La feria tenia mejores ofertas que cualquier anuncio modo resumen #Deportes
 matizero 1782611840 @martin51 tu lista de favoritos parece hecha por una IA con sueno
 matizero 1782616206 @martin70 no voy a olvidar que dijiste que ese partido era facil
-SEGUIDOS 41
+SEGUIDOS 40
 aialerta
 alonsohub
 bastianx
@@ -6219,7 +6049,6 @@ emicode
 emiliodev
 gamerzone
 javidev
-joaquin
 klonoh
 luisax
 martin21
@@ -6483,7 +6312,7 @@ alonsohub 1782613024 @martin_byte confirmo que tu analisis tactico venia con muc
 alonsohub 1782617371 @bastianx mi feed no es caos, es curadoria emocional
 alonsohub 1782617649 @martinbyte tu comentario fue mas preciso que el resumen oficial
 alonsohub 1782618796 @martin39 hoy el algoritmo nos tiene encerrados en el mismo tema
-SEGUIDOS 39
+SEGUIDOS 38
 amelia_kernel
 ameliafox
 bastianx
@@ -6499,7 +6328,6 @@ flor384
 franstack
 gabocode
 gamerzone
-joaquin
 martin30
 martin39
 martin_bits
@@ -7133,7 +6961,7 @@ martindev 1782620479 @catahub no me etiquetes cuando estoy perdiendo el debate
 martindev 1782629230 @martin_loop la proxima vez que digas facil voy a guardar captura
 martindev 1782631875 @cristocode hoy no estoy opinando, estoy sobreviviendo al grupo
 martindev 1782635853 @martincode hoy elegiste violencia futbolera
-SEGUIDOS 44
+SEGUIDOS 43
 bastianup
 bastianx
 cancha360
@@ -7152,7 +6980,6 @@ gamerzone
 golazo24
 javierafox
 javiloop
-joaquin
 luisa_net
 maiteprime
 martin30
@@ -8027,7 +7854,7 @@ martin_bits 1782619961 @catahub el humo tambien es parte de la experiencia depor
 martin_bits 1782623828 @martin_map te dije que el grupo iba a quedar apretado
 martin_bits 1782631635 @martinloop no era penal y lo sabes
 martin_bits 1782634188 @martin39 prometiste no hablar del VAR y duraste diez minutos
-SEGUIDOS 39
+SEGUIDOS 38
 aialerta
 antoniabug
 bytewolf
@@ -8043,7 +7870,6 @@ gabrieltv
 gadgetnews
 gamerzone
 ivancode
-joaquin
 martin39
 martin45
 martin_debug
@@ -8931,7 +8757,7 @@ martingraph 1782615725 @martin_gamer prometiste no hablar del VAR y duraste diez
 martingraph 1782618740 @cristocode me niego a aceptar esa acusacion sin revision VAR
 martingraph 1782619850 @martin_loop admito errores pero no frente al timeline
 martingraph 1782627935 @martinplay no era penal y lo sabes
-SEGUIDOS 43
+SEGUIDOS 42
 bastianx
 benjacl
 claudia_moon
@@ -8943,7 +8769,6 @@ futboltotal
 gabocode
 gonzalo175
 ignaciagamer
-joaquin
 martin42
 martin69
 martin98
@@ -9128,7 +8953,7 @@ martin70 1782609638 @martinloop si mi teoria funciona quiero creditos
 martin70 1782613468 @martincola hoy te ganaste el premio al comentario mas exagerado
 martin70 1782616187 @martin64 admito errores pero no frente al timeline
 martin70 1782622144 @emicode mi comentario tenia contexto que convenientemente ignoras
-SEGUIDOS 38
+SEGUIDOS 37
 agus211
 agustin335
 amelia757
@@ -9143,7 +8968,6 @@ franstack
 golazo24
 isabel773
 javiera_ia
-joaquin
 klonoh
 martin60
 martin64
@@ -9308,7 +9132,7 @@ martin_cola 1782585716 esto no estaba en mi bingo del dia para debatir #Timeline
 martin_cola 1782621219 @martinmap ese completo imaginario ya cuenta como contrato
 martin_cola 1782628730 @martinbits gracias por traer pruebas al juicio del timeline
 martin_cola 1782634650 @martin30 el humo tambien es parte de la experiencia deportiva
-SEGUIDOS 42
+SEGUIDOS 41
 aialerta
 antonia167
 cancha360
@@ -9318,7 +9142,6 @@ franstack
 gabocode
 gadgetnews
 gamerzone
-joaquin
 martin30
 martin42
 martin45
@@ -9488,7 +9311,7 @@ martin_lista 1782584600 Salir sin parka fue exceso de confianza opinion rapida #
 martin_lista 1782615836 @martinlista si Brasil Japon se va a penales apago todo
 martin_lista 1782620849 @martin64 mi comentario tenia contexto que convenientemente ignoras
 martin_lista 1782636981 @tomasgit ese completo imaginario ya cuenta como contrato
-SEGUIDOS 42
+SEGUIDOS 41
 agusbash
 aialerta
 antogol
@@ -9502,7 +9325,6 @@ estefi_vx
 felipedev
 gadgetnews
 gamerzone
-joaquin
 martin30
 martin39
 martin60
@@ -10538,13 +10360,12 @@ martin34 1782615762 @martin90 oficialmente quedas citado como fuente poco confia
 martin34 1782615891 @martin_play mi ranking musical no se discute en publico
 martin34 1782621497 @martin_debug no abras los comentarios, te lo digo por experiencia
 martin34 1782634780 @martinlab no era penal y lo sabes
-SEGUIDOS 38
+SEGUIDOS 37
 caromeme
 cineadicto
 codedragon
 danilodev
 isidoratv
-joaquin
 martin17
 martin23
 martin41
@@ -10999,13 +10820,12 @@ martin71 1782600160 Brasil y Japon es choque de estilos y de timelines hoy se co
 martin71 1782605344 Francia siempre parece tener una marcha extra guardada anoten eso #IA
 martin71 1782606476 El VAR otra vez convirtiendo un partido normal en debate nacional no supero esto #Chile
 martin71 1782620535 @martin78 necesito contexto antes de seguir discutiendo
-SEGUIDOS 35
+SEGUIDOS 34
 benjacl
 chefviral
 claudia647
 emilio433
 golazo24
-joaquin
 loopmaster
 martin23
 martin24
@@ -12017,14 +11837,13 @@ martinnull 1782611338 hoy se conversa de todo menos de dormir anoten eso #Chile
 martinnull 1782611771 La educacion ya cambio aunque algunos sigan haciendo como que no modo resumen #Universidad
 martinnull 1782618758 mi algoritmo eligio violencia deportiva queda fijado #Santiago
 martinnull 1782631394 @martin_cl no fui yo, fue el algoritmo
-SEGUIDOS 36
+SEGUIDOS 35
 claudata
 climaaldia
 conydev
 felipevar
 fran740
 gadgetnews
-joaquin
 mapachedev
 martin17
 martin51
@@ -12182,7 +12001,7 @@ PUBLICACIONES 3
 martinsrc 1782610700 La lluvia fina tiene talento para arruinar zapatillas con cafe se entiende #Robotica
 martinsrc 1782617205 @martin_net esto se fue de las manos como toda buena conversacion
 martinsrc 1782629877 @martin_root no era penal, era dramaturgia futbolera
-SEGUIDOS 52
+SEGUIDOS 51
 aialerta
 cancha360
 carobash
@@ -12195,7 +12014,6 @@ gamerzone
 gonzalo_storm
 isix
 javidev
-joaquin
 josecafe
 martin14
 martin17
@@ -12853,14 +12671,13 @@ martin_data 1782620796 Hoy todos quieren integrar IA aunque no sepan bien para q
 martin_data 1782624568 @martin24 tu teoria era absurda pero ahora tiene sentido y me preocupa
 martin_data 1782640348 @martinvx si mi teoria funciona quiero creditos
 martin_data 1782644178 @martin_hub el meme que mandaste envejecio demasiado bien
-SEGUIDOS 29
+SEGUIDOS 28
 bytewolf
 climaaldia
 darknova
 datawizard
 florup
 golazo24
-joaquin
 luisia
 martin24
 martin50
@@ -13282,8 +13099,7 @@ robotica24
 techinsider
 tomasgit
 valebyte
-SEGUIDORES 30
-joaquin
+SEGUIDORES 29
 martin23
 martin45
 martin51
@@ -13934,7 +13750,7 @@ martindebug 1782632206 Hay dias en que internet parece una plaza publica con wif
 martindebug 1782634021 @martin14 hoy no estoy opinando, estoy sobreviviendo al grupo
 martindebug 1782635168 @martin50 si esto se hace viral borro la app por dignidad
 martindebug 1782642439 @martin_debug lo dije en broma y ahora paso, ayuda
-SEGUIDOS 42
+SEGUIDOS 41
 andresdev
 cineadicto
 climaaldia
@@ -13944,7 +13760,6 @@ gabo_news
 gadgetnews
 gamerzone
 isa_byte
-joaquin
 martin14
 martin50
 martin51
@@ -13977,8 +13792,7 @@ sofinet
 streamqueen
 tito
 tomas_stack
-SEGUIDORES 33
-joaquin
+SEGUIDORES 32
 martin14
 martin23
 martin24
@@ -14130,7 +13944,7 @@ martin_pixel 1782628700 La educacion ya cambio aunque algunos sigan haciendo com
 martin_pixel 1782630660 Japon juega con una calma que parece algoritmo opinion rapida #Universidad
 martin_pixel 1782633400 Estados Unidos primero de grupo fue plot twist para varios anoten eso #Memes
 martin_pixel 1782639041 Los agentes de IA suenan cada vez menos futuristas y mas cotidianos queda fijado #Universidad
-SEGUIDOS 42
+SEGUIDOS 41
 antonia382
 cineadicto
 dani127
@@ -14139,7 +13953,6 @@ futboltotal
 gabotxt
 golazo24
 javieraai
-joaquin
 martin14
 martin24
 martin50
@@ -14940,7 +14753,7 @@ martinlight 1782640058 El pan con palta sigue siendo combustible nacional necesi
 martinlight 1782641070 @martin_nova el grupo familiar ya esta citando tus opiniones
 martinlight 1782643042 ese momento merece captura version extendida #Mundial2026
 martinlight 1782643771 @martin_storm si Brasil Japon se va a penales apago todo
-SEGUIDOS 41
+SEGUIDOS 40
 bytewolf
 chefviral
 cineadicto
@@ -14950,7 +14763,6 @@ diegodev
 emilio433
 futboltotal
 golazo24
-joaquin
 martin21
 martin32
 martin41
@@ -15021,13 +14833,12 @@ martin_light 1782623143 @martin59 acepto la funa pero mantengo mi postura
 martin_light 1782637700 el timeline amanecio con energia rara con cafe se entiende #Tech
 martin_light 1782640238 mi algoritmo eligio violencia deportiva queda fijado #Cafe
 martin_light 1782642482 Alemania perdiendo siempre abre una asamblea mundialista queda fijado #Cine
-SEGUIDOS 40
+SEGUIDOS 39
 cineadicto
 cony48
 darkseba
 emilia63
 futboltotal
-joaquin
 lucas_moon
 luis336
 martin19
@@ -15062,14 +14873,13 @@ raul_fut
 robotica24
 samuel_kernel
 streamqueen
-SEGUIDORES 32
+SEGUIDORES 31
 bytewolf
 dariodev
 elisago
 emilio_tech
 flor384
 ivan228
-joaquin
 leobits
 martin12
 martin41
@@ -15240,14 +15050,13 @@ pipego
 streamqueen
 tito
 varcentral
-SEGUIDORES 38
+SEGUIDORES 37
 agustin335
 codedragon
 darknova
 fergo
 isa901
 isidoracl
-joaquin
 karlapro
 loopmaster
 martin12
@@ -15424,7 +15233,7 @@ martinsun
 memelord
 renata848
 viajescl
-SEGUIDORES 44
+SEGUIDORES 43
 camila830
 cata533
 claudia_beta
@@ -15432,7 +15241,6 @@ diegodev
 edubug
 franco219
 ignaciosun
-joaquin
 jose587
 leo366
 lunadata
@@ -15493,7 +15301,7 @@ martinfox 1782642200 La demo necesita datos realistas para sentirse viva con caf
 martinfox 1782645798 Me encanta cuando un partido chico se roba todo el dia con cafe se entiende #Chile
 martinfox 1782645947 La rubrica manda mas que la intuicion con cafe se entiende #Memes
 martinfox 1782649256 esta semana viene con DLC de drama para debatir #Invierno
-SEGUIDOS 42
+SEGUIDOS 41
 bastiango
 bytewolf
 datawizard
@@ -15501,7 +15309,6 @@ emi720
 futboltotal
 gabriel_graph
 gadgetnews
-joaquin
 loopmaster
 majobyte
 majoup
@@ -16007,7 +15814,7 @@ martin12 1782613838 @martinsun tu prediccion duro menos que mi cafe
 martin12 1782647600 La gente en redes puede convertir cualquier frase en tendencia queda fijado #Santiago
 martin12 1782649473 Ciberseguridad deberia ser tema fijo antes de lanzar cualquier app se tenia que decir #Estudio
 martin12 1782654398 La nostalgia sigue ganando batallas comerciales version extendida #Invierno
-SEGUIDOS 41
+SEGUIDOS 40
 aialerta
 cami_light
 cancha360
@@ -16016,7 +15823,6 @@ datawizard
 diego_sun
 esteban283
 estefitv
-joaquin
 loopmaster
 luis_src
 martin19
@@ -16332,11 +16138,10 @@ robotica24
 rocio163
 techinsider
 varcentral
-SEGUIDORES 27
+SEGUIDORES 26
 dani127
 gabriel_cola
 isa_byte
-joaquin
 martin13
 martin32
 martin89
@@ -16529,7 +16334,7 @@ martinmoon 1782653000 El README bien hecho deberia subir la nota moralmente sin 
 martinmoon 1782654364 Los narradores estan viviendo cada lateral como final hoy se comenta #Futbol
 martinmoon 1782658406 El codigo ordenado es un favor al yo del futuro modo resumen #Robotica
 martinmoon 1782658889 confirmo que el caos esta bien distribuido opinion rapida #Mundial2026
-SEGUIDOS 40
+SEGUIDOS 39
 aialerta
 benjagit
 bytewolf
@@ -16538,7 +16343,6 @@ datawizard
 gamerzone
 isa_byte
 ivanstorm
-joaquin
 karlalight
 martin12
 martin13
@@ -16661,11 +16465,10 @@ samia
 sofia_tech
 techinsider
 valen191
-SEGUIDORES 30
+SEGUIDORES 29
 agus576
 cony48
 gabo651
-joaquin
 martin12
 martin13
 martin19
@@ -17612,7 +17415,7 @@ martinkai 1782644215 @martin_alpha no voy a olvidar que dijiste que ese partido 
 martinkai 1782663800 Hoy el timeline esta entre futbol memes y opiniones demasiado serias version extendida #Robotica
 martinkai 1782665093 El invierno en Chile me tiene funcionando a puro te y sopaipillas sin contexto #Santiago
 martinkai 1782665746 La app del transporte hoy decidio escribir ficcion minuto viral #Universidad
-SEGUIDOS 40
+SEGUIDOS 39
 aialerta
 catahub
 clau674
@@ -17621,7 +17424,6 @@ datawizard
 fabiantv
 fabrigamer
 franco226
-joaquin
 martin12
 martin19
 martin21
@@ -17871,7 +17673,7 @@ PUBLICACIONES 3
 martinprime 1782633244 @martin9 mi prediccion era emocional, no estadistica
 martinprime 1782666500 La lluvia fina tiene talento para arruinar zapatillas tremendo momento #Chile
 martinprime 1782667702 Nada une mas que discutir donde venden el mejor completo se abrio debate #Memes
-SEGUIDOS 40
+SEGUIDOS 39
 ameliameme
 ariel_bug
 bastiango
@@ -17885,7 +17687,6 @@ diegodev
 francosigma
 futboltotal
 gamerzone
-joaquin
 majovar
 martin21
 martin32
@@ -18004,12 +17805,11 @@ streamqueen
 valebyte
 varcentral
 viajescl
-SEGUIDORES 41
+SEGUIDORES 40
 agustin_graph
 andres_gamer
 claudia141
 dani127
-domix
 edukernel
 emiliodev
 hector_fut
@@ -18183,12 +17983,11 @@ sofia904
 streamqueen
 techinsider
 tito
-SEGUIDORES 25
+SEGUIDORES 24
 andresnet
 emilio433
 esteban_nova
 gonzaweb
-joaquin
 mapachedev
 martin19
 martin21
@@ -18675,7 +18474,7 @@ martinsigma 1782644085 @martinseven no prometo coherencia antes del cafe
 martinsigma 1782674600 Nada une mas que discutir donde venden el mejor completo tremendo momento #Deportes
 martinsigma 1782677903 Alemania perdiendo siempre abre una asamblea mundialista sin contexto #Musica
 martinsigma 1782679020 Paraguay y Australia hicieron sufrir a todos con calculadora en mano no supero esto #Cine
-SEGUIDOS 41
+SEGUIDOS 40
 andresdev
 beatriz_main
 cancha360
@@ -18684,7 +18483,6 @@ claudata
 datawizard
 debugfox
 gadgetnews
-joaquin
 loopmaster
 martin12
 martin21
@@ -18821,12 +18619,11 @@ soficode
 streamqueen
 valebyte
 viajescl
-SEGUIDORES 33
+SEGUIDORES 32
 debugfox
 gabocl
 ian_lab
 isa476
-joaquin
 jose_beta
 martin12
 martin19
@@ -19132,7 +18929,7 @@ martin56 1782623513 @martin_seven ese completo imaginario ya cuenta como contrat
 martin56 1782679100 esto no estaba en mi bingo del dia con cafe se entiende #Mundial2026
 martin56 1782682096 Los narradores estan viviendo cada lateral como final necesito hilo #Universidad
 martin56 1782685612 Brasil contra Japon suena a cruce para verlo con dos pantallas para debatir #Deportes
-SEGUIDOS 43
+SEGUIDOS 42
 aialerta
 antocode
 antoup
@@ -19145,7 +18942,6 @@ futboltotal
 gamerzone
 golazo24
 ignaciagamer
-joaquin
 majobyte
 martin14
 martin21
@@ -19252,7 +19048,7 @@ pancho853
 pipepixel
 rochicl
 streamqueen
-SEGUIDORES 348
+SEGUIDORES 347
 agus995
 agusbash
 agustin_nova
@@ -19405,7 +19201,6 @@ javicl
 javiera_lab
 javiloop
 javitv
-joaquin
 jose587
 jose_beta
 jose_loop
@@ -19644,7 +19439,7 @@ oliver801
 pipelogic
 raul599
 streamqueen
-SEGUIDORES 361
+SEGUIDORES 359
 agus257
 agus946
 agustin335
@@ -19724,7 +19519,6 @@ dominic503
 dominic864
 dominic_play
 domitv
-domix
 edu746
 edu888
 edugo
@@ -19815,7 +19609,6 @@ javiera_sun
 javieraai
 javilab
 javitv
-joaquin
 jose587
 josecafe
 josecl
@@ -20831,7 +20624,7 @@ nachomap
 noticiero24
 renataai
 streamqueen
-SEGUIDORES 352
+SEGUIDORES 351
 agus576
 agus995
 aguscl
@@ -20985,7 +20778,6 @@ ivanstorm
 javi_var
 javicl
 javieraai
-joaquin
 jose_beta
 jose_loop
 juampi33
@@ -21225,7 +21017,7 @@ martin78
 martinroot
 noticiero24
 santi935
-SEGUIDORES 335
+SEGUIDORES 333
 agus257
 agus995
 agustin_graph
@@ -21306,7 +21098,6 @@ dominic503
 dominic864
 dominic_gol
 dominictv
-domix
 edu746
 edu888
 edubug
@@ -21378,7 +21169,6 @@ javiera_lab
 javieraai
 javierafox
 javiloop
-joaquin
 jose561
 juampicode
 juampifit
@@ -21594,7 +21384,7 @@ gabrieltv
 hector445
 martin_play
 martinroot
-SEGUIDORES 375
+SEGUIDORES 374
 agus211
 agus257
 agus576
@@ -21766,7 +21556,6 @@ javi482
 javidev
 javiloop
 javitv
-joaquin
 jose587
 jose_loop
 josebug
@@ -22429,7 +22218,7 @@ ninacl
 pablogit
 raul599
 rodrigo234
-SEGUIDORES 319
+SEGUIDORES 318
 agus946
 agustin_nova
 agustinia
@@ -22498,7 +22287,6 @@ diegotv
 diegox
 dominic503
 domitv
-domix
 edu746
 edugo
 elisa757
@@ -22788,7 +22576,7 @@ noticiero24
 samhub
 streamqueen
 trini_hub
-SEGUIDORES 317
+SEGUIDORES 316
 agustin_graph
 agustinia
 agusx
@@ -22862,7 +22650,6 @@ dominic_gol
 dominic_play
 dominiccafe
 domitv
-domix
 edu746
 edukernel
 elisa_cl
@@ -23150,7 +22937,7 @@ noticiero24
 pepememe
 rafaelgo
 streamqueen
-SEGUIDORES 361
+SEGUIDORES 359
 agus576
 aguscl
 agustinmeme
@@ -23232,7 +23019,6 @@ diegotv
 diegoup
 diegox
 dominic503
-domix
 elisa764
 elisa_cl
 elisa_sigma
@@ -23321,7 +23107,6 @@ javidev
 javiera_ia
 javiera_lab
 javitv
-joaquin
 jose587
 jose_loop
 josebug
@@ -23550,7 +23335,7 @@ leoup
 martin_cat
 martinbits
 nati_cine
-SEGUIDORES 362
+SEGUIDORES 361
 agus995
 agusbash
 agustin335
@@ -23713,7 +23498,6 @@ javidev
 javiera_ia
 javiera_sun
 javitv
-joaquin
 jose561
 jose587
 jose_beta
@@ -24368,7 +24152,7 @@ mati_cat
 nexodev
 sofi197
 vicho_dark
-SEGUIDORES 337
+SEGUIDORES 336
 agus211
 agus946
 agusbash
@@ -24447,7 +24231,6 @@ diego675
 diegodev
 diegoup
 dominictv
-domix
 edu746
 edubug
 elisa_stack
@@ -24751,7 +24534,7 @@ lucasgol
 max35
 noa_src
 noticiero24
-SEGUIDORES 345
+SEGUIDORES 344
 agus576
 agus995
 agustinia
@@ -24913,7 +24696,6 @@ ivania
 javidev
 javieraai
 javitv
-joaquin
 juampi_run
 juampicl
 juampicode
@@ -25522,7 +25304,7 @@ isidoratv
 martindev
 matias370
 panchogo
-SEGUIDORES 334
+SEGUIDORES 332
 agus211
 aguscl
 agustin335
@@ -25591,7 +25373,6 @@ diego930
 dominic503
 dominiccafe
 dominictv
-domix
 edugo
 elisa757
 elisacl
@@ -25666,7 +25447,6 @@ javiera_ia
 javiera_sun
 javierafox
 javiloop
-joaquin
 jose_loop
 juampi33
 juampicode
@@ -25891,7 +25671,7 @@ pabloroot
 ricky_fut
 samdev
 test
-SEGUIDORES 355
+SEGUIDORES 354
 agus946
 agus995
 agusx
@@ -25976,7 +25756,6 @@ diegox
 dominic503
 dominic_fox
 domitv
-domix
 edu746
 edu888
 edukernel
@@ -26284,7 +26063,7 @@ martinnull
 martinprime
 rafa458
 sofigo
-SEGUIDORES 379
+SEGUIDORES 378
 agus211
 agusbash
 agustin_nova
@@ -26368,7 +26147,6 @@ diegomoon
 diegotv
 diegoup
 dominic864
-domix
 edubug
 edugo
 elisaneo
@@ -26704,7 +26482,7 @@ martin_beta
 maxigraph
 trinicl
 valebeta
-SEGUIDORES 370
+SEGUIDORES 368
 agus946
 agustin_graph
 agustinia
@@ -26784,7 +26562,6 @@ diegotv
 dominic_fox
 dominiccafe
 domitv
-domix
 edu888
 edubug
 elisa_stack
@@ -26869,7 +26646,6 @@ javiera_lab
 javilab
 javiloop
 javitv
-joaquin
 josebug
 juampi_map
 juampicl
@@ -28281,7 +28057,7 @@ vale_vx
 valebash
 viajescl
 vicente928
-SEGUIDORES 18
+SEGUIDORES 17
 amelia931
 amelia_kernel
 camilacl
@@ -28289,7 +28065,6 @@ caro_debug
 isidoracl
 ivan_null
 javi482
-joaquin
 karlalight
 luchoprime
 matias_net
@@ -28921,7 +28696,7 @@ techinsider
 valebash
 vicente928
 victor_star
-SEGUIDORES 25
+SEGUIDORES 24
 arieltech
 caro_debug
 claudiagit
@@ -28934,7 +28709,6 @@ isabel23
 isidoracl
 isidoradev
 javi482
-joaquin
 luchoprime
 max_cat
 modaurbana
@@ -30329,7 +30103,7 @@ sofia_tech
 streamqueen
 techinsider
 viajescl
-SEGUIDORES 18
+SEGUIDORES 17
 amelia_x
 antonews
 antonia167
@@ -30343,7 +30117,6 @@ cony48
 domitv
 fran_cat
 javiera_ia
-joaquin
 lucho12
 majoup
 matiia
@@ -30697,7 +30470,7 @@ samuelmap
 simon_neo
 sofifit
 streamqueen
-SEGUIDORES 22
+SEGUIDORES 21
 andresx
 antonews
 cristobal726
@@ -30710,7 +30483,6 @@ hector_fut
 isa_fit
 isagit
 javieraai
-joaquin
 juampicl
 karlalight
 luisa_fit
@@ -32952,7 +32724,7 @@ soficode
 streamqueen
 techinsider
 viajescl
-SEGUIDORES 25
+SEGUIDORES 24
 antodev
 antopixel
 constanza816
@@ -32963,7 +32735,6 @@ gabriel_cola
 gabriel_graph
 isa_fit
 isidoradev
-joaquin
 josecafe
 karla_wolf
 luis_src
@@ -34063,7 +33834,7 @@ rodrigo_cola 1782623754 @clau674 este es el tipo de caos por el que pago interne
 rodrigo_cola 1782796100 La demo necesita datos realistas para sentirse viva se tenia que decir #Noticias
 rodrigo_cola 1782797336 No subestimen el poder de un buen nombre de variable se abrio debate #Cafe
 rodrigo_cola 1782801462 lo dije en broma y paso plot twist #Santiago
-SEGUIDOS 30
+SEGUIDOS 29
 alonsoia
 anto_x
 clau674
@@ -34078,7 +33849,6 @@ ignacia_ai
 isabelgo
 javiloop
 javitv
-joaquin
 liamup
 maiteia
 mapachedev
@@ -35765,7 +35535,7 @@ santi_logic
 streamqueen
 techinsider
 victor_star
-SEGUIDORES 27
+SEGUIDORES 26
 agustinia
 alonsoia
 anto_x
@@ -35776,7 +35546,6 @@ emilio317
 estefigit
 flordev
 gabograph
-joaquin
 jose561
 liamup
 luna981
@@ -38871,12 +38640,11 @@ noticiero24
 pepe314
 simondebug
 techinsider
-SEGUIDORES 20
+SEGUIDORES 19
 antogol
 camiloop
 franco_nova
 isidoratv
-joaquin
 klonoh
 luna_cafe
 maiteprime
@@ -39990,14 +39758,13 @@ streamqueen
 varcentral
 viajescl
 vicente_lab
-SEGUIDORES 17
+SEGUIDORES 16
 camiia
 cata533
 cataia
 cony363
 danifit
 dominic_play
-domix
 elisacl
 gabrielrun
 ivan_hub
@@ -40092,7 +39859,7 @@ liamloop 1782880700 A veces el proyecto mejora cuando uno lo prueba como usuario
 liamloop 1782883370 Me encanta cuando un partido chico se roba todo el dia plot twist #IA
 liamloop 1782883604 El grupo de WhatsApp estuvo mas activo que la clase necesito hilo #Memes
 liamloop 1782887147 Alemania perdiendo siempre abre una asamblea mundialista captura necesaria #Musica
-SEGUIDOS 35
+SEGUIDOS 34
 anto953
 bea_stack
 beatriz_main
@@ -40101,7 +39868,6 @@ catabits
 chefviral
 cristobalstack
 diego536
-domix
 elisacl
 esteban917
 futboltotal
@@ -40256,13 +40022,12 @@ tomas654
 valebeta
 viajescl
 vicente_lab
-SEGUIDORES 18
+SEGUIDORES 17
 agus211
 andresgo
 anto953
 cony363
 dominiccafe
-domix
 franco219
 gabriel_cola
 ignaciolab
@@ -40371,14 +40136,13 @@ tomas654
 valeria666
 varcentral
 viajescl
-SEGUIDORES 20
+SEGUIDORES 19
 agus946
 andresgo
 camiia
 claudia141
 cony363
 diego536
-domix
 emilionews
 fabian_kernel
 ferup
@@ -40404,7 +40168,7 @@ aguscl 1782885200 Ciberseguridad deberia ser tema fijo antes de lanzar cualquier
 aguscl 1782886936 El grupo D esta dejando mas preguntas que certezas opinion rapida #IA
 aguscl 1782887057 Estados Unidos primero de grupo fue plot twist para varios se abrio debate #Santiago
 aguscl 1782889451 Un hilo bien contado puede competir con cualquier documental modo resumen #IA
-SEGUIDOS 29
+SEGUIDOS 28
 aialerta
 anto_play
 bastianup
@@ -40415,7 +40179,6 @@ catabits
 claudia141
 cristobalstack
 diego536
-domix
 ignaciacl
 ivanstorm
 juandev
@@ -40498,12 +40261,11 @@ robotica24
 sam_lab
 sam_nova
 valebyte
-SEGUIDORES 22
+SEGUIDORES 21
 agus211
 aguscl
 cata_run
 claudia141
-domix
 emilia_logic
 emilionews
 hectorx
@@ -40627,13 +40389,12 @@ santi338
 streamqueen
 techinsider
 vicente_lab
-SEGUIDORES 19
+SEGUIDORES 18
 beatv
 cataia
 claudia_beta
 cony48
 cristobalmap
-domix
 emiliacafe
 emilio_map
 emilionews
@@ -40662,7 +40423,7 @@ agus211 1782641033 @domix no voy a olvidar que dijiste que ese partido era facil
 agus211 1782888800 La palabra del ano podria ser automatizacion sin contexto #Timeline
 agus211 1782891087 Santiago con frio hace que cualquier cafe parezca planazo tremendo momento #Tech
 agus211 1782893142 Nada da mas miedo que compilar cinco minutos antes de exponer plot twist #WorldCup
-SEGUIDOS 29
+SEGUIDOS 28
 aialerta
 andresgo
 andresia
@@ -40672,7 +40433,6 @@ claudia141
 cristobalstack
 datawizard
 diego_ia
-domix
 emilio_map
 emilionews
 gabo651
@@ -40692,13 +40452,12 @@ pipe255
 streamqueen
 tomas654
 viajescl
-SEGUIDORES 21
+SEGUIDORES 20
 andresgo
 anto953
 cataia
 diego536
 diego_ia
-domix
 emilia63
 gabo651
 gonzalo175
@@ -40780,7 +40539,7 @@ panchomain
 pepe466
 tomas654
 tomas_stack
-=======
+NOTIFICACIONES 23
 SEGUIDORES 0
 >>>>>>> 7ae8af51cd293189ca80f066fd458b2da3bbbb79
 NOTIFICACIONES 3
@@ -40804,63 +40563,6 @@ antonia128
 camilavx
 cataia
 climaaldia
-cony363
-cristobalstack
-diego536
-emilio_map
-futboltotal
-gadgetnews
-gamerzone
-hectorx
-ignaciacl
-ignaciagamer
-isidoradebug
-juandev
-marcos933
-martin_prime
-matias649
-max_var
-maxidark
-modaurbana
-musicnova
-nachoup
-noticiero24
-panchomain
-pepego
-robotica24
-sam_lab
-techinsider
-viajescl
-vicente_lab
-SEGUIDORES 20
-agus211
-aguscl
-anto_play
-antocode
-camiia
-cataia
-cony363
-elisacl
-emilionews
-gabocine
-javi_var
-javiera_sun
-liamloop
-matias649
-nataliacl
-sam963
-sam_lab
-tomas654
-valeria666
-vicente_lab
-NOTIFICACIONES 7
-El usuario cony363 te menciono en una publicacion.
-El usuario anto_play te menciono en una publicacion.
-El usuario agus211 te menciono en una publicacion.
-El usuario antocode ha comenzado a seguirte.
-El usuario elisacl ha comenzado a seguirte.
-El usuario emilionews ha comenzado a seguirte.
-El usuario viajescl ha publicado un nuevo mensaje.
 FIN
 USUARIO elisacl 123
 PUBLICACIONES 6
@@ -40870,11 +40572,10 @@ elisacl 1782891500 No todo lo que suena correcto esta realmente bien razonado ne
 elisacl 1782892884 hoy internet esta especialmente intenso minuto viral #Musica
 elisacl 1782893951 La IA sigue avanzando mas rapido que las reglas para controlarla plot twist #Futbol
 elisacl 1782895172 nadie estaba preparado para ese giro opinion rapida #Santiago
-SEGUIDOS 33
+SEGUIDOS 32
 anto_moon
 cata_run
 cineadicto
-domix
 edukernel
 emilio_map
 emilionews
@@ -41138,7 +40839,7 @@ javi_var 1782895100 voy a fingir que entiendo la tabla del grupo tremendo moment
 javi_var 1782898065 El cine necesita mas historias originales y menos nostalgia reciclada tremendo momento #Tendencias
 javi_var 1782900844 Las recomendaciones de musica estan sospechosamente precisas comentario del dia #Tech
 javi_var 1782901007 Ver un trend morir en tiempo real tambien es experiencia cultural plot twist #WorldCup
-SEGUIDOS 29
+SEGUIDOS 28
 andresia
 bastianup
 beatv
@@ -41149,7 +40850,6 @@ cataia
 cineadicto
 climaaldia
 datawizard
-domix
 emi953
 francox
 futboltotal
@@ -41249,13 +40949,12 @@ emilionews 1782634909 @max465 acepto la funa pero mantengo mi postura
 emilionews 1782896900 Un buen ejemplo de prueba vale mas que mil promesas minuto viral #Tech
 emilionews 1782899060 La demo necesita datos realistas para sentirse viva anoten eso #Estudio
 emilionews 1782901948 hoy se conversa de todo menos de dormir sin contexto #Musica
-SEGUIDOS 29
+SEGUIDOS 28
 aguscl
 aialerta
 anto953
 camiia
 chefviral
-domix
 elisacl
 estefi628
 felipe_fut
@@ -41317,12 +41016,11 @@ tomas654 1782897800 Me prometi dormir temprano y ya voy perdiendo minuto viral #
 tomas654 1782899005 La infraestructura digital tambien tiene costo ambiental se abrio debate #Mundial2026
 tomas654 1782902092 Francia siempre parece tener una marcha extra guardada se tenia que decir #Futbol
 tomas654 1782905447 Un bug explicado con calma deja de parecer monstruo para debatir #Cafe
-SEGUIDOS 29
+SEGUIDOS 28
 antogol
 catabits
 chefviral
 datawizard
-domix
 elisacl
 gabriel_cola
 gadgetnews
@@ -41414,14 +41112,13 @@ sam_lab
 santi_logic
 vale496
 varcentral
-SEGUIDORES 21
+SEGUIDORES 20
 aguscl
 arielcat
 beatv
 camiia
 cata_git
 dominic_gol
-domix
 gabo651
 hectormoon
 ignaciolab
@@ -41449,7 +41146,7 @@ cataia 1782899600 La noche antes de entregar todo parece urgente se abrio debate
 cataia 1782902988 La lluvia fina tiene talento para arruinar zapatillas alguien mas lo vio #WorldCup
 cataia 1782904703 La defensa del proyecto se gana practicando preguntas incomodas tremendo momento #Tech
 cataia 1782906246 Estados Unidos y Turquia se fueron al empate y el timeline exploto para debatir #Chile
-SEGUIDOS 33
+SEGUIDOS 32
 agus211
 andresgo
 andreskernel
@@ -41462,7 +41159,6 @@ claudia_byte
 climaaldia
 cristobalstack
 diego139
-domix
 emilionews
 ferdebug
 florbyte
@@ -41483,7 +41179,7 @@ panchix
 panchomain
 pipe255
 techinsider
-SEGUIDORES 18
+SEGUIDORES 17
 andresia
 anto953
 cata_run
@@ -41491,7 +41187,6 @@ catabits
 catalina_pro
 catalinax
 diego_ia
-domix
 emilio_map
 fabridev
 gabo651
@@ -41640,7 +41335,7 @@ FIN
 USUARIO sam963 123
 PUBLICACIONES 1
 sam963 1782902300 Los benchmarks de IA duran menos que una tendencia de internet modo resumen #Musica
-SEGUIDOS 27
+SEGUIDOS 26
 andresgo
 camiia
 catabits
@@ -41648,7 +41343,6 @@ chefviral
 cineadicto
 climaaldia
 datawizard
-domix
 elisacl
 estefi628
 isi_x
@@ -41729,14 +41423,13 @@ streamqueen
 valeria666
 varcentral
 vicente_lab
-SEGUIDORES 17
+SEGUIDORES 16
 agus211
 beatv
 cataia
 estefitv
 ignaciodev
 ivan_hub
-joaquin
 juampiloop
 luisa_net
 marcos933
@@ -41863,7 +41556,7 @@ techinsider
 tomas654
 valeria666
 varcentral
-SEGUIDORES 26
+SEGUIDORES 25
 andresgo
 andresia
 benjacl
@@ -41871,7 +41564,6 @@ camila655
 claudia141
 diego536
 dominiccafe
-domix
 elisacl
 emilio_map
 emilionews
@@ -41930,12 +41622,11 @@ sofigo
 streamqueen
 varcentral
 vicente928
-SEGUIDORES 15
+SEGUIDORES 14
 andresia
 catabits
 claudia141
 diego_ia
-domix
 elisa_light
 hectormoon
 hectorx
@@ -42038,11 +41729,10 @@ liamloop
 maxidark
 memelord
 varcentral
-SEGUIDORES 18
+SEGUIDORES 17
 aguscl
 catabits
 claudia141
-domix
 elisa_stack
 elisacl
 hectoria
@@ -42072,14 +41762,13 @@ camiia 1782639220 @sam_lab tu prediccion duro menos que mi cafe
 camiia 1782908600 Trabajar en equipo ensena paciencia y control de versiones hoy se comenta #IA
 camiia 1782911854 No subestimen el poder de un buen nombre de variable opinion rapida #Tendencias
 camiia 1782914150 El grupo de WhatsApp estuvo mas activo que la clase se abrio debate #Memes
-SEGUIDOS 34
+SEGUIDOS 33
 cancha360
 catabits
 chefviral
 climaaldia
 datawizard
 diego536
-domix
 estebanfut
 fabridev
 futboltotal
@@ -42303,7 +41992,7 @@ techinsider
 tomas654
 trini_hub
 victor415
-SEGUIDORES 18
+SEGUIDORES 17
 agus211
 alonsohub
 alonsoia
@@ -42311,7 +42000,6 @@ andresia
 cony363
 cristobalstack
 diego536
-domix
 elisacl
 gabobyte
 ignacia798
@@ -42468,7 +42156,7 @@ anto_play 1782637906 @domix me niego a aceptar esa acusacion sin revision VAR
 anto_play 1782914000 Los memes explican la actualidad mas rapido que algunos noticieros para debatir #Tech
 anto_play 1782914784 La privacidad vuelve a ser tema cada vez que una app pide permisos raros version extendida #WorldCup
 anto_play 1782915328 Me rei de un meme que no deberia haber entendido tan rapido modo resumen #Deportes
-SEGUIDOS 20
+SEGUIDOS 19
 bea_stack
 cancha360
 cata_run
@@ -42478,7 +42166,6 @@ cineadicto
 climaaldia
 cony363
 diego_ia
-domix
 estefi628
 fabridev
 gamerzone
@@ -42489,11 +42176,10 @@ modaurbana
 nati_cine
 pablo465
 sam963
-SEGUIDORES 19
+SEGUIDORES 18
 aguscl
 andresgo
 diegodev
-domix
 elisa_light
 esteban_music
 gabrielgo
@@ -42546,7 +42232,7 @@ techinsider
 tomas654
 valeria666
 viajescl
-SEGUIDORES 22
+SEGUIDORES 21
 aguscl
 andresia
 benjacl
@@ -42555,7 +42241,6 @@ cata_run
 cataia
 claudia706
 diego_ia
-domix
 estefi628
 javiloop
 juandev
@@ -42639,7 +42324,7 @@ cony363 1782916700 me fui un rato y cambiaron todos los temas tremendo momento #
 cony363 1782919961 Ecuador pegandole a Alemania dejo el grupo en modo incendio alguien mas lo vio #Mundial2026
 cony363 1782922007 El Mundial esta convirtiendo almuerzos en mesas de analisis minuto viral #Futbol
 cony363 1782923392 Un cero a cero tambien puede ser pelicula de suspenso fin del comunicado #Timeline
-SEGUIDOS 35
+SEGUIDOS 34
 andresgo
 camila_src
 caro524
@@ -42647,7 +42332,6 @@ caromeme
 catabits
 cristobalstack
 dominic_fox
-domix
 edugo
 emilio_map
 emilionews
@@ -42675,13 +42359,12 @@ samstar
 varcentral
 viajescl
 vicente_lab
-SEGUIDORES 25
+SEGUIDORES 24
 andresgo
 andresia
 anto_play
 catabits
 danix
-domix
 fabri419
 franco219
 ignaciacl
@@ -42711,7 +42394,7 @@ FIN
 USUARIO valeria666 123
 PUBLICACIONES 1
 valeria666 1782917600 Cada gol mueve la tabla y tambien el animo del chat familiar plot twist #Cafe
-SEGUIDOS 22
+SEGUIDOS 21
 aialerta
 antoniabug
 cancha360
@@ -42720,7 +42403,6 @@ chefviral
 cineadicto
 climaaldia
 diego_ia
-domix
 emilio_map
 futboltotal
 gabo651
@@ -42880,7 +42562,7 @@ pipe255
 streamqueen
 valebyte
 viajescl
-SEGUIDORES 24
+SEGUIDORES 23
 agus211
 aguscl
 amelia_kernel
@@ -42890,7 +42572,6 @@ catalinax
 clauneo
 cony363
 dominic864
-domix
 estefi628
 francox
 ivanstorm
@@ -42918,14 +42599,13 @@ vicente_lab 1782629026 @hectorx el humo tambien es parte de la experiencia depor
 vicente_lab 1782633799 @panchomain no fui yo, fue el algoritmo
 vicente_lab 1782920300 Una serie buena se mide por cuantas teorias aparecen despues del capitulo fin del comunicado #Tech
 vicente_lab 1782923606 El README bien hecho deberia subir la nota moralmente anoten eso #Tech
-SEGUIDOS 27
+SEGUIDOS 26
 aialerta
 anto_play
 cata_run
 cataia
 chefviral
 diego_ia
-domix
 edu746
 futboltotal
 gadgetnews
@@ -42946,7 +42626,7 @@ pipe255
 sam_lab
 streamqueen
 techinsider
-SEGUIDORES 20
+SEGUIDORES 19
 andres_git
 andresia
 anto953
@@ -42954,7 +42634,6 @@ beatv
 catabits
 constanzadev
 cony363
-domix
 elisaneo
 emilionews
 hectorx
@@ -43017,7 +42696,7 @@ samhub
 sofigo
 varcentral
 viajescl
-SEGUIDORES 21
+SEGUIDORES 20
 aguscl
 andresia
 camiia
@@ -43029,7 +42708,6 @@ conydev
 cristobalstack
 diego_ia
 dominic_gol
-domix
 emilio_map
 emilionews
 ian839
@@ -43054,7 +42732,7 @@ sam_lab 1782639238 @camiia acepto la funa pero mantengo mi postura
 sam_lab 1782922100 Los benchmarks de IA duran menos que una tendencia de internet con cafe se entiende #Futbol
 sam_lab 1782923426 La defensa del proyecto se gana practicando preguntas incomodas queda fijado #Noticias
 sam_lab 1782923845 Los datos malos siguen arruinando sistemas buenos comentario del dia #Tech
-SEGUIDOS 37
+SEGUIDOS 36
 agus211
 agustin_nova
 andresia
@@ -43069,7 +42747,6 @@ climaaldia
 cristocode
 diego536
 diego_ia
-domix
 emilio_map
 futboltotal
 gamerzone
@@ -43092,13 +42769,12 @@ tomas654
 varcentral
 viajescl
 vichox
-SEGUIDORES 24
+SEGUIDORES 23
 alonsobits
 andresgo
 camiia
 cata_run
 diego536
-domix
 emilio_map
 ferup
 isabelgit
@@ -43768,7 +43444,7 @@ sofidev
 streamqueen
 tomas_stack
 varcentral
-SEGUIDORES 28
+SEGUIDORES 27
 andresx
 bastiango
 bea_stack
@@ -43780,7 +43456,6 @@ estefi301
 floria
 ignaciodev
 ivan_null
-joaquin
 josecl
 juandev
 liam464
@@ -43895,7 +43570,7 @@ sofia904
 techinsider
 tomasup
 varcentral
-SEGUIDORES 26
+SEGUIDORES 25
 andresx
 anto_play
 bastiango
@@ -43906,7 +43581,6 @@ diegox
 dominic864
 gonzalo175
 ignaciodev
-joaquin
 josecl
 liamloop
 luna981
@@ -44576,12 +44250,11 @@ tomasia
 tomasup
 varcentral
 viajescl
-SEGUIDORES 15
+SEGUIDORES 14
 ariel_bug
 bastiango
 cristobaltv
 isapixel
-joaquin
 leoia
 martin_sun
 martinwolf
@@ -45332,14 +45005,13 @@ rafaelup
 raul643
 sofidev
 viajescl
-SEGUIDORES 17
+SEGUIDORES 16
 bastiango
 bastianx
 bea_stack
 camila655
 clausigma
 diegox
-domix
 emi953
 fertv
 francox
@@ -46566,7 +46238,7 @@ sofia700
 streamqueen
 techinsider
 valenpro
-SEGUIDORES 22
+SEGUIDORES 21
 bea_bug
 diego_sun
 dominic_gol
@@ -46578,7 +46250,6 @@ gonzalo_storm
 isi_net
 ivan_cine
 javiera_lab
-joaquin
 matizero
 nachocl
 nicogol
@@ -46632,7 +46303,7 @@ maxi35
 nachocl
 valenx
 viajescl
-SEGUIDORES 24
+SEGUIDORES 23
 ameliaalpha
 andres_git
 bastiania
@@ -46646,7 +46317,6 @@ diego_sun
 emilio167
 felipevar
 franco219
-joaquin
 martinkai
 maxi_moon
 noa313
@@ -46794,7 +46464,7 @@ andres_git 1782974300 hay opiniones que deberian quedarse en borrador no supero 
 andres_git 1782977521 La tecnologia buena deberia sentirse simple aunque sea compleja por dentro fin del comunicado #Robotica
 andres_git 1782979844 Los hinchas estan haciendo matematicas con diferencia de gol tremendo momento #IA
 andres_git 1782984647 nadie estaba preparado para ese giro necesito hilo #Gaming
-SEGUIDOS 31
+SEGUIDOS 30
 ameliaalpha
 arielmusic
 claudiadev
@@ -46808,7 +46478,6 @@ gadgetnews
 gamerzone
 gonzalostorm
 hectorhub
-joaquin
 jose_loop
 josebug
 josecafe
@@ -47144,7 +46813,7 @@ pipe_vx
 robotica24
 simonbug
 sofix
-SEGUIDORES 19
+SEGUIDORES 18
 alonsohub
 antonia355
 bea_bug
@@ -47154,7 +46823,6 @@ emilio167
 emistar
 gabrielrun
 javierafox
-joaquin
 martin77
 martindebug
 martinmoon
@@ -51968,7 +51636,7 @@ pato969
 pepe332
 rafadev
 varcentral
-SEGUIDORES 24
+SEGUIDORES 23
 ameliaia
 antoup
 cami_light
@@ -51983,7 +51651,6 @@ gabriel_cat
 gonzalo_star
 isa_code
 isi_lista
-joaquin
 juampi_run
 juampifit
 martin_lista
@@ -52266,7 +51933,7 @@ matias649 1782641310 @carla_root no prometo coherencia antes del cafe
 matias649 1783051700 necesito contexto y tambien cafe no supero esto #Musica
 matias649 1783053603 Los memes deportivos estan cargando el Mundial por fuera de la cancha se abrio debate #Futbol
 matias649 1783057624 Paraguay y Australia hicieron sufrir a todos con calculadora en mano version extendida #Gaming
-SEGUIDOS 28
+SEGUIDOS 27
 amelia757
 arielcl
 cami_light
@@ -52274,7 +51941,6 @@ camilax
 carla_root
 cata533
 datawizard
-domix
 fabrigamer
 futboltotal
 gabocl
@@ -52295,7 +51961,7 @@ rafaeldev
 simonfox
 sofisun
 viajescl
-SEGUIDORES 22
+SEGUIDORES 21
 arielgo
 camilacafe
 camilax
@@ -52303,7 +51969,6 @@ camiloop
 carla_root
 catalinanet
 diegomoon
-domix
 esteban_stack
 flor943
 gabocl
@@ -53607,7 +53272,7 @@ raul_fut
 renata848
 techinsider
 viajescl
-SEGUIDORES 22
+SEGUIDORES 21
 andrescode
 andresgo
 carlavar
@@ -53617,7 +53282,6 @@ emilio317
 esteban283
 felipego
 isidorabeta
-joaquin
 luisa501
 majo56
 martin_code
@@ -54623,7 +54287,7 @@ sam963
 samuelnet
 viajescl
 vicho_dark
-SEGUIDORES 23
+SEGUIDORES 22
 alonsoia
 carlavar
 caro819
@@ -54635,7 +54299,6 @@ esteban283
 francogo
 isabel23
 isiia
-joaquin
 luis_pro
 majo56
 martin19
@@ -55661,7 +55324,7 @@ noticiero24
 rafael872
 raul_fut
 samuelnet
-SEGUIDORES 28
+SEGUIDORES 27
 antoniabug
 arielcat
 claudiagit
@@ -55675,7 +55338,6 @@ gabograph
 isa_meme
 ivan_root
 javilab
-joaquin
 juanx
 lunadata
 martin12
@@ -56245,7 +55907,7 @@ robotica24
 vale496
 varcentral
 viajescl
-SEGUIDORES 17
+SEGUIDORES 16
 ameliameme
 danifit
 daniloia
@@ -56253,7 +55915,6 @@ dominic503
 domitv
 esteban_stack
 gabrielrun
-joaquin
 liam464
 martin71
 martin82
@@ -56601,7 +56262,7 @@ noticiero24
 raulfut
 streamqueen
 varcentral
-SEGUIDORES 23
+SEGUIDORES 22
 agustin_nova
 cami_play
 danifit
@@ -56613,7 +56274,6 @@ fran173
 gabo_news
 isi_lista
 isidora522
-joaquin
 jose587
 leo389
 loopmaster
@@ -56663,7 +56323,7 @@ rafa781
 santipro
 streamqueen
 viccode
-SEGUIDORES 22
+SEGUIDORES 21
 arielgo
 arielx
 benjaia
@@ -56675,7 +56335,6 @@ emiliaia
 ferup
 francodev
 isi_x
-joaquin
 juampigo
 liam464
 martin51
@@ -56848,7 +56507,7 @@ agustin_nova 1782635927 @panchidev ven a explicar por que el algoritmo me recomi
 agustin_nova 1782636519 @bastian_sun tu teoria del empate ahora es canon
 agustin_nova 1783116500 El cine necesita mas historias originales y menos nostalgia reciclada necesito hilo #Tech
 agustin_nova 1783118476 El pan con palta sigue siendo combustible nacional captura necesaria #Universidad
-SEGUIDOS 32
+SEGUIDOS 31
 bastian_sun
 benjaia
 cancha360
@@ -56864,7 +56523,6 @@ gabo_news
 gabriel150
 gabrielrun
 gadgetnews
-joaquin
 liam_kernel
 majobyte
 martinbeta
@@ -56925,7 +56583,7 @@ PUBLICACIONES 3
 cristobalmap 1782633022 @liam464 mi prediccion era emocional, no estadistica
 cristobalmap 1783117400 Los memes explican la actualidad mas rapido que algunos noticieros no supero esto #WorldCup
 cristobalmap 1783119732 La camiseta retro que vi hoy merece museo futbolero sin contexto #Chile
-SEGUIDOS 21
+SEGUIDOS 20
 anto953
 camilax
 edukernel
@@ -56934,7 +56592,6 @@ ferup
 flordev
 futboltotal
 gabriel150
-joaquin
 liam464
 memelord
 modaurbana
@@ -57781,13 +57438,12 @@ rochidev
 santiloop
 vale496
 viajescl
-SEGUIDORES 22
+SEGUIDORES 21
 agus257
 camila830
 catax
 danifit
 darioup
-domix
 emiliaia
 ferup
 franco_nova
@@ -58031,7 +57687,7 @@ rickymap
 robotica24
 vale496
 vicente_vx
-SEGUIDORES 16
+SEGUIDORES 15
 anto_moon
 arielgo
 clau_src
@@ -58042,7 +57698,6 @@ gabriel_graph
 ignaciobyte
 isi_x
 javicl
-joaquin
 liam_kernel
 martin19
 maurotv
@@ -61563,7 +61218,7 @@ renapixel
 robotica24
 vale_vx
 varcentral
-SEGUIDORES 25
+SEGUIDORES 24
 amelia389
 amelia757
 bea829
@@ -61579,7 +61234,6 @@ edu746
 emivar
 gabograph
 isa901
-joaquin
 juampi_run
 martin_graph
 martingo
@@ -62511,7 +62165,7 @@ samuelgo
 streamqueen
 techinsider
 valencafe
-SEGUIDORES 14
+SEGUIDORES 13
 andres_graph
 catalinanet
 claudiagit
@@ -62519,7 +62173,6 @@ cony702
 emilio874
 isidora522
 ivan_cine
-joaquin
 juampi_map
 martin19
 pablofit
@@ -62737,7 +62390,7 @@ javiera_sun 1782635261 @flor384 el dato que tiraste salvo la conversacion
 javiera_sun 1783199300 La noche antes de entregar todo parece urgente necesito hilo #Tech
 javiera_sun 1783201716 El cafe de maquina a veces sabe a decision dudosa sin contexto #Timeline
 javiera_sun 1783204450 Los memes explican la actualidad mas rapido que algunos noticieros opinion rapida #Tech
-SEGUIDOS 28
+SEGUIDOS 27
 andres_gamer
 anto_music
 anto_x
@@ -62745,7 +62398,6 @@ carlaia
 cineadicto
 cristobalbash
 datawizard
-domix
 flor384
 fran173
 futboltotal
@@ -64086,7 +63738,7 @@ USUARIO arielstack 123
 PUBLICACIONES 2
 arielstack 1783218200 Los narradores estan viviendo cada lateral como final alguien mas lo vio #Timeline
 arielstack 1783219059 que alguien haga resumen porque me perdi version extendida #Mundial2026
-SEGUIDOS 26
+SEGUIDOS 25
 ariel_null
 camilabits
 catalinanet
@@ -64096,7 +63748,6 @@ elisaneo
 gadgetnews
 hectoria
 isa534
-joaquin
 juampimoon
 liam_byte
 martin_logic
@@ -64275,7 +63926,7 @@ gabocine 1782625789 @isidora522 no voy a olvidar que dijiste que ese partido era
 gabocine 1783220900 El taco de la tarde aparece justo cuando uno tiene apuro minuto viral #Timeline
 gabocine 1783222186 Marruecos otra vez incomodando favoritos en silencio opinion rapida #Mundial2026
 gabocine 1783222432 Ver un trend morir en tiempo real tambien es experiencia cultural minuto viral #Noticias
-SEGUIDOS 26
+SEGUIDOS 25
 aialerta
 arielmusic
 arielstack
@@ -64287,7 +63938,6 @@ cineadicto
 claudia_byte
 climaaldia
 datawizard
-domix
 fran740
 isidora522
 julia_gamer
@@ -65190,7 +64840,7 @@ maxi_ia 1783234400 A veces el proyecto mejora cuando uno lo prueba como usuario 
 maxi_ia 1783235195 internet decidio discutir una tontera y todos participamos comentario del dia #Timeline
 maxi_ia 1783237430 El cine necesita mas historias originales y menos nostalgia reciclada anoten eso #Memes
 maxi_ia 1783241594 La privacidad vuelve a ser tema cada vez que una app pide permisos raros sin contexto #Invierno
-SEGUIDOS 26
+SEGUIDOS 25
 agus576
 agusbash
 antonia382
@@ -65205,7 +64855,6 @@ fabrigamer
 fran173
 hectoria
 javiera_sun
-joaquin
 leo366
 martin53
 mati899
@@ -66550,14 +66199,13 @@ martin_var
 techinsider
 tomas_bash
 valeria_dev
-SEGUIDORES 18
+SEGUIDORES 17
 catalinagamer
 danilo565
 felipe302
 gabrielgo
 ignaciagamer
 isa_meme
-joaquin
 juliago
 lucho_fox
 luna_play
@@ -66796,13 +66444,12 @@ raulmain
 renatacat
 streamqueen
 viajescl
-SEGUIDORES 26
+SEGUIDORES 25
 agusx
 alonso_net
 amelia_src
 constanza152
 dominictv
-domix
 emiroot
 estefi_vx
 fabian352
@@ -67360,12 +67007,11 @@ sam419
 santi935
 viajescl
 victor_news
-SEGUIDORES 21
+SEGUIDORES 20
 agus995
 amelia757
 catalinagamer
 clau_gol
-domix
 elisa757
 emiroot
 estebanfut
@@ -68248,7 +67894,7 @@ techinsider
 vale_debug
 valenx
 varcentral
-SEGUIDORES 25
+SEGUIDORES 26
 alonso_net
 amelia757
 amelia_src
@@ -68274,12 +67920,14 @@ rutabit
 vale_debug
 valeria_dev
 victor_news
-NOTIFICACIONES 5
+seba
+NOTIFICACIONES 6
 El usuario paulalab te menciono en una publicacion.
 El usuario constanza569 ha comenzado a seguirte.
 El usuario martin23 ha comenzado a seguirte.
 El usuario techinsider ha publicado un nuevo mensaje.
 El usuario cineadicto ha publicado un nuevo mensaje.
+El usuario seba ha comenzado a seguirte.
 FIN
 USUARIO victor_news 123
 PUBLICACIONES 3
@@ -69028,13 +68676,12 @@ nataliacl 1782631006 @luis_src tu feed parece mezcla de Mundial IA y cafe
 nataliacl 1783289300 hay dias que parecen escritos por un guionista cansado version extendida #IA
 nataliacl 1783290083 La tecnologia corre y la regulacion intenta alcanzarla con mochila captura necesaria #Mundial2026
 nataliacl 1783296496 Una teoria absurda suena convincente si tiene capturas se abrio debate #Tendencias
-SEGUIDOS 33
+SEGUIDOS 32
 ameliadev
 arielx
 cancha360
 caro_debug
 dario377
-domix
 elisa_sigma
 estefi301
 gamerzone
@@ -71119,7 +70766,7 @@ antodev 1783318100 La tecnologia corre y la regulacion intenta alcanzarla con mo
 antodev 1783320936 Un buen prompt a veces parece saber preguntar en una biblioteca infinita version extendida #Tech
 antodev 1783321680 hay opiniones que deberian quedarse en borrador version extendida #Cine
 antodev 1783324121 Ecuador pegandole a Alemania dejo el grupo en modo incendio se tenia que decir #Tendencias
-SEGUIDOS 33
+SEGUIDOS 32
 cancha360
 catax
 cristobalprime
@@ -71132,7 +70779,6 @@ gadgetnews
 ian_lab
 ignacia_ai
 ivania
-joaquin
 liamcl
 luis_src
 martin41
@@ -72215,7 +71861,7 @@ sam_logic
 streamqueen
 tomastv
 viajescl
-SEGUIDORES 17
+SEGUIDORES 16
 antonia167
 camiloop
 clau_neo
@@ -72225,7 +71871,6 @@ hectorhub
 isi786
 ivanmeme
 javieraai
-joaquin
 lucho883
 martin_moon
 martinlogic
@@ -74305,7 +73950,7 @@ USUARIO clau925 123
 PUBLICACIONES 2
 clau925 1782629951 @ian_play admito errores pero no frente al timeline
 clau925 1783363100 El cafe y el deadline tienen una alianza peligrosa necesito hilo #Mundial2026
-SEGUIDOS 25
+SEGUIDOS 24
 aialerta
 cancha360
 catadev
@@ -74319,7 +73964,6 @@ ian_play
 isabel_alpha
 isapixel
 ivanmeme
-joaquin
 josecafe
 karlapro
 maitedebug
@@ -75348,14 +74992,13 @@ sofiaia
 sofimoon
 techinsider
 victor_tech
-SEGUIDORES 18
+SEGUIDORES 17
 anto_music
 bastiania
 catalina_pro
 fabrigamer
 gabriel_cola
 isi567
-joaquin
 luna_play
 martin30
 martin_fut
