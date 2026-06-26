@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#include "TDAs/map.h"
+#include "map.h"
 
 void leerArchivo(Map *usuarios, FILE *archivo);
 

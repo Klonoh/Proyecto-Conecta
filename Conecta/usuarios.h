@@ -4,9 +4,9 @@
 #include <stdbool.h>
 
 #include "entidades.h"
-#include "TDAs/map.h"
-#include "TDAs/list.h"
-#include "TDAs/graph.h"
+#include "map.h"
+#include "list.h"
+#include "graph.h"
 
 void inicializarUsuario(Map *usuarios, char *username, char *password);
 

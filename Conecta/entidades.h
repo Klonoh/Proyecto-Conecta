@@ -2,8 +2,8 @@
 #define ENDTIDADES_H
 
 #include <time.h>
-#include "TDAs/list.h"
-#include "TDAs/queue.h"
+#include "list.h"
+#include "queue.h"
 
 typedef struct Usuario {
     char user[16];

@@ -5,8 +5,8 @@
 
 #include "sugerencias.h"
 #include "usuarios.h"
-#include "TDAs/list.h"
-#include "TDAs/extra.h"
+#include "list.h"
+#include "extra.h"
 
 static Sugerencia *buscarSugerencia(List *sugerencias, const char *username) {
     Sugerencia *sug = list_first(sugerencias);

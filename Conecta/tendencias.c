@@ -6,8 +6,8 @@
 #include "tendencias.h"
 #include "entidades.h"
 #include "generales.h"
-#include "TDAs/list.h"
-#include "TDAs/extra.h"
+#include "list.h"
+#include "extra.h"
 
 static void contarHashtag(Map *hashtags, const char *hashtag) {
     MapPair *pair = map_search(hashtags, (void *) hashtag);

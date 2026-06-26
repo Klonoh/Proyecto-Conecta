@@ -2,8 +2,8 @@
 #define SUGERENCIAS_H
 
 #include "entidades.h"
-#include "TDAs/map.h"
-#include "TDAs/graph.h"
+#include "map.h"
+#include "graph.h"
 
 
 void sugerenciasParaTi(Usuario **usuario_actual, Map *usuarios, Graph **grafo, int *sesion_iniciada);

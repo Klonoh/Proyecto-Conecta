@@ -6,7 +6,7 @@
 #include "publicaciones.h"
 #include "sugerencias.h"
 #include "generales.h"
-#include "TDAs/extra.h"
+#include "extra.h"
 
 void inicializarUsuario(Map *usuarios, char *username, char *password) {
     Usuario *nuevo_usuario = (Usuario *)malloc(sizeof(Usuario));

@@ -11,7 +11,7 @@ Aplicación desarrollada en lenguaje C para simular el funcionamiento de una red
 
 ### Windows (MinGW)
 ```
-gcc Conecta.c TDAs/*.c -I TDAs -Wno-unused-result -o Conecta
+gcc Conecta_main.c Conecta/*.c TDAs/*.c -I Conecta -I TDAs -Wno-unused-result -o Conecta
 ```
 
 ## Ejecución

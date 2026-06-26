@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 #include "entidades.h"
-#include "TDAs/map.h"
+#include "map.h"
 
 bool iniciarSesion(Map *usuarios, Usuario **usuario_actual);
 

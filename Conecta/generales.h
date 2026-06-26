@@ -2,6 +2,7 @@
 #define GENERALES_H
 
 #include <stdbool.h>
+#include "queue.h"
 
 int is_equal_str(void *key1, void *key2);
 

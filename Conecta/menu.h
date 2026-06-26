@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 #include "entidades.h"
-#include "TDAs/map.h"
-#include "TDAs/graph.h"
+#include "map.h"
+#include "graph.h"
 
 void mostrarMenuInicial(void);
 

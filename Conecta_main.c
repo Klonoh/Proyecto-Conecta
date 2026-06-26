@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#ifdef _WIN32
+#ifdef _WIN32 //si se está compilando en Windows, se incluye la libreria windows.h
     #include <windows.h>
 #endif
 
@@ -19,7 +19,7 @@
 #include "TDAs/extra.h"
 
 int main() {
-    #ifdef _WIN32
+    #ifdef _WIN32 //si es windows, se establece la codificación de salida a UTF-8 para que se muestren correctamente los caracteres especiales
         SetConsoleOutputCP(CP_UTF8);
     #endif
 
@@ -36,10 +36,10 @@ int main() {
     Graph *grafo = createGraph();
     construirGrafoDesdeUsuarios(usuarios, grafo);
 
-    char opcion = '\0';
-    int sesion_iniciada = 0;
-    Usuario *usuario_actual = NULL;
-    int enEjecucion = 1;
+    char opcion = '\0'; //se inicializa para evitar q contenga valores basura
+    int sesion_iniciada = 0; // Variable para controlar si se ha iniciado sesión
+    Usuario *usuario_actual = NULL; // Puntero para almacenar el usuario que ha iniciado sesión
+    int enEjecucion = 1; // Variable para controlar el bucle principal
 
     while (enEjecucion) {
         menuInicial(&sesion_iniciada, &usuario_actual, usuarios, archivo_usuarios, grafo);
@@ -49,7 +49,7 @@ int main() {
         }
 
         if (!sesion_iniciada) {
-            enEjecucion = 0;
+            enEjecucion = 0; //si el usuario escoge opcion 3 (salir) en el menu inicial, se sale del programa
             continue;
         }
 

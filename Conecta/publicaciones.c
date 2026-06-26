@@ -5,7 +5,7 @@
 
 #include "publicaciones.h"
 
-#include "TDAs/extra.h"
+#include "extra.h"
 
 static int ordenar(const void *a, const void *b) {
     Publicacion *pubA = *(Publicacion **)a;
