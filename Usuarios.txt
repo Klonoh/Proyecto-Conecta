@@ -41,3 +41,14 @@ joaquin
 NOTIFICACIONES 1
 El usuario joaquin ha comenzado a seguirte.
 FIN
+USUARIO tito 123
+PUBLICACIONES 0
+SEGUIDOS 2
+seba
+joaquin
+SEGUIDORES 1
+seba
+NOTIFICACIONES 2
+El usuario seba ha comenzado a seguirte.
+El usuario seba ha publicado un nuevo mensaje.
+FIN
