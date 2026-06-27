@@ -25,10 +25,30 @@ void publicarMensaje(Usuario *usuario_actual) {
     puts("           Publicar Mensaje");
     puts("=======================================");
     char contenido[141];
-    printf("Ingrese el contenido de su mensaje (máximo 140 caracteres): ");
 
-    fgets(contenido, sizeof(contenido), stdin);
-    contenido[strcspn(contenido, "\n")] = '\0';
+    while (1){
+        printf("Ingrese el contenido de su mensaje (máximo 140 caracteres):\n> "); 
+
+        fgets(contenido, sizeof(contenido), stdin);
+        int longitud = strlen(contenido);
+
+        //si el mensaje tiene salto de linea al final, significa q tiene menos de 140 caracteres, por lo tanto es valido
+        if (longitud > 1 && contenido[longitud - 1] == '\n') { 
+            contenido[longitud - 1] = '\0'; //eliminar salto de linea
+            break;
+        } else {
+            printf("El contenido debe tener entre 1 y 140 caracteres.\n");
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer de entrada para eliminar cualquier exceso de caracteres
+            continue;
+        }
+
+        if (strlen(contenido) == 0) {
+            printf("El contenido no puede estar vacío.\n");
+            continue;
+        }
+        break;
+    }
 
     //se crea la publicacion 
     Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
