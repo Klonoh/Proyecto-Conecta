@@ -100,7 +100,7 @@ int main() {
 
         } while (opcion != 9 && sesion_iniciada);
     }
-
+    puts("Gracias por usar Conecta.");
     salir(usuarios, archivo_usuarios);
     return 0;
 }

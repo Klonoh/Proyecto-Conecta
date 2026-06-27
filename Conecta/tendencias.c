@@ -178,6 +178,8 @@ static void mostrarPublicacionesPorHashtag(Map *usuarios, const char *hashtag) {
             break;
         }
 
+        printf("\033[s");//guarda el cursor en esta posicion
+
         int opcion;
         printf("\nMostrando %d de %d publicaciones.\n", mostradas, total);
         printf("1) Ver más\n");
@@ -193,6 +195,9 @@ static void mostrarPublicacionesPorHashtag(Map *usuarios, const char *hashtag) {
 
         if (opcion == 2) {
             break;
+        } else if (opcion == 1) {
+            printf("\033[u\033[J"); //borra desde la posicion del cursor hasta la actual
+            continue; 
         }
     }
 
@@ -282,7 +287,8 @@ void verTendencias(Map *usuarios) {
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
     }
-
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
     if (opcion > 0) {
         mostrarPublicacionesPorHashtag(usuarios, tendencias[opcion - 1].hashtag);
     }

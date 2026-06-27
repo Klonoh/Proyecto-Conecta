@@ -68,6 +68,7 @@ void menuInicial(int *sesion_iniciada, Usuario **usuario_actual, Map *usuarios, 
             }
             break;
         case 3:
+            puts("Gracias por usar Conecta.");
             salir(usuarios, archivo_usuarios);
             break;
         default:

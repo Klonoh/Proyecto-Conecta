@@ -26,8 +26,13 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
         puts("           Buscar Usuario");
         puts("=======================================");
         char username[16];
-        printf("Ingrese el nombre de usuario a buscar: ");
+        printf("Ingrese el nombre de usuario a buscar (0 para volver): ");
         scanf("%15s", username);
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
+        if (strcmp(username, "0") == 0) return;
+
         convertirUsernameMinusculas(username);
         MapPair *pair = map_first(usuarios);
         int coincidencias = 0;
@@ -54,6 +59,9 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
                 while (getchar() != '\n'); // Limpiar el buffer de entrada
             }
 
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer
+            
             if (opcion > 0 && opcion <= coincidencias) {
                 pair = map_first(usuarios);
                 int contador = 1;

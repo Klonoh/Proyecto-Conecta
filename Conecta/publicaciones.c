@@ -116,7 +116,6 @@ void verFeed(Usuario* usuario_actual) {
     //se muestran las publicaciones 
     int mostradas = 0;
     int opcion = 0;
-
     do {
         int lim = mostradas + 3;
         if (lim > nPublicaciones) lim = nPublicaciones;
@@ -132,12 +131,15 @@ void verFeed(Usuario* usuario_actual) {
         } 
         mostradas = lim;
 
+        printf("\033[s");//guarda el cursor en esta posicion
+
         int offset = 0;
         if (mostradas < nPublicaciones) {
-            printf("\n1) Ver más publicaciones\n");
+            printf("\n1) Ver más publicaciones (mostrando %d de %d)\n", mostradas, nPublicaciones);
             offset = 1;
         }
 
+        if (mostradas == nPublicaciones) printf("Mostrando %d de %d publicaciones.\n", mostradas, mostradas);
         printf("%d) Volver al menú principal\n", offset + 1);
         printf("\nIngrese su opción: ");
 
@@ -151,7 +153,7 @@ void verFeed(Usuario* usuario_actual) {
         while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer por si quedan caracteres despues
         
         if (offset == 1 && opcion == 1) {
-            printf("\033[A\033[2K\033[A\033[2K\033[A\033[2K\033[A\033[2K"); //se borran las opciones
+            printf("\033[u\033[J"); //borra desde la posicion del cursor hasta la actual
             continue; 
         }
         break;
