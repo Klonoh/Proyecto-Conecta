@@ -157,7 +157,7 @@ void MostrarPerfil(Usuario **usuario_actual, Usuario *usuario, Map *usuarios, in
             } else {
                 printf("\n%d) Seguir\n", offset + 1);
             }
-            printf("\n%d) Volver al menú principal\n", offset + 2);
+            printf("\n%d) Volver\n", offset + 2);
             int opcion;
             printf("\nIngrese su opción: ");
             

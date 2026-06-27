@@ -27,18 +27,16 @@ void publicarMensaje(Usuario *usuario_actual) {
     char contenido[141];
     printf("Ingrese el contenido de su mensaje (máximo 140 caracteres): ");
 
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-
     fgets(contenido, sizeof(contenido), stdin);
     contenido[strcspn(contenido, "\n")] = '\0';
 
+    //se crea la publicacion 
     Publicacion *nueva_publicacion = (Publicacion *)malloc(sizeof(Publicacion));
     strcpy(nueva_publicacion->contenido, contenido);
     strcpy(nueva_publicacion->autor, usuario_actual->user);
     nueva_publicacion->timestamp = time(NULL);
 
-    list_pushBack(usuario_actual->publicaciones, nueva_publicacion);
+    list_pushFront(usuario_actual->publicaciones, nueva_publicacion);
 
     // Notificar a los seguidores
     List *seguidores = usuario_actual->seguidores;
@@ -49,6 +47,8 @@ void publicarMensaje(Usuario *usuario_actual) {
         queue_insert(seguidor->notificaciones, strdup(notificacion));
         seguidor = list_next(seguidores);
     }
+    puts("Mensaje publicado exitosamente.");
+    presioneTeclaParaContinuar();
 }
 
 void verFeed(Usuario* usuario_actual) {
@@ -70,6 +70,7 @@ void verFeed(Usuario* usuario_actual) {
 
     if (nPublicaciones == 0) {
         printf("No hay publicaciones en tu feed.\n");
+        presioneTeclaParaContinuar();
         return;
     }
     
@@ -104,7 +105,7 @@ void verFeed(Usuario* usuario_actual) {
 
     //Liberar memoria del arreglo de publicaciones
     free(publicaciones);
-
+    presioneTeclaParaContinuar();
 }   
 
 void verNotificaciones(Usuario *usuario_actual) {
@@ -121,6 +122,7 @@ void verNotificaciones(Usuario *usuario_actual) {
 
     if (notificacion == NULL) {
         printf("No tienes notificaciones pendientes.\n");
+        presioneTeclaParaContinuar();
         return;
     }
 
@@ -135,4 +137,5 @@ void verNotificaciones(Usuario *usuario_actual) {
         mensaje = queue_next(notificaciones);
     }
     queue_clean(notificaciones); // Limpiar las notificaciones después de mostrarlas
+    presioneTeclaParaContinuar();
 }
