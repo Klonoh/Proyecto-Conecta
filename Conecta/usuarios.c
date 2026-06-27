@@ -82,6 +82,7 @@ void buscarUsuario(Map *usuarios, Usuario **usuario_actual, int *sesion_iniciada
         } 
         else if (coincidencias == 0) {
             printf("No se encontraron usuarios que coincidan con la búsqueda.\n");
+            presioneTeclaParaContinuar();
             return;
         }
     }

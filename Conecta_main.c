@@ -94,6 +94,7 @@ int main() {
                     break;
                 default:
                     printf("Opción inválida.\n");
+                    presioneTeclaParaContinuar();
                     break;
             }
 

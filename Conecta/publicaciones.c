@@ -74,8 +74,10 @@ void publicarMensaje(Usuario *usuario_actual) {
 void verFeed(Usuario* usuario_actual) {
     if (usuario_actual == NULL) {
         printf("Error: Usuario no válido.\n");
+        presioneTeclaParaContinuar();
         return;
     }
+    limpiarPantalla();
     puts("=======================================");
     puts("                Mi Feed");
     puts("=======================================");
@@ -112,20 +114,52 @@ void verFeed(Usuario* usuario_actual) {
     qsort(publicaciones, nPublicaciones, sizeof(Publicacion*), ordenar);
 
     //se muestran las publicaciones 
-    Publicacion* pub = NULL;
-    for (int i = 0; i < nPublicaciones; i++) {
-        pub = publicaciones[i];
-        char fecha[30];
-        formatearFecha(pub->timestamp, fecha, sizeof(fecha));
-        printf("\n%s:\n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
-        if (i < nPublicaciones - 1) {
-            puts("=======================================");
+    int mostradas = 0;
+    int opcion = 0;
+
+    do {
+        int lim = mostradas + 3;
+        if (lim > nPublicaciones) lim = nPublicaciones;
+
+        for (int i = mostradas; i < lim; i++) {
+            Publicacion *pub = publicaciones[i];
+            char fecha[30];
+            formatearFecha(pub->timestamp, fecha, sizeof(fecha));
+            printf("\n%s:\n\n%s\n\n%s\n\n", pub->autor, pub->contenido, fecha);
+            if (i < nPublicaciones - 1) {
+                puts("=======================================");
+            }
+        } 
+        mostradas = lim;
+
+        int offset = 0;
+        if (mostradas < nPublicaciones) {
+            printf("\n1) Ver más publicaciones\n");
+            offset = 1;
         }
-    }
+
+        printf("%d) Volver al menú principal\n", offset + 1);
+        printf("\nIngrese su opción: ");
+
+        while (scanf("%d", &opcion) != 1 || opcion < 1 || opcion > (1 + offset)) {
+            printf("Opción inválida. Intente de nuevo: ");
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);//limpiar buffer
+        }
+
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF); //limpiar buffer por si quedan caracteres despues
+        
+        if (offset == 1 && opcion == 1) {
+            printf("\033[A\033[2K\033[A\033[2K\033[A\033[2K\033[A\033[2K"); //se borran las opciones
+            continue; 
+        }
+        break;
+    
+    } while (mostradas < nPublicaciones);
 
     //Liberar memoria del arreglo de publicaciones
     free(publicaciones);
-    presioneTeclaParaContinuar();
 }   
 
 void verNotificaciones(Usuario *usuario_actual) {
